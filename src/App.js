@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
+import Home from './components/Home';
+
 
 const slides = [
     {
@@ -54,6 +56,7 @@ function App() {
     return (
         <div>
             <Navbar navColor={slides[currentSlide].navColor} />
+            <Home/>
             <Hero
                 slides={slides}
                 currentSlide={currentSlide}

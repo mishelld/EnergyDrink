@@ -1,13 +1,26 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import './Home.css'; // Import the CSS file
 
 function Home() {
-    const navigate = useNavigate(); // React Router hook for navigation
-
     return (
-        <div>
-            <h1>Welcome to Our Store</h1>
-            <button onClick={() => navigate('/menu')}>Go to Menu</button> {/* Navigate to Hero */}
+        <div className="home-container">
+            <div className="image-container">
+                <img 
+                    src="/cherry.png"  // Left image
+                    alt="Cherry"
+                    className="side-image left-image"
+                />
+                <img 
+                    src="/Blueberry.png"  // Main image
+                    alt="Blueberry"
+                    className="home-image"
+                />
+                <img 
+                    src="/orange.png"  // Right image
+                    alt="Orange"
+                    className="side-image right-image"
+                />
+            </div>
         </div>
     );
 }
