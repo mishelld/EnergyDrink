@@ -1,0 +1,98 @@
+.menu {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #ffffff;
+    min-height: 100vh; /* Makes it take up a full page height */
+    width: 100%; /* Ensure it spans full width */
+}
+
+.menu-title {
+    font-size: 2.5rem;
+    color: #4b2e1e;
+    margin-bottom: 30px;
+}
+
+/* Grid Layout */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Menu Items */
+.menu-item {
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    text-align: center;
+    margin-top: -40%; /* Move it up by half its height */
+}
+
+
+.menu-item:hover {
+    transform: scale(1.2);
+}
+
+/* Images */
+.menu-image {
+    display: block; /* Remove any inline spacing */
+    margin: 0 auto; /* Center the image */
+    max-width: 70%; /* Prevent overflow */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure no cropping */
+    border-radius: 8px;
+}
+
+
+/* Text */
+.menu-name {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 2px 0;
+}
+
+.menu-price {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin: 0;  /* Reduce spacing below the price */
+
+}
+
+/* Menu Container */
+.menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.9); /* Light background */
+    padding: 5px 5px; /* Less vertical padding */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 90vw; /* Makes it wide */
+    margin: 0 auto; /* Center the container */
+    overflow: visible; /* Prevents overflow */
+}
+
+.menu-button {
+    width: 70px; /* Slightly larger for better usability */
+    height: 60px;
+    border-radius: 50%; /* Ensure the button is circular */
+    background-color: #fff;
+    border: none; /* Remove border */
+    display: flex;
+    align-items: center; /* Center icon vertically */
+    justify-content: center; /* Center icon horizontally */
+    font-size: 2rem; /* Increase icon size for better visibility */
+    color: #4b2e1e; /* Icon color */
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+    padding: 0;
+    margin: 0 10px; /* Add spacing between buttons and grid */
+    box-sizing: border-box; /* Include padding and borders in width/height */
+}
+
+.menu-button:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    background-color: #f8f1e5; /* Light background color change on hover */
+}

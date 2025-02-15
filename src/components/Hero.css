@@ -1,0 +1,118 @@
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    height: 80vh;
+    padding: 0 10%;
+    background-color: #7e6ad5ee; /* Light coffee color */
+    overflow: hidden; /* Prevent overflow during animations */
+    position: relative; /* Needed for absolute positioning of the image */
+}
+
+/* Text Container */
+.text-container {
+    text-align: center; /* Center text horizontally */
+    animation: slideDownAndGrow 2s ease-out forwards;
+    opacity: 0; /* Start hidden */
+    position: relative; /* Ensure the title is positioned correctly */
+    z-index: 0; /* Title is behind the image */
+}
+
+/* Title */
+.title {
+    font-size: 12rem;
+    color: #ffffff;
+    margin: 0;
+    animation: moveRight 0.5s ease-out forwards; /* Faster animation */
+    font-family: 'Impact', sans-serif;
+    font-weight: bold; /* Ensure it's bold */
+    line-height: 1; /* Ensure no extra space between lines */
+}
+
+
+/* Coffee Cup Image */
+.coffee-image {
+    width: 13%;
+    height: auto;
+    animation: moveLeft 0.5s ease-out forwards; /* Faster movement */
+    opacity: 0; /* Start hidden */
+    position: absolute; /* Position the image absolutely */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    z-index: 1; /* Image is on top of the title */
+}
+
+/* Animations */
+@keyframes slideDownAndGrow {
+    0% {
+        transform: translateY(-50px) scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes popUpAndGrow {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5) translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translateX(-100%); /* Start far to the left */
+        opacity: 0; /* Hidden */
+    }
+    100% {
+        transform: translateX(0); /* Moves to its original position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+@keyframes moveLeft {
+    0% {
+        left: 80%; /* Start from the right */
+        opacity: 0;
+    }
+    100% {
+        left: 50%; /* Moves to center */
+        opacity: 1;
+    }
+}
+
+/* Buttons Container */
+.buttons-container {
+    position: absolute; /* Position buttons absolutely within .hero */
+    bottom: 1px; /* Position buttons at the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for exact centering */
+    display: flex;
+    gap: 20px; /* Space between buttons */
+    z-index: 2; /* Ensure buttons are above other elements */
+}
+
+/* Navigation Buttons */
+.nav-btn {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    border: none;
+    border-radius: 50%; /* Circular buttons */
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 1); /* Solid white on hover */
+}
