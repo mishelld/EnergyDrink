@@ -18,8 +18,8 @@ const slides = [
     {
         title: "Orange",
         image: "/orange.png",
-        backgroundColor: "#f5deb3",
-        navColor: "#f5deb3", // Navbar color for this slide
+        backgroundColor: "#ffb20eee",
+        navColor: "#ffb20eee", // Navbar color for this slide
     },
 ];
 

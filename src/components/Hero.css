@@ -4,9 +4,8 @@
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center horizontally */
     justify-content: center; /* Center vertically */
-    height: 80vh;
+    height: 90vh;
     padding: 0 10%;
-    background-color: #7e6ad5ee; /* Light coffee color */
     overflow: hidden; /* Prevent overflow during animations */
     position: relative; /* Needed for absolute positioning of the image */
 }
@@ -93,7 +92,7 @@
 /* Buttons Container */
 .buttons-container {
     position: absolute; /* Position buttons absolutely within .hero */
-    bottom: 1px; /* Position buttons at the bottom */
+    bottom: 50px; /* Position buttons at the bottom */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Adjust for exact centering */
     display: flex;
