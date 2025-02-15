@@ -7,6 +7,13 @@ function Hero({ slides, currentSlide, nextSlide, prevSlide, addToCart }) {
             className="hero"
             style={{ backgroundColor: slides[currentSlide].backgroundColor }}
         >
+            <div className="gif-container">
+        <img 
+            src={slides[currentSlide].gif} 
+            alt="Dessert Animation" 
+            className="coffee-gif"
+        />
+    </div>
             <div className="text-container">
                 <h1 className="title">{slides[currentSlide].title}</h1>
             </div>

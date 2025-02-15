@@ -6,6 +6,7 @@ const slides = [
     {
         title: "Blueberry",
         image: "/Blueberry.png",
+        gif: "/bio.gif",
         backgroundColor: "#7e6ad5ee",
         navColor: "#7e6ad5ee", // Navbar color for this slide
         price: "4.99",  // Added price
@@ -14,6 +15,7 @@ const slides = [
     {
         title: "Cherry",
         image: "/cherry.png",
+        gif: "/bio.gif",
         backgroundColor: "#ff4c4c",
         navColor: "#ff4c4c", // Navbar color for this slide
         price: "3.49",
@@ -22,6 +24,7 @@ const slides = [
     {
         title: "Orange",
         image: "/orange.png",
+        gif: "/bio.gif",
         backgroundColor: "#ffb20eee",
         navColor: "#ffb20eee", // Navbar color for this slide
         price: "5.99",
