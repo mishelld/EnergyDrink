@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hero.css';
 
-function Hero({ slides, currentSlide, nextSlide, prevSlide }) {
+function Hero({ slides, currentSlide, nextSlide, prevSlide, addToCart }) {
     return (
         <section
             className="hero"
@@ -18,6 +18,17 @@ function Hero({ slides, currentSlide, nextSlide, prevSlide }) {
                     className="coffee-image"
                 />
             </div>
+
+            <div className="price-tag">
+               ${slides[currentSlide].price}
+           </div>
+
+
+            
+
+            <button className="cart-btn" onClick={() => addToCart(slides[currentSlide])}>
+                Add to Cart
+            </button>
 
             {/* Buttons Container */}
             <div className="buttons-container">
