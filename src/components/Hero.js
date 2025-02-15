@@ -21,8 +21,8 @@ function Hero({ slides, currentSlide, nextSlide, prevSlide }) {
 
             {/* Buttons Container */}
             <div className="buttons-container">
-                <button onClick={prevSlide} className="nav-btn">◀</button>
-                <button onClick={nextSlide} className="nav-btn">▶</button>
+            <button onClick={prevSlide} className="nav-btn">&lt;</button>  {/* Left Arrow */}
+            <button onClick={nextSlide} className="nav-btn">&gt;</button>  {/* Right Arrow */}
             </div>
         </section>
     );
