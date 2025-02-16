@@ -4,19 +4,33 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    padding: 0 10%;
+    height: 90vh;
+    padding: 0;
     overflow: hidden;
-    background-color: rgb(30, 255, 0);
+    background-color: rgb(255, 187, 0);
+  
 }
 
+
 /* Container for images */
-.image-container {
+.home-image-container {
+    width: 700px;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px; /* Space between images */
+    border-radius: 50%; /* Makes it circular */
+
+    /* Background Image */
+    background-image: url('../assets/ani3.gif'); 
+    background-size: 250px 250px; /* Adjust tile size */
+    background-position: top left;
+    background-repeat: repeat; /* Repeats the GIF multiple times */
+    overflow: hidden; /* Ensures images do not overflow the container */
+
 }
+
+
 
 /* Main Image Animation */
 @keyframes popIn {
@@ -36,10 +50,13 @@
 
 /* Apply animation to the main image */
 .home-image {
-    width: 25%;
+    width: 40%;
     height: auto;
     z-index: 1;
     animation: popIn 0.8s ease-out forwards, floatUpDown 2s ease-in-out 1.5s infinite;
+    margin-top: 200px; /* Moves it lower */
+
+
 }
 
 /* Side Image Jump Animation */
@@ -60,22 +77,23 @@
 
 /* Floating Animation */
 @keyframes floatUpDown {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-30px); } /* Increased movement */
+    100% { transform: translateY(0); }
 }
+
 
 /* Side Images */
 .side-image {
-    width: 15%;
+    width: 25%;
     height: auto;
     opacity: 0; /* Initially hidden */
+    margin-top: 250px; /* Moves it lower */
+    margin-left: -50px; /* Moves left image further left */
+    margin-right: -50px; /* Moves right image further right */
+
+
+
 }
 
 /* Left Image */

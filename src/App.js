@@ -37,6 +37,8 @@ const slides = [
 function App() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [cart, setCart] = useState([]); // Cart state
+    const homeBackgroundColor = "rgb(255, 187, 0)";
+
 
 
     const nextSlide = () => {
@@ -55,7 +57,7 @@ function App() {
 
     return (
         <div>
-            <Navbar navColor={slides[currentSlide].navColor} />
+            <Navbar navColor={homeBackgroundColor} />
             <Home/>
             <Hero
                 slides={slides}

@@ -4,7 +4,7 @@ import './Home.css'; // Import the CSS file
 function Home() {
     return (
         <div className="home-container">
-            <div className="image-container">
+            <div className="home-image-container">
                 <img 
                     src="/cherry.png"  // Left image
                     alt="Cherry"
@@ -20,7 +20,7 @@ function Home() {
                     alt="Orange"
                     className="side-image right-image"
                 />
-            </div>
+            </div>            
         </div>
     );
 }
