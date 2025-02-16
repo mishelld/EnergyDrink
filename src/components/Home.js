@@ -4,6 +4,12 @@ import './Home.css'; // Import the CSS file
 function Home() {
     return (
         <div className="home-container">
+            <div className="home-gif-container">
+                <img src="/sugarf.gif" alt="Animated GIF" className="home-gif" />
+                <img src="/electricity.gif" alt="Animated GIF 2" className="home-gif" />
+                <img src="/organi.gif" alt="Animated GIF 3" className="home-gif" />
+
+            </div>
             <div className="home-image-container">
                 <img 
                     src="/cherry.png"  // Left image
