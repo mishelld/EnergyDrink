@@ -4,6 +4,9 @@ import './Home.css'; // Import the CSS file
 function Home() {
     return (
         <div className="home-container">
+            <div className="home-title">Boost </div> {/* Added Title */}
+            <div className="home-subtitle">Up! </div> {/* Added Title */}
+
             <div className="home-gif-container">
                 <img src="/sugarf.gif" alt="Animated GIF" className="home-gif" />
                 <img src="/electricity.gif" alt="Animated GIF 2" className="home-gif" />

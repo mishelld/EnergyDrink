@@ -11,6 +11,31 @@
   
 }
 
+.home-title {
+    position: absolute;
+    left: 1px; /* Push title to the far left */
+    top: 30%;
+    transform: translateY(-50%);
+    font-size: 180px;
+    font-weight: bold;
+    font-family: 'Impact', sans-serif;
+    white-space: nowrap;
+    color: rgb(255, 0, 115);
+
+}
+.home-subtitle {
+    position: absolute;
+    left: 150px; /* Push title to the far left */
+    top: 60%;
+    transform: translateY(-50%);
+    font-size: 180px;
+    font-weight: bold;
+    font-family: 'Impact', sans-serif;
+    white-space: nowrap;
+    color: rgb(0, 234, 255);
+
+}
+
 
 /* Container for images */
 .home-image-container {
@@ -112,8 +137,8 @@
 /* Container for GIFs */
 .home-gif-container {
     position: absolute;
-    left: 50px; /* Adjust left positioning */
-    top: 50%;
+    right: 150px; /* Adjust left positioning */
+    top: 60%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column; /* Stack the GIFs vertically */
