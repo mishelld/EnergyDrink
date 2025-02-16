@@ -14,27 +14,42 @@
 .home-title {
     position: absolute;
     left: 1px; /* Push title to the far left */
-    top: 30%;
-    transform: translateY(-50%);
+    top: 10%;
     font-size: 180px;
     font-weight: bold;
     font-family: 'Impact', sans-serif;
     white-space: nowrap;
     color: rgb(255, 0, 115);
-
+    opacity: 0; /* Initially hidden */
+    animation: slideIn 1s ease-in-out 0.5s forwards; /* Reduced duration to 1s and delay to 0.5s */
 }
 .home-subtitle {
     position: absolute;
     left: 150px; /* Push title to the far left */
-    top: 60%;
-    transform: translateY(-50%);
+    top: 35%;
     font-size: 180px;
     font-weight: bold;
     font-family: 'Impact', sans-serif;
     white-space: nowrap;
     color: rgb(0, 234, 255);
-
+    opacity: 0; /* Initially hidden */
+    animation: slideIn 1s ease-in-out 0.5s forwards; /* Reduced duration to 1s and delay to 0.5s */
 }
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%); /* Start off-screen to the left */
+        opacity: 0; /* Start invisible */
+    }
+    50% {
+        opacity: 1; /* Fade in */
+        transform: translateX(10%); /* Move slightly past the center */
+    }
+    100% {
+        transform: translateX(0); /* Settle in place */
+        opacity: 1;
+    }
+}
+
 
 
 /* Container for images */
@@ -138,11 +153,28 @@
 .home-gif-container {
     position: absolute;
     right: 150px; /* Adjust left positioning */
-    top: 60%;
-    transform: translateY(-50%);
+    top: 20%;
     display: flex;
     flex-direction: column; /* Stack the GIFs vertically */
     gap: 20px; /* Space between GIFs */
+    opacity: 0; /* Initially hidden */
+    animation: slideInRightToLeft 1s ease-in-out 0.5s forwards; /* Reduced duration to 1s and delay to 0.5s */
+
+}
+
+@keyframes slideInRightToLeft {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the right */
+        opacity: 0; /* Start invisible */
+    }
+    50% {
+        opacity: 1; /* Fade in */
+        transform: translateX(-10%); /* Slight overshoot to the left */
+    }
+    100% {
+        transform: translateX(0); /* Settle in place */
+        opacity: 1;
+    }
 }
 
 /* GIF Styling */
