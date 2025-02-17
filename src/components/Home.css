@@ -20,7 +20,7 @@
     font-family: 'Impact', sans-serif;
     white-space: nowrap;
     opacity: 0; /* Initially hidden */
-    animation: slideIn 1s ease-in-out 0.5s forwards, colorFlickerTitle 0.1s infinite alternate; /* Reduced duration to 1s and delay to 0.5s */
+    animation: slideIn 1s ease-in-out 0.5s forwards, colorFlicker 0.1s infinite alternate; /* Reduced duration to 1s and delay to 0.5s */
 }
 .home-subtitle {
     position: absolute;
@@ -31,9 +31,9 @@
     font-family: 'Impact', sans-serif;
     white-space: nowrap;
     opacity: 0; /* Initially hidden */
-    animation: slideIn 1s ease-in-out 0.5s forwards, colorFlickerSubtitle 0.1s infinite alternate; /* Reduced duration to 1s and delay to 0.5s */
+    animation: slideIn 1s ease-in-out 0.5s forwards, colorFlicker 0.1s infinite alternate; /* Reduced duration to 1s and delay to 0.5s */
 }
-@keyframes colorFlickerTitle {
+@keyframes colorFlicker {
     0% {
         color: rgb(0, 234, 255); /* Blue */
     }
@@ -42,25 +42,6 @@
     }
 }
 
-@keyframes colorFlickerSubtitle {
-    0% {
-        color: rgb(0, 234, 255); /* Blue */
-    }
-    100% {
-        color: rgb(255, 0, 115); /* Pink */
-    }
-}
-@keyframes colorFlicker {
-    0% {
-        color: rgb(255, 0, 115); /* Initial color */
-    }
-    50% {
-        color: rgb(0, 234, 255); /* Change to this color */
-    }
-    100% {
-        color: rgb(255, 0, 115); /* Revert to the original color */
-    }
-}
 @keyframes slideIn {
     0% {
         transform: translateX(-100%); /* Start off-screen to the left */
@@ -86,6 +67,9 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%; /* Makes it circular */
+
+    border: 5px solid black; /* Adjust thickness as needed */
+
 
     /* Background Image */
     background-image: url('../assets/ani3.gif'); 
