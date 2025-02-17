@@ -217,5 +217,6 @@
 }
 
 .jump-in {
-    animation: jumpIn 0.8s ease-out forwards;
+    animation: jumpIn 0.8s ease-out forwards, floatUpDown 3s ease-in-out 1s infinite;
 }
+
