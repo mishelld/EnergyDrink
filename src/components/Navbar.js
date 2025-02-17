@@ -1,66 +1,31 @@
 import React, { useState } from 'react';
+import './Navbar.css'; // Import CSS file
 
 function Navbar({ navColor }) {
     const [hoveredLink, setHoveredLink] = useState(null);
 
-    const handleMouseEnter = (link) => {
-        setHoveredLink(link);
-    };
+    const handleMouseEnter = (link) => setHoveredLink(link);
+    const handleMouseLeave = () => setHoveredLink(null);
 
-    const handleMouseLeave = () => {
-        setHoveredLink(null);
-    };
-
-    const getLinkStyle = (link) => {
-        return link === hoveredLink 
-            ? { ...styles.link, ...styles.linkHover } 
-            : styles.link;
-    };
+    const getLinkStyle = (link) =>
+        link === hoveredLink ? { ...styles.link, ...styles.linkHover } : styles.link;
 
     return (
         <div style={{ ...styles.navbarWrapper, backgroundColor: navColor }}>
-            <nav style={styles.navbar}>
+            <nav className="navbar" style={styles.navbar}>
                 <ul style={styles.navLinks}>
-                    <li>
-                        <a 
-                            href="#home" 
-                            style={getLinkStyle('home')}
-                            onMouseEnter={() => handleMouseEnter('home')}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a 
-                            href="#menu" 
-                            style={getLinkStyle('menu')}
-                            onMouseEnter={() => handleMouseEnter('menu')}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            Menu
-                        </a>
-                    </li>
-                    <li>
-                        <a 
-                            href="#about" 
-                            style={getLinkStyle('about')}
-                            onMouseEnter={() => handleMouseEnter('about')}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            About
-                        </a>
-                    </li>
-                    <li>
-                        <a 
-                            href="#contact" 
-                            style={getLinkStyle('contact')}
-                            onMouseEnter={() => handleMouseEnter('contact')}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            Contact
-                        </a>
-                    </li>
+                    {['home', 'menu', 'about', 'contact'].map((item) => (
+                        <li key={item}>
+                            <a
+                                href={`#${item}`}
+                                style={getLinkStyle(item)}
+                                onMouseEnter={() => handleMouseEnter(item)}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                {item.charAt(0).toUpperCase() + item.slice(1)}
+                            </a>
+                        </li>
+                    ))}
                 </ul>
             </nav>
         </div>
@@ -71,29 +36,30 @@ const styles = {
     navbarWrapper: {
         padding: '20px 0',
     },
-    navbar: { 
-        position: 'relative', 
-        zIndex: 1000, 
-        display: 'flex', 
+    navbar: {
+        position: 'relative',
+        zIndex: 1000,
+        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         padding: '20px 40px',
+        backgroundColor: "rgb(0, 0, 0)",
         color: '#fff',
         borderRadius: '25px',
-        width: '40%', // Adjust width as per your design
+        width: '40%',
         margin: 'auto',
     },
-    navLinks: { 
-        listStyle: 'none', 
-        display: 'flex', 
-        justifyContent: 'space-evenly', // Evenly space the links
-        width: '100%',  // Make the list take full width of the navbar
-        margin: 0, 
-        padding: 0 
+    navLinks: {
+        listStyle: 'none',
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        width: '100%',
+        margin: 0,
+        padding: 0
     },
-    link: { 
-        textDecoration: 'none', 
-        color: '#fff', 
+    link: {
+        textDecoration: 'none',
+        color: '#fff',
         cursor: 'pointer',
         padding: '3px 30px',
         borderRadius: '30px',

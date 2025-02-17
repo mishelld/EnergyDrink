@@ -1,0 +1,19 @@
+@keyframes fallIn {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(10%);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.navbar {
+    opacity: 0;
+    animation: fallIn 1s ease-in-out 0.5s forwards;
+}
