@@ -7,7 +7,7 @@
     height: 90vh;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(255, 187, 0);
+    background-color: rgb(166, 0, 255);
   
 }
 
@@ -19,9 +19,8 @@
     font-weight: bold;
     font-family: 'Impact', sans-serif;
     white-space: nowrap;
-    color: rgb(255, 0, 115);
     opacity: 0; /* Initially hidden */
-    animation: slideIn 1s ease-in-out 0.5s forwards; /* Reduced duration to 1s and delay to 0.5s */
+    animation: slideIn 1s ease-in-out 0.5s forwards, colorFlickerTitle 0.1s infinite alternate; /* Reduced duration to 1s and delay to 0.5s */
 }
 .home-subtitle {
     position: absolute;
@@ -31,9 +30,36 @@
     font-weight: bold;
     font-family: 'Impact', sans-serif;
     white-space: nowrap;
-    color: rgb(0, 234, 255);
     opacity: 0; /* Initially hidden */
-    animation: slideIn 1s ease-in-out 0.5s forwards; /* Reduced duration to 1s and delay to 0.5s */
+    animation: slideIn 1s ease-in-out 0.5s forwards, colorFlickerSubtitle 0.1s infinite alternate; /* Reduced duration to 1s and delay to 0.5s */
+}
+@keyframes colorFlickerTitle {
+    0% {
+        color: rgb(0, 234, 255); /* Blue */
+    }
+    100% {
+        color: rgb(255, 0, 115); /* Pink */
+    }
+}
+
+@keyframes colorFlickerSubtitle {
+    0% {
+        color: rgb(0, 234, 255); /* Blue */
+    }
+    100% {
+        color: rgb(255, 0, 115); /* Pink */
+    }
+}
+@keyframes colorFlicker {
+    0% {
+        color: rgb(255, 0, 115); /* Initial color */
+    }
+    50% {
+        color: rgb(0, 234, 255); /* Change to this color */
+    }
+    100% {
+        color: rgb(255, 0, 115); /* Revert to the original color */
+    }
 }
 @keyframes slideIn {
     0% {

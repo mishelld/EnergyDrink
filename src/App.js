@@ -37,7 +37,7 @@ const slides = [
 function App() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [cart, setCart] = useState([]); // Cart state
-    const homeBackgroundColor = "rgb(255, 187, 0)";
+    const homeBackgroundColor = "rgb(166, 0, 255)";
 
 
 
