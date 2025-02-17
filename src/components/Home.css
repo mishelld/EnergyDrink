@@ -188,3 +188,34 @@
     text-align: center;
     color: white;
 }
+/* Jump Down Animation */
+@keyframes jumpDown {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+}
+
+.jump-down {
+    animation: jumpDown 0.8s ease-out forwards;
+}
+
+/* Jump In Animation */
+@keyframes jumpIn {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.jump-in {
+    animation: jumpIn 0.8s ease-out forwards;
+}
