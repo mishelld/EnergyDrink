@@ -1,14 +1,16 @@
 /* Container for the whole PurchasePage */
 .purchase-page {
     display: flex; /* Use flexbox for the layout */
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
+    width: 100%; /* Make it take up the full width of the page */
+    height: 100vh; /* Make it take up the full height of the page */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
     background-color: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0; /* Optional: Remove border-radius for full edge coverage */
+    box-shadow: none; /* Optional: Remove shadow if you don't want it */
     font-family: 'Arial', sans-serif;
 }
+
 
 /* Left side - Takeout or Here picker */
 .left-side {
@@ -42,7 +44,7 @@
 
 }
 .right-side-wrapper {
-    margin-left: 250px; /* Offset for the fixed left side */
+    /* Remove margin-left: 250px; */
     padding: 20px;
     flex-grow: 1;
     max-height: 100vh; /* Limit the height to viewport */
