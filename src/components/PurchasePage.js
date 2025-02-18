@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './PurchasePage.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 function PurchasePage({ cart, setCart }) {
     const [selectedOption, setSelectedOption] = useState("takeout");
@@ -67,7 +68,7 @@ function PurchasePage({ cart, setCart }) {
                                 </div>
                                 {/* Trash can button */}
                                 <button className="delete-btn" onClick={() => deleteItem(index)}>
-                                    🗑️
+                                  <i className="fa fa-trash"></i> {/* Font Awesome trash icon */}
                                 </button>
                             </div>
                         ))}
