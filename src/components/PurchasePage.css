@@ -78,10 +78,11 @@
 .item-container img {
     width: 80px; /* Adjust as needed */
     height: 80px;
-    max-width: 100%; 
     height: auto;
     object-fit: cover;
     margin-right: 20px; /* Space between image and text */
+    position: relative;
+    left: 50px;
 }
 
 /* Right side - item name and price */
@@ -89,6 +90,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 200px;
 }
 
 .item-details .item-name {
@@ -143,7 +147,7 @@
     font-size: 2rem;
     color: #ff0019; /* Red color for delete */
     position: absolute; /* Position the button absolutely */
-    right: 100px; /* Align the button to the right with some spacing */
+    right: 50px; /* Align the button to the right with some spacing */
 }
 
 .delete-btn:hover {
