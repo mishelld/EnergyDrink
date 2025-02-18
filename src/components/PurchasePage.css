@@ -70,6 +70,8 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     width: 500px; /* Optional: Set a width to make it smaller */
+    position: relative; /* Add this line */
+
 }
 
 /* Left side (image + pick option) */
@@ -141,7 +143,7 @@
     font-size: 2rem;
     color: #ff0019; /* Red color for delete */
     position: absolute; /* Position the button absolutely */
-    right: 300px; /* Align the button to the right with some spacing */
+    right: 100px; /* Align the button to the right with some spacing */
 }
 
 .delete-btn:hover {
