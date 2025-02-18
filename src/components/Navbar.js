@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Navbar.css'; // Import CSS file
+import { Link } from 'react-router-dom'; // Import Link
+import './Navbar.css';
 
 function Navbar({ navColor }) {
     const [hoveredLink, setHoveredLink] = useState(null);
@@ -14,16 +15,16 @@ function Navbar({ navColor }) {
         <div style={{ ...styles.navbarWrapper, backgroundColor: navColor }}>
             <nav className="navbar" style={styles.navbar}>
                 <ul style={styles.navLinks}>
-                    {['home', 'menu', 'about', 'contact'].map((item) => (
+                    {['home', 'menu', 'purchase', 'about', 'contact'].map((item) => (
                         <li key={item}>
-                            <a
-                                href={`#${item}`}
+                            <Link
+                                to={`/${item}`} // Link to the respective page
                                 style={getLinkStyle(item)}
                                 onMouseEnter={() => handleMouseEnter(item)}
                                 onMouseLeave={handleMouseLeave}
                             >
                                 {item.charAt(0).toUpperCase() + item.slice(1)}
-                            </a>
+                            </Link>
                         </li>
                     ))}
                 </ul>

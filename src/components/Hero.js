@@ -8,12 +8,12 @@ function Hero({ slides, currentSlide, nextSlide, prevSlide, addToCart }) {
             style={{ backgroundColor: slides[currentSlide].backgroundColor }}
         >
             <div className="gif-container">
-            <img 
-            src={slides[currentSlide].gif} 
-            alt="Dessert Animation" 
-            className="coffee-gif"
-            />
-           </div>
+                <img
+                    src={slides[currentSlide].gif}
+                    alt="Dessert Animation"
+                    className="coffee-gif"
+                />
+            </div>
             <div className="text-container">
                 <h1 className="title">{slides[currentSlide].title}</h1>
             </div>
@@ -26,12 +26,7 @@ function Hero({ slides, currentSlide, nextSlide, prevSlide, addToCart }) {
                 />
             </div>
 
-            <div className="price-tag">
-               ${slides[currentSlide].price}
-           </div>
-
-
-            
+            <div className="price-tag">${slides[currentSlide].price}</div>
 
             <button className="cart-btn" onClick={() => addToCart(slides[currentSlide])}>
                 Add to Cart
@@ -39,8 +34,8 @@ function Hero({ slides, currentSlide, nextSlide, prevSlide, addToCart }) {
 
             {/* Buttons Container */}
             <div className="buttons-container">
-            <button onClick={prevSlide} className="nav-btn">&lt;</button>  {/* Left Arrow */}
-            <button onClick={nextSlide} className="nav-btn">&gt;</button>  {/* Right Arrow */}
+                <button onClick={prevSlide} className="nav-btn">&lt;</button>  {/* Left Arrow */}
+                <button onClick={nextSlide} className="nav-btn">&gt;</button>  {/* Right Arrow */}
             </div>
         </section>
     );

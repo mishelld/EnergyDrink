@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Hero from './components/Hero';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Router and Routes
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-
+import PurchasePage from './components/PurchasePage'; // Import PurchasePage
+import Hero from './components/Hero';  // Move Hero here to show only on Home
 
 const slides = [
     {
@@ -12,7 +13,6 @@ const slides = [
         backgroundColor: "#7e6ad5ee",
         navColor: "#7e6ad5ee", // Navbar color for this slide
         price: "4.99",  // Added price
-
     },
     {
         title: "Cherry",
@@ -21,7 +21,6 @@ const slides = [
         backgroundColor: "#ff4c4c",
         navColor: "#ff4c4c", // Navbar color for this slide
         price: "3.49",
-
     },
     {
         title: "Orange",
@@ -30,16 +29,12 @@ const slides = [
         backgroundColor: "#ffb20eee",
         navColor: "#ffb20eee", // Navbar color for this slide
         price: "5.99",
-
     },
 ];
 
 function App() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [cart, setCart] = useState([]); // Cart state
-    const homeBackgroundColor = "rgb(166, 0, 255)";
-
-
 
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -50,24 +45,37 @@ function App() {
     };
 
     const addToCart = (item) => {
-        setCart((prevCart) => [...prevCart, item]); // Add item to cart
+        setCart((prevCart) => [...prevCart, item]); // Add the selected item to cart
         console.log("Added to cart:", item);
     };
 
-
     return (
-        <div>
-            <Navbar navColor={homeBackgroundColor} />
-            <Home/>
-            <Hero
-                slides={slides}
-                currentSlide={currentSlide}
-                nextSlide={nextSlide}
-                prevSlide={prevSlide}
-                addToCart={addToCart} // Pass addToCart function
-
-            />
-        </div>
+        <Router>
+            <Navbar navColor={slides[currentSlide].navColor} />
+            <Routes>
+                {/* Home route where the Hero section is displayed */}
+                <Route
+                    path="/"
+                    element={
+                        <>
+                            <Home />
+                            <Hero
+                                slides={slides}
+                                currentSlide={currentSlide}
+                                nextSlide={nextSlide}
+                                prevSlide={prevSlide}
+                                addToCart={addToCart} // Pass addToCart function here
+                            />
+                        </>
+                    }
+                />
+                {/* Purchase route where only PurchasePage is displayed */}
+                <Route
+                    path="/purchase"
+                    element={<PurchasePage cart={cart} />} // Pass cart state here
+                />
+            </Routes>
+        </Router>
     );
 }
 
