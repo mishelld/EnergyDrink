@@ -47,9 +47,9 @@ function PurchasePage({ cart, setCart }) {
             </div>
 
             {/* Right Side: Items container */}
+            <div className="right-side-wrapper">
+
             <div className="right-side">
-                <h1>Receipt</h1>
-                <h2>Your Cart</h2>
                 {cart.length === 0 ? (
                     <p>Your cart is empty</p>
                 ) : (
@@ -85,6 +85,8 @@ function PurchasePage({ cart, setCart }) {
                     <button className="proceed-btn">Proceed to Checkout</button>
                 </div>
             </div>
+            </div>
+
         </div>
     );
 }

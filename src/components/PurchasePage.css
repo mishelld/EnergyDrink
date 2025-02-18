@@ -16,8 +16,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+
     border-right: 2px solid #ddd; /* Divider between the left and right */
 }
+
 
 .left-side select {
     padding: 10px;
@@ -37,6 +41,14 @@
     align-items: center; /* Center horizontally */
 
 }
+.right-side-wrapper {
+    margin-left: 250px; /* Offset for the fixed left side */
+    padding: 20px;
+    flex-grow: 1;
+    max-height: 100vh; /* Limit the height to viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
 
 /* Heading styles */
 .purchase-page h1 {
