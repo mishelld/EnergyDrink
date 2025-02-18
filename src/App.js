@@ -45,9 +45,18 @@ function App() {
     };
 
     const addToCart = (item) => {
-        setCart((prevCart) => [...prevCart, item]); // Add the selected item to cart
-        console.log("Added to cart:", item);
+        setCart((prevCart) => {
+            const existingItem = prevCart.find((cartItem) => cartItem.title === item.title);
+            if (existingItem) {
+                return prevCart.map((cartItem) =>
+                    cartItem.title === item.title ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+                );
+            } else {
+                return [...prevCart, { ...item, quantity: 1 }]; // ✅ Adds quantity = 1
+            }
+        });
     };
+    
 
     return (
         <Router>
@@ -70,10 +79,8 @@ function App() {
                     }
                 />
                 {/* Purchase route where only PurchasePage is displayed */}
-                <Route
-                    path="/purchase"
-                    element={<PurchasePage cart={cart} />} // Pass cart state here
-                />
+                <Route path="/purchase" element={<PurchasePage cart={cart} setCart={setCart} />} />
+
             </Routes>
         </Router>
     );
