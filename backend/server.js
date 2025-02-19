@@ -154,6 +154,38 @@ app.get("/api/cart/:email", async (req, res) => {
     }
 });
 
+// DELETE Route to remove an item from the cart
+app.delete("/api/cart/:email/item/:itemId", async (req, res) => {
+    const { email, itemId } = req.params;
+
+    try {
+        // Find the user's cart by email
+        const cart = await Cart.findOne({ email });
+
+        if (!cart) {
+            return res.status(404).json({ message: 'Cart not found' });
+        }
+
+        // Find the index of the item to be deleted
+        const itemIndex = cart.items.findIndex(item => item._id.toString() === itemId);
+
+        if (itemIndex === -1) {
+            return res.status(404).json({ message: 'Item not found' });
+        }
+
+        // Remove the item from the cart
+        cart.items.splice(itemIndex, 1);
+
+        // Save the updated cart
+        await cart.save();
+
+        res.status(200).json({ message: 'Item deleted from cart', cart: cart.items });
+    } catch (error) {
+        console.error('Error deleting item from cart:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;

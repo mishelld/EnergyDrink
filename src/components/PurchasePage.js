@@ -53,11 +53,26 @@ function PurchasePage({ setCart }) {
         setCart(updatedCart);  // Update the parent cart as well
     };
 
-    const deleteItem = (index) => {
-        const updatedCart = cart.filter((_, i) => i !== index);
-        setCartState(updatedCart);
-        setCart(updatedCart);  // Update the parent cart as well
+    const deleteItem = async (index, itemId) => {
+        try {
+            // Call the DELETE API to remove the item from the cart on the server
+            const response = await fetch(`http://localhost:5000/api/cart/${userEmail}/item/${itemId}`, {
+                method: 'DELETE',
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to delete item from cart');
+            }
+    
+            // Update the local state after successful deletion
+            const updatedCart = cart.filter((_, i) => i !== index);
+            setCartState(updatedCart);
+            setCart(updatedCart);  // Update the parent cart as well
+        } catch (error) {
+            console.error('Error deleting item:', error);
+        }
     };
+    
 
     const totalPrice = cart.reduce((total, item) => total + (parseFloat(item.price) || 0) * (item.quantity || 1), 0).toFixed(2);
 
@@ -95,7 +110,7 @@ function PurchasePage({ setCart }) {
                                         </div>
                                     </div>
                                     {/* Trash can button */}
-                                    <button className="delete-btn" onClick={() => deleteItem(index)}>
+                                    <button className="delete-btn" onClick={() => deleteItem(index, item._id)}>
                                         <i className="fa fa-trash"></i> {/* Font Awesome trash icon */}
                                     </button>
                                 </div>
