@@ -42,16 +42,34 @@ function PurchasePage({ setCart }) {
         setCart(updatedCart);  // Update the parent cart as well
     };
 
-    const decreaseQuantity = (index) => {
+    const decreaseQuantity = async (index, itemId) => {
         const updatedCart = [...cart];
         if (updatedCart[index].quantity > 1) {
             updatedCart[index].quantity -= 1;
         } else {
-            updatedCart.splice(index, 1); // Remove item if quantity is 1
+            // Quantity is 0, so we need to delete it from the server
+            try {
+                const response = await fetch(`http://localhost:5000/api/cart/${userEmail}/item/${itemId}`, {
+                    method: 'DELETE',
+                });
+    
+                if (!response.ok) {
+                    throw new Error('Failed to delete item from cart');
+                }
+    
+                // Remove the item from the local cart after successful deletion from the server
+                updatedCart.splice(index, 1);
+            } catch (error) {
+                console.error('Error deleting item:', error);
+            }
         }
+    
+        // Update the local state after handling the quantity or deletion
         setCartState(updatedCart);
         setCart(updatedCart);  // Update the parent cart as well
     };
+    
+    
 
     const deleteItem = async (index, itemId) => {
         try {
@@ -104,7 +122,7 @@ function PurchasePage({ setCart }) {
                                         <div className="item-name">{item.title}</div>
                                         <div className="item-price">${item.price}</div>
                                         <div className="quantity-controls">
-                                            <button onClick={() => decreaseQuantity(index)}>-</button>
+                                            <button onClick={() => decreaseQuantity(index, item._id)}>-</button>
                                             <span>{item.quantity}</span>
                                             <button onClick={() => increaseQuantity(index)}>+</button>
                                         </div>

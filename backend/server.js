@@ -186,6 +186,42 @@ app.delete("/api/cart/:email/item/:itemId", async (req, res) => {
     }
 });
 
+// PUT Route to update the quantity of an item in the cart
+app.put("/api/cart/:email/item/:itemId", async (req, res) => {
+    const { email, itemId } = req.params;
+    const { quantity } = req.body;
+
+    try {
+        const cart = await Cart.findOne({ email });
+
+        if (!cart) {
+            return res.status(404).json({ message: 'Cart not found' });
+        }
+
+        const item = cart.items.find(item => item._id.toString() === itemId);
+
+        if (!item) {
+            return res.status(404).json({ message: 'Item not found' });
+        }
+
+        // Update the item’s quantity
+        item.quantity = quantity;
+
+        // If quantity is 0, remove the item from the cart
+        if (item.quantity === 0) {
+            cart.items = cart.items.filter(item => item._id.toString() !== itemId);
+        }
+
+        await cart.save();
+
+        res.status(200).json({ message: 'Item updated', cart: cart.items });
+    } catch (error) {
+        console.error('Error updating item quantity:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;
