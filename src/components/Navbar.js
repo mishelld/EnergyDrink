@@ -15,7 +15,7 @@ function Navbar({ navColor }) {
         <div style={{ ...styles.navbarWrapper, backgroundColor: navColor }}>
             <nav className="navbar" style={styles.navbar}>
                 <ul style={styles.navLinks}>
-                    {['home', 'menu', 'purchase', 'about', 'contact'].map((item) => (
+                    {['home', 'menu', 'purchase', 'about', 'contact', 'signin'].map((item) => (
                         <li key={item}>
                             <Link
                                 to={`/${item}`} // Link to the respective page
@@ -32,6 +32,7 @@ function Navbar({ navColor }) {
         </div>
     );
 }
+
 
 const styles = {
     navbarWrapper: {
