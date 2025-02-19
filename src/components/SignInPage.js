@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './SignInPage.css';
 
-function SignInPage() {
-    const [isSignUp, setIsSignUp] = useState(false);  
+function SignInPage({ handleLogin }) {
+    const [isSignUp, setIsSignUp] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -28,9 +27,7 @@ function SignInPage() {
             const endpoint = isSignUp ? 'http://localhost:5000/api/register' : 'http://localhost:5000/api/login';
             const response = await fetch(endpoint, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
             });
 
@@ -38,8 +35,9 @@ function SignInPage() {
 
             if (response.ok) {
                 if (isSignUp) {
-                    navigate('/SignIn'); // Redirect to Sign In after successful registration
+                    navigate('/signin'); // Redirect to Sign In after registration
                 } else {
+                    handleLogin(email); // ✅ Store login state
                     navigate('/');
                 }
             } else {
@@ -47,7 +45,6 @@ function SignInPage() {
             }
         } catch (error) {
             setErrorMessage('Server error. Please try again later.');
-            console.error('Error:', error);
         }
     };
 
@@ -57,36 +54,18 @@ function SignInPage() {
             <form onSubmit={handleSubmit} className="auth-form">
                 <div className="input-container">
                     <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
+                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </div>
 
                 <div className="input-container">
                     <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
+                    <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
 
                 {isSignUp && (
                     <div className="input-container">
                         <label htmlFor="confirmPassword">Confirm Password</label>
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            required
-                        />
+                        <input type="password" id="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
                     </div>
                 )}
 
@@ -97,9 +76,7 @@ function SignInPage() {
 
             <div className="toggle-container">
                 <p>{isSignUp ? 'Already have an account?' : "Don't have an account?"}</p>
-                <button onClick={() => setIsSignUp(!isSignUp)} className="toggle-btn">
-                    {isSignUp ? 'Sign In' : 'Sign Up'}
-                </button>
+                <button onClick={() => setIsSignUp(!isSignUp)} className="toggle-btn">{isSignUp ? 'Sign In' : 'Sign Up'}</button>
             </div>
         </div>
     );

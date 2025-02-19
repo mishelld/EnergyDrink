@@ -96,28 +96,64 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-// Protected Route Example (Dashboard)
-app.get('/api/dashboard', async (req, res) => {
-    const token = req.header('Authorization')?.split(' ')[1];  // Get the token from header
 
-    if (!token) {
-        return res.status(401).json({ message: 'Authorization token required' });
+const CartItemSchema = new mongoose.Schema({
+    title: String,
+    image: String,
+    price: Number,
+    quantity: { type: Number, default: 1 },
+});
+
+const CartSchema = new mongoose.Schema({
+    email: { type: String, required: true, unique: true },
+    items: [CartItemSchema], // An array of cart items
+});
+
+const Cart = mongoose.model("Cart", CartSchema);
+
+module.exports = Cart;
+
+app.post("/api/cart", async (req, res) => {
+    const { email, item } = req.body;
+
+    if (!email || !item) {
+        return res.status(400).json({ message: "Missing user email or item" });
     }
 
     try {
-        // Verify the token
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const user = await User.findById(decoded.userId);
+        let cart = await Cart.findOne({ email });
 
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
+        if (!cart) {
+            cart = new Cart({ email, items: [item] });
+        } else {
+            // Check if item already exists
+            const existingItem = cart.items.find((cartItem) => cartItem.title === item.title);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.items.push({ ...item, quantity: 1 });
+            }
         }
 
-        res.status(200).json({ message: 'Welcome to the dashboard', user });
-    } catch (err) {
-        res.status(400).json({ message: 'Invalid token' });
+        await cart.save();
+        res.json({ message: "Item added to cart", cart: cart.items });
+    } catch (error) {
+        console.error("Error adding to cart:", error);
+        res.status(500).json({ message: "Internal server error" });
     }
 });
+
+app.get("/api/cart/:email", async (req, res) => {
+    const email = req.params.email;
+    try {
+        const cart = await Cart.findOne({ email });
+        res.json(cart ? cart.items : []);
+    } catch (error) {
+        console.error("Error fetching cart:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;
