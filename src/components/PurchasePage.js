@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './PurchasePage.css';
 import 'font-awesome/css/font-awesome.min.css';
 
 function PurchasePage({ cart, setCart }) {
     const [selectedOption, setSelectedOption] = useState("takeout");
+    const navigate = useNavigate();  // Initialize navigate function
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
@@ -36,6 +38,11 @@ function PurchasePage({ cart, setCart }) {
     // Calculate total price
     const totalPrice = cart.reduce((total, item) => total + (parseFloat(item.price) || 0) * (item.quantity || 1), 0).toFixed(2);
 
+    // Handle the "Proceed to Checkout" button click
+    const handleProceedToCheckout = () => {
+        navigate('/signin'); // Redirect to the sign-in page
+    };
+
     return (
         <div className="purchase-page">
             {/* Left Side: Takeout or Here picker */}
@@ -48,45 +55,45 @@ function PurchasePage({ cart, setCart }) {
 
             {/* Right Side: Items container */}
             <div className="right-side-wrapper">
-
-            <div className="right-side">
-                {cart.length === 0 ? (
-                    <p>Your cart is empty</p>
-                ) : (
-                    <div>
-                        {cart.map((item, index) => (
-                            <div key={index} className="item-container">
-                                <img src={item.image} alt={item.title} />
-                                <div className="item-details">
-                                    <div className="item-name">{item.title}</div>
-                                    <div className="item-price">${item.price}</div>
-                                    <div className="quantity-controls">
-                                        <button onClick={() => decreaseQuantity(index)}>-</button>
-                                        <span>{item.quantity}</span>
-                                        <button onClick={() => increaseQuantity(index)}>+</button>
+                <div className="right-side">
+                    {cart.length === 0 ? (
+                        <p>Your cart is empty</p>
+                    ) : (
+                        <div>
+                            {cart.map((item, index) => (
+                                <div key={index} className="item-container">
+                                    <img src={item.image} alt={item.title} />
+                                    <div className="item-details">
+                                        <div className="item-name">{item.title}</div>
+                                        <div className="item-price">${item.price}</div>
+                                        <div className="quantity-controls">
+                                            <button onClick={() => decreaseQuantity(index)}>-</button>
+                                            <span>{item.quantity}</span>
+                                            <button onClick={() => increaseQuantity(index)}>+</button>
+                                        </div>
                                     </div>
+                                    {/* Trash can button */}
+                                    <button className="delete-btn" onClick={() => deleteItem(index)}>
+                                        <i className="fa fa-trash"></i> {/* Font Awesome trash icon */}
+                                    </button>
                                 </div>
-                                {/* Trash can button */}
-                                <button className="delete-btn" onClick={() => deleteItem(index)}>
-                                  <i className="fa fa-trash"></i> {/* Font Awesome trash icon */}
-                                </button>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
+                    )}
+
+                    {/* Total Section */}
+                    <div className="total-container">
+                        <div className="total-price">Total: ${totalPrice}</div>
                     </div>
-                )}
 
-                {/* Total Section */}
-                <div className="total-container">
-                    <div className="total-price">Total: ${totalPrice}</div>
-                </div>
-
-                {/* Proceed Button */}
-                <div className="proceed-btn-container">
-                    <button className="proceed-btn">Proceed to Checkout</button>
+                    {/* Proceed Button */}
+                    <div className="proceed-btn-container">
+                        <button className="proceed-btn" onClick={handleProceedToCheckout}>
+                            Proceed to Checkout
+                        </button>
+                    </div>
                 </div>
             </div>
-            </div>
-
         </div>
     );
 }
