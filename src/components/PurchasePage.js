@@ -1,24 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './PurchasePage.css';
 import 'font-awesome/css/font-awesome.min.css';
 
-function PurchasePage({ cart, setCart }) {
+function PurchasePage({ setCart }) {
+    const [cart, setCartState] = useState([]); // Local state for cart
     const [selectedOption, setSelectedOption] = useState("takeout");
     const navigate = useNavigate();  // Initialize navigate function
+    const userEmail = localStorage.getItem("userEmail"); // Assuming email is stored in localStorage
+
+    useEffect(() => {
+        // Fetch cart details when component mounts
+        const fetchCart = async () => {
+            try {
+                const response = await fetch(`http://localhost:5000/api/cart/${userEmail}`);
+                if (response.ok) {
+                    const cartData = await response.json();
+                    setCartState(cartData); // Set the cart data into state
+                    setCart(cartData); // Optionally update the parent component's cart
+                } else {
+                    console.error('Failed to fetch cart');
+                }
+            } catch (error) {
+                console.error('Error fetching cart:', error);
+            }
+        };
+
+        if (userEmail) {
+            fetchCart(); // Only fetch if the user is logged in
+        }
+    }, [userEmail, setCart]);
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
     };
 
-    // Function to increase item quantity
     const increaseQuantity = (index) => {
         const updatedCart = [...cart];
         updatedCart[index].quantity += 1;
-        setCart(updatedCart);
+        setCartState(updatedCart);
+        setCart(updatedCart);  // Update the parent cart as well
     };
 
-    // Function to decrease item quantity or remove item
     const decreaseQuantity = (index) => {
         const updatedCart = [...cart];
         if (updatedCart[index].quantity > 1) {
@@ -26,19 +49,18 @@ function PurchasePage({ cart, setCart }) {
         } else {
             updatedCart.splice(index, 1); // Remove item if quantity is 1
         }
-        setCart(updatedCart);
+        setCartState(updatedCart);
+        setCart(updatedCart);  // Update the parent cart as well
     };
 
-    // Function to completely delete an item
     const deleteItem = (index) => {
         const updatedCart = cart.filter((_, i) => i !== index);
-        setCart(updatedCart);
+        setCartState(updatedCart);
+        setCart(updatedCart);  // Update the parent cart as well
     };
 
-    // Calculate total price
     const totalPrice = cart.reduce((total, item) => total + (parseFloat(item.price) || 0) * (item.quantity || 1), 0).toFixed(2);
 
-    // Handle the "Proceed to Checkout" button click
     const handleProceedToCheckout = () => {
         navigate('/signin'); // Redirect to the sign-in page
     };
