@@ -18,7 +18,7 @@ function Navbar({ navColor }) {
                     {['home', 'menu', 'purchase', 'about', 'contact', 'signin'].map((item) => (
                         <li key={item}>
                             <Link
-                                to={`/${item}`} // Link to the respective page
+                                to={item === 'home' ? '/' : `/${item}`} // ✅ Fix Home path
                                 style={getLinkStyle(item)}
                                 onMouseEnter={() => handleMouseEnter(item)}
                                 onMouseLeave={handleMouseLeave}
