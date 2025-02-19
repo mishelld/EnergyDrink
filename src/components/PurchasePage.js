@@ -35,12 +35,33 @@ function PurchasePage({ setCart }) {
         setSelectedOption(event.target.value);
     };
 
-    const increaseQuantity = (index) => {
+    const increaseQuantity = async (index, itemId) => {
         const updatedCart = [...cart];
         updatedCart[index].quantity += 1;
-        setCartState(updatedCart);
-        setCart(updatedCart);  // Update the parent cart as well
+    
+        try {
+            const response = await fetch(`http://localhost:5000/api/cart/${userEmail}/item/${itemId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    quantity: updatedCart[index].quantity,
+                }),
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to update item quantity on server');
+            }
+    
+            // Update the local state after successful update on the server
+            setCartState(updatedCart);
+            setCart(updatedCart);  // Update the parent cart as well
+        } catch (error) {
+            console.error('Error updating item quantity:', error);
+        }
     };
+    
 
     const decreaseQuantity = async (index, itemId) => {
         const updatedCart = [...cart];
@@ -124,7 +145,7 @@ function PurchasePage({ setCart }) {
                                         <div className="quantity-controls">
                                             <button onClick={() => decreaseQuantity(index, item._id)}>-</button>
                                             <span>{item.quantity}</span>
-                                            <button onClick={() => increaseQuantity(index)}>+</button>
+                                            <button onClick={() => increaseQuantity(index, item._id)}>+</button>
                                         </div>
                                     </div>
                                     {/* Trash can button */}
