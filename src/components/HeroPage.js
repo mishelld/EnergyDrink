@@ -29,7 +29,7 @@ const slides = [
     },
 ];
 
-function HeroPage() {
+function HeroPage({ addToCart }) {  // ✅ Accept addToCart as a prop
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const nextSlide = () => {
@@ -46,9 +46,10 @@ function HeroPage() {
             currentSlide={currentSlide}
             nextSlide={nextSlide}
             prevSlide={prevSlide}
-            addToCart={() => {}}  // No cart needed on this page
+            addToCart={addToCart}  // ✅ Pass down addToCart
         />
     );
 }
+
 
 export default HeroPage;

@@ -84,7 +84,7 @@ function App() {
             <Navbar navColor={slides[currentSlide].navColor} isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
             <Routes>
                 <Route path="/" element={<><Home /><Hero slides={slides} currentSlide={currentSlide} nextSlide={nextSlide} prevSlide={prevSlide} addToCart={addToCart} /></>} />
-                <Route path="/hero" element={<HeroPage />} />
+                <Route path="/hero" element={<HeroPage addToCart={addToCart} />} />
                 <Route path="/purchase" element={<PurchasePage cart={cart} setCart={setCart} />} />
                 <Route path="/signin" element={isAuthenticated ? <Navigate to="/" /> : <SignInPage handleLogin={handleLogin} />} />
             </Routes>
