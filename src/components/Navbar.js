@@ -15,7 +15,7 @@ function Navbar({ navColor }) {
         <div style={{ ...styles.navbarWrapper, backgroundColor: navColor }}>
             <nav className="navbar" style={styles.navbar}>
                 <ul style={styles.navLinks}>
-                    {['home', 'menu', 'purchase', 'about', 'contact', 'signin'].map((item) => (
+                    {['home', 'hero', 'purchase', 'about', 'contact', 'signin'].map((item) => (
                         <li key={item}>
                             <Link
                                 to={item === 'home' ? '/' : `/${item}`} // ✅ Fix Home path

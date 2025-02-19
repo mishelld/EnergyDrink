@@ -5,6 +5,8 @@ import Home from './components/Home';
 import PurchasePage from './components/PurchasePage'; // Import PurchasePage
 import Hero from './components/Hero';  // Move Hero here to show only on Home
 import SignInPage from './components/SignInPage'; // Import SignInPage
+import HeroPage from './components/HeroPage'; // Import the new HeroPage
+
 
 const slides = [
     {
@@ -78,6 +80,8 @@ function App() {
                         </>
                     }
                 />
+                <Route path="/hero" element={<HeroPage />} />
+
                 {/* Purchase route where only PurchasePage is displayed */}
                 <Route path="/purchase" element={<PurchasePage cart={cart} setCart={setCart} />} />
                 {/* Sign-in route */}
