@@ -30,51 +30,77 @@
 
 }
 
-.about-left-image {
+.about-left-image, .about-right-image {
     width: 25%;
     height: auto;
     position: relative;
-    left: 50px;
-    margin-top: 400px;
+    opacity: 0; /* Start as invisible */
+  }
 
-    /* Jump in first (only once), then start floating */
+  .about-right-image {
+    width: 200px;   /* Set the width for only the left image */
+    height: auto;  /* Set the height for only the left image */
+  }
+  
+  .about-left-image {
+    width: 20%;     /* Keep the right image at its original size */
+    height: auto;   /* Keep the right image's aspect ratio */
+  }
+  
+  
+  .about-left-image.animate-up {
     animation: about-jumpIn-left 0.8s ease-out forwards, 
                about-floatUpDown-left 3s ease-in-out infinite;
     animation-delay: 0s, 0.8s; /* Delay the floating until after jump */
-}
-
-.about-right-image {
-    width: 35%;
-    height: auto;
-    position: relative;
-    margin-top: 280px;
-
-    /* Jump in first (only once), then start floating */
+  }
+  
+  .about-right-image.animate-up {
     animation: about-jumpIn-right 0.8s ease-out forwards, 
                about-floatUpDown-right 3s ease-in-out infinite;
     animation-delay: 0s, 0.8s;
-}
-
-/* Jump In Animation (Runs Only Once, More Noticeable) */
-@keyframes about-jumpIn-left {
-    0% { transform: rotate(-15deg) translateY(250px); opacity: 0; } /* Starts lower */
+  }
+  
+  /* Falling Down Animation */
+  .about-left-image.animate-down {
+    animation: about-fallDown-left 0.8s ease-out forwards;
+  }
+  
+  .about-right-image.animate-down {
+    animation: about-fallDown-right 0.8s ease-out forwards;
+  }
+  
+  /* Jump In Animation (Runs Only Once, More Noticeable) */
+  @keyframes about-jumpIn-left {
+    0% { transform: rotate(-15deg) translateY(250px); opacity: 0; }
     100% { transform: rotate(-15deg) translateY(0); opacity: 1; }
-}
-
-@keyframes about-jumpIn-right {
+  }
+  
+  @keyframes about-jumpIn-right {
     0% { transform: rotate(15deg) translateY(250px); opacity: 0; }
     100% { transform: rotate(15deg) translateY(0); opacity: 1; }
-}
-
-/* Floating Animation (Runs Infinitely) */
-@keyframes about-floatUpDown-left {
+  }
+  
+  /* Floating Animation (Runs Infinitely) */
+  @keyframes about-floatUpDown-left {
     0% { transform: rotate(-15deg) translateY(0); }
     50% { transform: rotate(-15deg) translateY(-30px); }
     100% { transform: rotate(-15deg) translateY(0); }
-}
-
-@keyframes about-floatUpDown-right {
+  }
+  
+  @keyframes about-floatUpDown-right {
     0% { transform: rotate(15deg) translateY(0); }
     50% { transform: rotate(15deg) translateY(-30px); }
     100% { transform: rotate(15deg) translateY(0); }
-}
+  }
+  
+  /* Falling Down Animation (When Image Exits) */
+  @keyframes about-fallDown-left {
+    0% { transform: rotate(-15deg) translateY(0); opacity: 1; }
+    100% { transform: rotate(-15deg) translateY(250px); opacity: 0; }
+  }
+  
+  @keyframes about-fallDown-right {
+    0% { transform: rotate(15deg) translateY(0); opacity: 1; }
+    100% { transform: rotate(15deg) translateY(250px); opacity: 0; }
+  }
+  
