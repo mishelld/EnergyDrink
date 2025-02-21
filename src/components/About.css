@@ -6,21 +6,52 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #b93636;
+    background-color: #00bfff;
   }
   
   .about-title {
+    width: 400px;
+    height: 400px;
+
+    position: absolute;
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 2rem;
+    font-family: 'Baloo Paaji', cursive;
+    text-align: left;  /* Aligns the text to the left */
+    margin-left: 100px;    /* Optional: Ensures no additional margin on the left */
+    color: aliceblue;
+    border: 1px solid #fafafa;  /* Border around the entire paragraph */
+    padding: 10px;              /* Space between text and the border */
+    border-radius: 300px;        /* Optional: Rounded corners */
+    border-color: #ffe221;
+    text-indent: 50px;  /* Moves text to the right */
+
+}
+.second-line {
+    color: #ffe221; /* Replace with your desired color */
+    font-size: 1rem;
+    text-align: left;  /* Aligns the text to the left */
+
   }
+  
+
+/* Ensure the parent container uses flex with left alignment */
+.about-container {
+    display: flex;
+    justify-content: flex-start;  /* Aligns children (titles) to the left */
+    align-items: flex-start;  /* Aligns items vertically at the top */
+    width: 100%;
+}
+
+
 
   .about-image-container {
     width: 700px;
     height: 700px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Aligns content to the right */
+    margin-left: 800px;
     
     /* Background Image */
     overflow: hidden;
@@ -28,8 +59,6 @@
 }
 
 .about-left-image, .about-right-image {
-    width: 25%;
-    height: auto;
     position: relative;
     opacity: 0; /* Start as invisible */
   }
@@ -37,13 +66,13 @@
   .about-right-image {
     width: 200px;   /* Set the width for only the left image */
     height: auto;  /* Set the height for only the left image */
-    margin-top: 350px;
+    margin-top: 450px;
   }
   
   .about-left-image {
-    width: 20%;     /* Keep the right image at its original size */
+    width: 150px;     /* Keep the right image at its original size */
     height: auto;   /* Keep the right image's aspect ratio */
-    margin-top: 450px;
+    margin-top: 500px;
 
   }
   
@@ -104,3 +133,118 @@
     100% { transform: rotate(15deg) translateY(250px); opacity: 0; }
   }
   
+  .about-text-left {
+    position: absolute;
+    right: 25%;  /* Adjust the text position */
+    top: 40%;   /* Adjust to align with the image */
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    color:rgb(255, 0, 123);
+  }
+
+  .about-text-left::before {
+    content: "";
+    position: absolute;
+    top: 100%; /* Position line below the text */
+    right: 50%; /* Centers the line under the text */
+    width: 2px; /* Line thickness */
+    height: 40px; /* Length of the line */
+    background-color: rgb(255, 0, 123); /* Line color */
+    transform: translateX(50%); /* Centers the line */
+}
+
+/* Adds a circle at the end of the line */
+.about-text-left::after {
+    content: "";
+    position: absolute;
+    top: 200%; /* Position circle at the end of the line */
+    right: 50%; /* Centers the circle with the line */
+    width: 10px; /* Circle size */
+    height: 10px;
+    background-color: rgb(255, 0, 55); /* Circle color */
+    border-radius: 50%; /* Makes it a circle */
+    transform: translateX(50%); /* Centers the circle */
+}
+
+  .about-text-left.animate-up {
+    animation: about-jumpIn-left 0.8s ease-out forwards, 
+               about-floatUpDown-left 3s ease-in-out infinite;
+    animation-delay: 0s, 0.8s; 
+  }
+
+  .about-text-left.animate-down {
+    animation: about-fallDown-left 0.8s ease-out forwards;
+  }
+  
+  /* Style for Right Text */
+.about-text-right {
+    position: absolute;
+    right: 1%;
+    top: 30%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    color:rgb(255, 119, 0);
+  }
+
+ /* Adds a connecting line below the text */
+/* Adds a connecting line pointing down */
+.about-text-right::before {
+    content: "";
+    position: absolute;
+    top: 100%; /* Position line below the text */
+    right: 50%; /* Centers the line under the text */
+    width: 2px; /* Line thickness */
+    height: 40px; /* Length of the line */
+    background-color: rgb(255, 119, 0); /* Line color */
+    transform: translateX(50%); /* Centers the line */
+}
+
+/* Adds a circle at the end of the line */
+.about-text-right::after {
+    content: "";
+    position: absolute;
+    top: 200%; /* Position circle at the end of the line */
+    right: 50%; /* Centers the circle with the line */
+    width: 10px; /* Circle size */
+    height: 10px;
+    background-color: rgb(255, 119, 0); /* Circle color */
+    border-radius: 50%; /* Makes it a circle */
+    transform: translateX(50%); /* Centers the circle */
+}
+  .about-text-right.animate-up {
+    animation: about-jumpIn-right 0.8s ease-out forwards, 
+               about-floatUpDown-right 3s ease-in-out infinite;
+    animation-delay: 0s, 0.8s;
+  }
+  .about-text-right.animate-down {
+    animation: about-fallDown-right 0.8s ease-out forwards;
+  }  
+
+  .left-side-gif {
+    position: absolute;  /* Keeps it fixed on the left */
+    left: 400px;  /* Adjust distance from the left edge */
+    top: 90%;  /* Center vertically */
+    transform: translateY(-50%);  /* Ensure perfect centering */
+    width: 100px;  /* Adjust size */
+    height: auto;
+    z-index: 10;  /* Ensure it stays above other elements */
+  }
+  
+  .gif-1 {
+    transform: translateY(-50%);
+  }
+
+  .gif-2 {
+    transform: translateY(-50%);
+    left: 250px;  /* Adjust distance from the left edge */
+
+  }
+  .gif-3 {
+    transform: translateY(-50%);
+    left: 100px;  /* Adjust distance from the left edge */
+
+  }

@@ -19,7 +19,7 @@ export default function About() {
           setLeftOutView(true); // Trigger "exit" animation when leaving
         }
       },
-      { threshold: 0.0000001 }
+      { threshold: 0.000000000001 }
     );
 
     const rightImageObserver = new IntersectionObserver(
@@ -33,7 +33,7 @@ export default function About() {
           setRightOutView(true); // Trigger "exit" animation when leaving
         }
       },
-      { threshold: 0.000001 }
+      { threshold: 0.00000000001 }
     );
 
     const leftImage = document.querySelector(".about-left-image");
@@ -59,7 +59,22 @@ export default function About() {
 
   return (
     <div className="about-container">
-      <h1 className="about-title">About</h1>
+  <img src="/orangeg.gif" alt="Boosting GIF" className="left-side-gif gif-1" />
+  <img src="/cherryg.gif" alt="Focus GIF" className="left-side-gif gif-2" />
+  <img src="/berriesg.gif" alt="Focus GIF" className="left-side-gif gif-3" />
+
+
+
+
+ <p className="about-title"> 
+   We care<br />
+  about your health<br />
+  <span className="second-line"> Our energy drinks<br />
+  boost energy<br />
+  improve focus<br />
+  enhance performance<br />
+  </span>
+      </p>
 
       {/* Floating Images */}
       <div className="about-image-container">
@@ -71,6 +86,12 @@ export default function About() {
             ${leftOutView ? "animate-down" : ""}
           `}
         />
+        <p className={`about-text-left ${leftInView ? "animate-up" : ""} ${leftOutView ? "animate-down" : ""}`}>
+          This is a cherry. It is delicious.
+        </p>
+        <p className={`about-text-right ${rightInView ? "animate-up" : ""} ${rightOutView ? "animate-down" : ""}`}>
+          Oranges are juicy and full of vitamins.
+        </p>
         <img
           src="/orange.png"
           alt="Orange"
