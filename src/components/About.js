@@ -19,7 +19,7 @@ export default function About() {
           setLeftOutView(true); // Trigger "exit" animation when leaving
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.0000001 }
     );
 
     const rightImageObserver = new IntersectionObserver(
@@ -33,7 +33,7 @@ export default function About() {
           setRightOutView(true); // Trigger "exit" animation when leaving
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.000001 }
     );
 
     const leftImage = document.querySelector(".about-left-image");

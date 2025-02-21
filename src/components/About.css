@@ -17,17 +17,14 @@
 
   .about-image-container {
     width: 700px;
-    height: 600px;
+    height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
     
     /* Background Image */
-    background-size: 250px 250px; /* Adjust tile size */
-    background-position: top left;
-    background-repeat: repeat; /* Repeats the GIF multiple times */
-    overflow: hidden; /* Ensures images do not overflow the container */
-
+    overflow: hidden;
+    /* Ensures images do not overflow the container */
 }
 
 .about-left-image, .about-right-image {
@@ -40,11 +37,14 @@
   .about-right-image {
     width: 200px;   /* Set the width for only the left image */
     height: auto;  /* Set the height for only the left image */
+    margin-top: 350px;
   }
   
   .about-left-image {
     width: 20%;     /* Keep the right image at its original size */
     height: auto;   /* Keep the right image's aspect ratio */
+    margin-top: 450px;
+
   }
   
   
