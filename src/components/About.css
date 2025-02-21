@@ -1,0 +1,80 @@
+
+  .about-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #b93636;
+  }
+  
+  .about-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  .about-image-container {
+    width: 700px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Background Image */
+    background-size: 250px 250px; /* Adjust tile size */
+    background-position: top left;
+    background-repeat: repeat; /* Repeats the GIF multiple times */
+    overflow: hidden; /* Ensures images do not overflow the container */
+
+}
+
+.about-left-image {
+    width: 25%;
+    height: auto;
+    position: relative;
+    left: 50px;
+    margin-top: 400px;
+
+    /* Jump in first (only once), then start floating */
+    animation: about-jumpIn-left 0.8s ease-out forwards, 
+               about-floatUpDown-left 3s ease-in-out infinite;
+    animation-delay: 0s, 0.8s; /* Delay the floating until after jump */
+}
+
+.about-right-image {
+    width: 35%;
+    height: auto;
+    position: relative;
+    margin-top: 280px;
+
+    /* Jump in first (only once), then start floating */
+    animation: about-jumpIn-right 0.8s ease-out forwards, 
+               about-floatUpDown-right 3s ease-in-out infinite;
+    animation-delay: 0s, 0.8s;
+}
+
+/* Jump In Animation (Runs Only Once, More Noticeable) */
+@keyframes about-jumpIn-left {
+    0% { transform: rotate(-15deg) translateY(250px); opacity: 0; } /* Starts lower */
+    100% { transform: rotate(-15deg) translateY(0); opacity: 1; }
+}
+
+@keyframes about-jumpIn-right {
+    0% { transform: rotate(15deg) translateY(250px); opacity: 0; }
+    100% { transform: rotate(15deg) translateY(0); opacity: 1; }
+}
+
+/* Floating Animation (Runs Infinitely) */
+@keyframes about-floatUpDown-left {
+    0% { transform: rotate(-15deg) translateY(0); }
+    50% { transform: rotate(-15deg) translateY(-30px); }
+    100% { transform: rotate(-15deg) translateY(0); }
+}
+
+@keyframes about-floatUpDown-right {
+    0% { transform: rotate(15deg) translateY(0); }
+    50% { transform: rotate(15deg) translateY(-30px); }
+    100% { transform: rotate(15deg) translateY(0); }
+}
