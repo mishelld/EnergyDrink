@@ -6,6 +6,10 @@ export default function About() {
   const [rightInView, setRightInView] = useState(false);
   const [leftOutView, setLeftOutView] = useState(false);
   const [rightOutView, setRightOutView] = useState(false);
+  const [middleInView, setMiddleInView] = useState(false);
+  const [middleOutView, setMiddleOutView] = useState(false);
+
+
 
   useEffect(() => {
     const leftImageObserver = new IntersectionObserver(
@@ -36,14 +40,33 @@ export default function About() {
       { threshold: 0.00000000001 }
     );
 
+    const middleImageObserver = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setMiddleInView(true);
+          setMiddleOutView(false); // Reset "exit" animation when entering
+        } else {
+          setMiddleInView(false);
+          setMiddleOutView(true); // Trigger "exit" animation when leaving
+        }
+      },
+      { threshold: 0.000000000001 }
+    );
+
     const leftImage = document.querySelector(".about-left-image");
     const rightImage = document.querySelector(".about-right-image");
+    const middleImage = document.querySelector(".about-middle-image");
+
 
     if (leftImage) {
       leftImageObserver.observe(leftImage);
     }
     if (rightImage) {
       rightImageObserver.observe(rightImage);
+    }
+    if (middleImage) {
+      middleImageObserver.observe(middleImage);
     }
 
     // Cleanup observers on component unmount
@@ -53,6 +76,9 @@ export default function About() {
       }
       if (rightImage) {
         rightImageObserver.unobserve(rightImage);
+      }
+      if (middleImage) {
+        middleImageObserver.unobserve(middleImage);
       }
     };
   }, []);
@@ -84,11 +110,22 @@ export default function About() {
             ${leftOutView ? "animate-down" : ""}
           `}
         />
+        <img
+          src="/Blueberry.png"
+          alt="Blueberry"
+          className={`about-middle-image 
+            ${middleInView ? "animate-up" : ""} 
+            ${middleOutView ? "animate-down" : ""}
+          `}
+        />
         <p className={`about-text-left ${leftInView ? "animate-up" : ""} ${leftOutView ? "animate-down" : ""}`}>
           This is a cherry. It is delicious.
         </p>
         <p className={`about-text-right ${rightInView ? "animate-up" : ""} ${rightOutView ? "animate-down" : ""}`}>
-          Oranges are juicy and full of vitamins.
+          Rich in Vitamin C
+        </p>
+        <p className={`about-text-middle ${middleInView ? "animate-up" : ""} ${middleOutView ? "animate-down" : ""}`}>
+          Rich in Vitamin C
         </p>
         <img
           src="/orange.png"
