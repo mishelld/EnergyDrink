@@ -69,13 +69,11 @@ export default function About() {
  <p className="about-title"> 
    We care<br />
   about your health<br />
-  <span className="second-line"> Our energy drinks<br />
-  boost energy<br />
-  improve focus<br />
-  enhance performance<br />
-  </span>
-      </p>
+  </p>
+  <p className="second-line"> 
+  we prioritize your health with an energy drink made from all-natural ingredients and real fruits. No artificial supplements or additives—just pure, wholesome energy to fuel your day.
 
+  </p>
       {/* Floating Images */}
       <div className="about-image-container">
         <img
