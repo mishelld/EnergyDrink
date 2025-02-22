@@ -20,7 +20,6 @@
     text-align: center;  /* Aligns the text to the left */
     margin-left: 100px;    /* Optional: Ensures no additional margin on the left */
     color: aliceblue;
-    border: 1px solid #fafafa;  /* Border around the entire paragraph */
     padding: 10px;              /* Space between text and the border */
     border-radius: 300px;        /* Optional: Rounded corners */
     background-color: #ff0077;

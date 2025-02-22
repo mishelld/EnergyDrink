@@ -86,8 +86,8 @@ export default function About() {
   return (
     <div className="about-container">
   <img src="/orangeg.gif" alt="Boosting GIF" className="left-side-gif gif-1" />
-  <img src="/cherryg.gif" alt="Focus GIF" className="left-side-gif gif-2" />
-  <img src="/berriesg.gif" alt="Focus GIF" className="left-side-gif gif-3" />
+  <img src="/berriesg.gif" alt="Focus GIF" className="left-side-gif gif-2" />
+  <img src="/cherryg.gif" alt="Focus GIF" className="left-side-gif gif-3" />
 
 
 
