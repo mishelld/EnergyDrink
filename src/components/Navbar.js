@@ -92,11 +92,13 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         padding: '20px 40px',
-        backgroundColor: "rgb(0, 0, 0)",
         color: '#fff',
         borderRadius: '25px',
         width: '40%',
         margin: 'auto',
+        fontSize: '20px', // Increase icon size
+
+        
     },
     navLinks: {
         listStyle: 'none',
@@ -120,7 +122,7 @@ const styles = {
     },
     signInButton: {
         position: 'absolute', // Position the button absolutely
-        left: '10px', // Adjust the left position as needed
+        left: '200px', // Adjust the left position as needed
         top: '50%', // Center vertically
         transform: 'translateY(-50%)', // Center vertically
         textDecoration: 'none',
@@ -140,7 +142,7 @@ const styles = {
     },
     purchaseButton: {
         position: 'absolute', // Position the button absolutely
-        right: '50px', // Adjust the left position as needed
+        right: '200px', // Adjust the left position as needed
         top: '50%', // Center vertically
         transform: 'translateY(-50%)', // Center vertically
         textDecoration: 'none',
