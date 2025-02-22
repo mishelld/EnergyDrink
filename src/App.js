@@ -6,8 +6,7 @@ import PurchasePage from './components/PurchasePage';
 import Hero from './components/Hero';
 import SignInPage from './components/SignInPage';
 import About from './components/About';
-
-
+import UserPage from './components/UserPage'; // Import UserPage
 
 const slides = [
     { title: "Blueberry", image: "/Blueberry.png", gif: "/bio.gif", backgroundColor: "#7e6ad5ee", navColor: "#7e6ad5ee", price: "4.99" },
@@ -79,7 +78,6 @@ function App() {
             console.error("Error adding to cart:", error);
         }
     };
-    
 
     return (
         <Router>
@@ -88,7 +86,8 @@ function App() {
                 <Route path="/" element={<><Home /> <About /></>} />
                 <Route path="/hero" element={<Hero slides={slides} currentSlide={currentSlide} nextSlide={nextSlide} prevSlide={prevSlide} addToCart={addToCart} />} />
                 <Route path="/purchase" element={<PurchasePage cart={cart} setCart={setCart} />} />
-                <Route path="/signin" element={isAuthenticated ? <Navigate to="/" /> : <SignInPage handleLogin={handleLogin} />} />
+                <Route path="/signin" element={isAuthenticated ? <Navigate to="/user" /> : <SignInPage handleLogin={handleLogin} />} />
+                <Route path="/user" element={isAuthenticated ? <UserPage handleLogout={handleLogout} userEmail={userEmail} /> : <Navigate to="/signin" />} />
             </Routes>
         </Router>
     );
