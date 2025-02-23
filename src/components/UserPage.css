@@ -4,27 +4,95 @@
     align-items: center;
     padding: 20px;
     text-align: center;
+    min-height: 80vh;
+    background: rgb(255, 255, 255);
+
+}
+
+/* Profile Card */
+.profile-card {
+    background: rgb(225, 227, 252);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1400px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    min-height: 500px; /* Increase height */
+    height: auto; /* Allows content to expand */
 }
 
 h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    color: #000000;
+    margin-bottom: 15px;
 }
 
 .profile-info {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #808080;
 }
 
+/* Stats Section */
+.user-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px; /* Adds spacing between the containers */
+    margin-bottom: 20px;
+}
+
+/* Orders and Points Styling */
+.stat {
+    flex: 1; /* Makes them take equal space */
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Different colors for Orders and Points */
+.stat.orders {
+    color: #ffffff;
+    background: #1f5c8a; /* Green */
+}
+
+.stat.points {
+    color: #ffffff;
+    background: #1f5c8a; /* Orange */
+}
+.stat.Rewards {
+    color: #ffffff;
+    background: #1f5c8a; /* Orange */
+}
+
+.stat-value {
+    font-size: 1.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+
+/* Logout Button */
 .logout-btn {
-    padding: 10px 20px;
+    padding: 20px 40px;
     font-size: 1rem;
-    background-color: #ff4d4d;
+    background: linear-gradient(135deg, #ff4d4d, #e60000);
     color: white;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 200px;
 }
 
 .logout-btn:hover {
-    background-color: #e60000;
+    background: #b30000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(230, 0, 0, 0.3);
 }

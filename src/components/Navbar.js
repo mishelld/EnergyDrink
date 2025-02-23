@@ -8,6 +8,8 @@ function Navbar({ navColor }) {
     const [hoveredLink, setHoveredLink] = useState(null);
     const [navbarColor, setNavbarColor] = useState(navColor);
     const [cartItemCount, setCartItemCount] = useState(3); // Example cart count (this would come from your cart logic)
+    const [textColor, setTextColor] = useState('');
+
 
 
     const location = useLocation(); // Get the current location (route)
@@ -15,29 +17,52 @@ function Navbar({ navColor }) {
     const handleMouseEnter = (link) => setHoveredLink(link);
     const handleMouseLeave = () => setHoveredLink(null);
 
-    const getLinkStyle = (link) =>
-        link === hoveredLink ? { ...styles.link, ...styles.linkHover } : styles.link;
+    const getLinkStyle = (link) => {
+        const isUserPage = location.pathname === '/user'; // Check if on User page
+    
+        return {
+            ...styles.link,
+            ...(link === hoveredLink
+                ? {
+                    backgroundColor: isUserPage ? 'black' : 'white', // Black for User, White for others
+                    color: isUserPage ? 'white' : (textColor === '#fff' ? 'black' : 'white'), // Adjust text color dynamically
+                }
+                : { color: textColor } // Default text color per page
+            ),
+        };
+    };
+    
+    
+
 
     // Change navbar color based on the current path (location)
     useEffect(() => {
         const path = location.pathname;
-
-        // Logic to change navbar color based on path (you can adjust these colors as needed)
+    
         if (path === '/hero') {
-            setNavbarColor(navColor);  // If on /hero, use the passed navColor
+            setNavbarColor(navColor);
+            setTextColor('#fff');  // White text
         } else if (path === '/purchase') {
-            setNavbarColor('#333');  // For the purchase page, change the color
+            setNavbarColor('#333');
+            setTextColor('#fff');
         } else if (path === '/about') {
-            setNavbarColor('#3faffa');  // For the about page, change to blue
+            setNavbarColor('#3faffa');
+            setTextColor('#fff');
         } else if (path === '/signin') {
-            setNavbarColor('rgb(166, 0, 255)');  // For the sign-in page, use a red-orange color
+            setNavbarColor('rgb(166, 0, 255)');
+            setTextColor('#fff');
+        } else if (path === '/user') {
+            setNavbarColor('rgb(255, 255, 255)'); // White background
+            setTextColor('rgb(0, 0, 0)'); // Black text
         } else {
-            setNavbarColor('rgb(166, 0, 255)');  // Default color for other pages
+            setNavbarColor('rgb(166, 0, 255)');
+            setTextColor('#fff');
         }
-    }, [location, navColor]); // Depend on location (route) and navColor to update when necessary
+    }, [location, navColor]);
+    
 
     return (
-        <div style={{ ...styles.navbarWrapper, backgroundColor: navbarColor }}>
+        <div style={{ ...styles.navbarWrapper, backgroundColor: navbarColor, color: textColor }}>
 
               <Link
                 to="/signin"
@@ -45,8 +70,8 @@ function Navbar({ navColor }) {
                 onMouseEnter={() => handleMouseEnter('signin')}
                 onMouseLeave={handleMouseLeave}
             >
-                <FaUser style={styles.userIcon} />
-            </Link>
+           <FaUser style={{ ...styles.userIcon, color: textColor }} />
+</Link>
 
             <Link
                 to="/purchase"
@@ -54,7 +79,7 @@ function Navbar({ navColor }) {
                 onMouseEnter={() => handleMouseEnter('purchase')}
                 onMouseLeave={handleMouseLeave}
             >
-                <FaShoppingCart style={styles.cartIcon} /> {/* Changed from userIcon to cartIcon */}
+<FaShoppingCart style={{ ...styles.cartIcon, color: textColor }} />
                     {cartItemCount > 0 && (
                         <span style={styles.cartBadge}>{cartItemCount}</span>
                     )}
@@ -65,13 +90,14 @@ function Navbar({ navColor }) {
                     {['home', 'hero', 'about'].map((item) => (
                         <li key={item}>
                             <Link
-                                to={item === 'home' ? '/' : `/${item}`} // ✅ Fix Home path
-                                style={getLinkStyle(item)}
-                                onMouseEnter={() => handleMouseEnter(item)}
-                                onMouseLeave={handleMouseLeave}
-                            >
-                                {item.charAt(0).toUpperCase() + item.slice(1)}
-                            </Link>
+    to={item === 'home' ? '/' : `/${item}`}
+    style={getLinkStyle(item)}
+    onMouseEnter={() => handleMouseEnter(item)}
+    onMouseLeave={handleMouseLeave}
+>
+    {item.charAt(0).toUpperCase() + item.slice(1)}
+</Link>
+
                         </li>
                     ))}
                 </ul>
