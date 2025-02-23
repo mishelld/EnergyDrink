@@ -325,6 +325,8 @@
   
   .gif-1 {
     transform: translateY(-50%);
+    width: 120px;  /* Adjust size */
+
   }
 
   .gif-2 {
