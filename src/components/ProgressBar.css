@@ -1,0 +1,84 @@
+/* Default progress bar styling */
+.progress-bar {
+    height: 20px;
+    width: 200px;
+    background-color: #dddddd00; /* Transparent background for the bar */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures the filling does not go outside the bar */
+}
+
+/* Specific border color for caffeine */
+.progress-bar.caffeine {
+    border: 2px solid rgb(73, 222, 255); /* Caffeine border color */
+}
+
+/* Specific border color for vitamins */
+.progress-bar.vitamins {
+    border: 2px solid #33ff00; /* Vitamins border color */
+}
+
+/* Specific border color for sugar */
+.progress-bar.sugar {
+    border: 2px solid rgb(255, 0, 68); /* Sugar border color */
+}
+
+/* Container for the progress bars */
+.progress-bar-container {
+    position: absolute;
+    left: 100px; /* Push title to the far left */
+    bottom: 1%;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    opacity: 1; /* Initially hidden */
+    margin: 20px 0;
+}
+
+/* Individual progress bars */
+.progress-bar-container.caffeine {
+    bottom: 1%; /* Move it 20% from the bottom */
+}
+
+.progress-bar-container.vitamins {
+    bottom: 11%; /* Move it 40% from the bottom */
+}
+
+.progress-bar-container.sugar {
+    bottom: 22%; /* Move it 60% from the bottom */
+}
+
+/* Label for the progress bar (Caffeine, Vitamins, Sugar) */
+.progress-label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+/* Text color for caffeine label */
+.progress-label.caffeine {
+    color: rgb(73, 222, 255); /* Caffeine label color */
+}
+
+/* Text color for vitamins label */
+.progress-label.vitamins {
+    color: #33ff00; /* Vitamins label color */
+}
+
+/* Text color for sugar label */
+.progress-label.sugar {
+    color: rgb(255, 0, 68); /* Sugar label color */
+}
+
+/* The outer progress bar container */
+.progress-bar {
+    height: 20px;
+    width: 200px;
+    background-color: #dddddd00; /* Transparent background for the bar */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures the filling does not go outside the bar */
+}
+
+/* The filling of the progress bar */
+.progress-fill {
+    height: 100%;
+    transition: width 0.5s ease-in-out; /* Smooth animation for filling up */
+}

@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
+import ProgressBarContainer from './ProgressBar'; // Import the ProgressBarContainer
 import './Home.css'; // Import the CSS file
 
 function Home() {
     const imageRefs = useRef([]); // Ref to track all images
+    // Example values for caffeine, vitamins, and sugar
 
     useEffect(() => {
         const handleScroll = () => {
@@ -73,6 +75,10 @@ if (homeTop > 0 && homeBottom > window.innerHeight) {
                     className="side-image right-image floatUpDown"
                 />
             </div>
+            <ProgressBarContainer />
+
+
+            
         </div>
     );
 }
