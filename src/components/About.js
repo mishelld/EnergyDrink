@@ -119,13 +119,12 @@ export default function About() {
           `}
         />
         <p className={`about-text-left ${leftInView ? "animate-up" : ""} ${leftOutView ? "animate-down" : ""}`}>
-          This is a cherry. It is delicious.
-        </p>
+        Cherries reduce muscle soreness, improve sleep, ease arthritis pain, support heart health, and fight inflammation.</p>
         <p className={`about-text-right ${rightInView ? "animate-up" : ""} ${rightOutView ? "animate-down" : ""}`}>
-          Rich in Vitamin C
-        </p>
+        Oranges contain vitamin C, boosting immunity, heart health, and digestion.
+</p>
         <p className={`about-text-middle ${middleInView ? "animate-up" : ""} ${middleOutView ? "animate-down" : ""}`}>
-          Rich in Vitamin C
+        Blueberries boost brain, heart, and immune health while aiding digestion and reducing inflammation.
         </p>
         <img
           src="/orange.png"

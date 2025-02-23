@@ -175,13 +175,14 @@
   
   .about-text-left {
     position: absolute;
-    right: 40%;  /* Adjust the text position */
-    top: 40%;   /* Adjust to align with the image */
-    font-size: 1.5rem;
-    font-weight: bold;
+    right: 41%;  /* Adjust the text position */
+    top: 35%;   /* Adjust to align with the image */
+    font-size: 1rem;
+    font-weight: normal;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     color:rgb(255, 0, 123);
+    width: 20%;
   }
 
   .about-text-left::before {
@@ -189,8 +190,8 @@
     position: absolute;
     top: 100%; /* Position line below the text */
     right: 50%; /* Centers the line under the text */
-    width: 2px; /* Line thickness */
-    height: 40px; /* Length of the line */
+    width: 0.5px; /* Line thickness */
+    height: 80px; /* Length of the line */
     background-color: rgb(255, 0, 123); /* Line color */
     transform: translateX(50%); /* Centers the line */
 }
@@ -201,8 +202,8 @@
     position: absolute;
     top: 200%; /* Position circle at the end of the line */
     right: 50%; /* Centers the circle with the line */
-    width: 10px; /* Circle size */
-    height: 10px;
+    width: 25px; /* Circle size */
+    height: 25px;
     background-color: rgb(255, 0, 55); /* Circle color */
     border-radius: 50%; /* Makes it a circle */
     transform: translateX(50%); /* Centers the circle */
@@ -221,13 +222,15 @@
   /* Style for Right Text */
 .about-text-right {
     position: absolute;
-    right: 4%;
+    right: 1%;
     top: 40%;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1rem;
+    font-weight: normal;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     color:rgb(255, 119, 0);
+    width: 20%;
+
   }
 
  /* Adds a connecting line below the text */
@@ -237,8 +240,8 @@
     position: absolute;
     top: 100%; /* Position line below the text */
     right: 50%; /* Centers the line under the text */
-    width: 2px; /* Line thickness */
-    height: 40px; /* Length of the line */
+    width: 0.5px; /* Line thickness */
+    height: 80px; /* Length of the line */
     background-color: rgb(255, 119, 0); /* Line color */
     transform: translateX(50%); /* Centers the line */
 }
@@ -247,10 +250,10 @@
 .about-text-right::after {
     content: "";
     position: absolute;
-    top: 200%; /* Position circle at the end of the line */
+    top: 230%; /* Position circle at the end of the line */
     right: 50%; /* Centers the circle with the line */
-    width: 10px; /* Circle size */
-    height: 10px;
+    width: 25px; /* Circle size */
+    height: 25px;
     background-color: rgb(255, 119, 0); /* Circle color */
     border-radius: 50%; /* Makes it a circle */
     transform: translateX(50%); /* Centers the circle */
@@ -266,13 +269,14 @@
 
   .about-text-middle {
     position: absolute;
-    right: 24%;
-    top: 30%;
-    font-size: 1.5rem;
-    font-weight: bold;
+    right: 21%;
+    top: 25%;
+    font-size: 1rem;
+    font-weight: normal; /* Change this from 'bold' to 'normal' */
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    color:rgb(140, 0, 255);
+    color:rgb(0, 0, 0);
+    width: 20%;
   }
 
  /* Adds a connecting line below the text */
@@ -282,8 +286,8 @@
     position: absolute;
     top: 100%; /* Position line below the text */
     right: 50%; /* Centers the line under the text */
-    width: 2px; /* Line thickness */
-    height: 40px; /* Length of the line */
+    width: 0.5px; /* Line thickness */
+    height: 80px; /* Length of the line */
     background-color: rgb(140, 0, 255); /* Line color */
     transform: translateX(50%); /* Centers the line */
 }
@@ -294,8 +298,8 @@
     position: absolute;
     top: 200%; /* Position circle at the end of the line */
     right: 50%; /* Centers the circle with the line */
-    width: 10px; /* Circle size */
-    height: 10px;
+    width: 25px; /* Circle size */
+    height: 25px;
     background-color: rgb(140, 0, 255); /* Circle color */
     border-radius: 50%; /* Makes it a circle */
     transform: translateX(50%); /* Centers the circle */
