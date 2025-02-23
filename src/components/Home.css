@@ -111,7 +111,7 @@
 }
 
 /* Side Image Jump Animation */
-@keyframes jumpIn {
+@keyframes jumpIn-first {
     0% {
         opacity: 0;
         transform: translateY(100px);
@@ -149,12 +149,12 @@
 
 /* Left Image */
 .left-image {
-    animation: jumpIn 0.6s ease-out 0.8s forwards, floatUpDown 3s ease-in-out 2.3s infinite;
+    animation: jumpIn-first 0.6s ease-out 0.8s forwards, floatUpDown 3s ease-in-out 2.3s infinite;
 }
 
 /* Right Image */
 .right-image {
-    animation: jumpIn 0.6s ease-out 0.8s forwards, floatUpDown 3s ease-in-out 2.3s infinite;
+    animation: jumpIn-first 0.6s ease-out 0.8s forwards, floatUpDown 3s ease-in-out 2.3s infinite;
 }
 
 /* GIF Styling */
