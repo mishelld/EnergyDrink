@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './SignInPage.css';
+
 
 function SignInPage({ handleLogin }) {
     const [isSignUp, setIsSignUp] = useState(false);

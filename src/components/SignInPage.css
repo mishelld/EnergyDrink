@@ -28,7 +28,7 @@ input {
 .auth-btn {
     padding: 10px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #000000;
     color: white;
     border: none;
     cursor: pointer;
@@ -36,7 +36,7 @@ input {
 }
 
 .auth-btn:hover {
-    background-color: #0056b3;
+    background-color: red;
 }
 
 .error-message {

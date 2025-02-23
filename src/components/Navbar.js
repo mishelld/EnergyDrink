@@ -20,13 +20,15 @@ function Navbar({ navColor }) {
     const getLinkStyle = (link) => {
         const isUserPage = location.pathname === '/user'; // Check if on User page
         const isPurchasePage = location.pathname === '/purchase'; // Check if on Purchase page
+        const isSignInPage = location.pathname === '/signin'; // Check if on Purchase page
+
 
     
         return {
             ...styles.link,
             ...(link === hoveredLink
                 ? {
-                    backgroundColor: isUserPage || isPurchasePage ? 'black' : 'white', // Black for User, White for others
+                    backgroundColor: isUserPage || isPurchasePage || isSignInPage  ? 'black' : 'white', // Black for User, White for others
                     color: isUserPage ? 'white' : (textColor === '#fff' ? 'black' : 'white'), // Adjust text color dynamically
                 }
                 : { color: textColor } // Default text color per page
@@ -51,8 +53,8 @@ function Navbar({ navColor }) {
             setNavbarColor('#3faffa');
             setTextColor('#fff');
         } else if (path === '/signin') {
-            setNavbarColor('rgb(166, 0, 255)');
-            setTextColor('#fff');
+            setNavbarColor('rgb(255, 255, 255)'); // White background
+            setTextColor('rgb(0, 0, 0)'); // Black text
         } else if (path === '/user') {
             setNavbarColor('rgb(255, 255, 255)'); // White background
             setTextColor('rgb(0, 0, 0)'); // Black text
