@@ -13,7 +13,7 @@
 
 .home-title {
     position: absolute;
-    left: 1px; /* Push title to the far left */
+    left: 20px; /* Push title to the far left */
     top: 10%;
     font-size: 180px;
     font-weight: bold;
@@ -22,7 +22,18 @@
     opacity: 0; /* Initially hidden */
     color: rgb(0, 234, 255); /* Blue */
 
-    animation: slideIn 1s ease-in-out 0.5s forwards; /* Reduced duration to 1s and delay to 0.5s */
+    animation: slideIn 1s ease-in-out 0.5s forwards, pulse-home 1.5s 1.5s infinite; /* Reduced duration to 1s and delay to 0.5s */
+}
+@keyframes pulse-home {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 .home-subtitle {
     position: absolute;
@@ -34,7 +45,7 @@
     white-space: nowrap;
     opacity: 0; /* Initially hidden */
     color: rgb(255, 0, 115); /* Pink */
-    animation: slideIn 1s ease-in-out 0.5s forwards; /* Reduced duration to 1s and delay to 0.5s */
+    animation: slideIn 1s ease-in-out 0.5s forwards, pulse-home 1.5s 1.5s infinite; /* Reduced duration to 1s and delay to 0.5s */
 }
 @keyframes colorFlicker {
     0% {
