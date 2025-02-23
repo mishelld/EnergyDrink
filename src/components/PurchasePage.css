@@ -2,13 +2,14 @@
 .purchase-page {
     display: flex; /* Use flexbox for the layout */
     width: 100%; /* Make it take up the full width of the page */
-    height: 100vh; /* Make it take up the full height of the page */
     margin: 0; /* Remove margin */
     padding: 0; /* Remove padding */
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     border-radius: 0; /* Optional: Remove border-radius for full edge coverage */
     box-shadow: none; /* Optional: Remove shadow if you don't want it */
     font-family: 'Arial', sans-serif;
+    min-height: 80vh;
+
 }
 
 
@@ -18,10 +19,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
-    border-radius: 10px;
-
+    background:linear-gradient(to top, rgb(180, 255, 145),rgb(255, 235, 145), rgb(255, 182, 193));
     border-right: 2px solid #ddd; /* Divider between the left and right */
+    height: auto; /* Allows content to expand */
+
 }
 
 
@@ -30,6 +31,8 @@
     font-size: 1.2rem;
     border-radius: 5px;
     border: 1px solid #ddd;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 /* Right side - Items container */
@@ -66,7 +69,7 @@
     align-items: center;
     margin-bottom: 20px;
     padding: 20px;
-    background-color: #fff;
+    background:linear-gradient(to left, rgb(180, 255, 145),rgb(255, 235, 145), rgb(255, 182, 193));
     border: 1px solid #ddd;
     border-radius: 8px;
     width: 500px; /* Optional: Set a width to make it smaller */
@@ -113,10 +116,11 @@
     justify-content: space-between;
     margin-top: 20px;
     padding: 20px; /* Match item container padding */
-    background-color: #fff;
+    background:linear-gradient(to left, rgb(180, 255, 145),rgb(255, 235, 145), rgb(255, 182, 193));
     border: 1px solid #ddd;
     border-radius: 8px;
     width: 500px; /* Optional: Set a width to make it smaller */
+    
 
 }
 
@@ -129,11 +133,15 @@
 .proceed-btn {
     background-color: #28a745;
     color: white;
-    padding: 10px 20px;
+    padding: 20px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 20px; /* Adds space on all sides */
+    font-size: 1.2rem;
+
+
 }
 
 .proceed-btn:hover {
@@ -162,16 +170,17 @@
 }
 
 .quantity-controls button {
-    background-color: #ddd;
+    background-color: #000000;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     font-size: 1rem;
     border-radius: 5px;
+    color: white;
 }
 
 .quantity-controls button:hover {
-    background-color: #bbb;
+    background-color: #ff0000;
 }
 
 .quantity-controls span {
