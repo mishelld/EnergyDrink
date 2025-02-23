@@ -56,16 +56,16 @@ h2 {
 /* Different colors for Orders and Points */
 .stat.orders {
     color: #ffffff;
-    background: #1f5c8a; /* Green */
+    background: #000000; /* Green */
 }
 
 .stat.points {
     color: #ffffff;
-    background: #1f5c8a; /* Orange */
+    background: #000000; /* Orange */
 }
 .stat.Rewards {
     color: #ffffff;
-    background: #1f5c8a; /* Orange */
+    background: #000000; /* Orange */
 }
 
 .stat-value {
@@ -82,7 +82,7 @@ h2 {
 .logout-btn {
     padding: 20px 40px;
     font-size: 1rem;
-    background: linear-gradient(135deg, #ff4d4d, #e60000);
+    background: #e60000;
     color: white;
     border: none;
     border-radius: 8px;
@@ -92,7 +92,7 @@ h2 {
 }
 
 .logout-btn:hover {
-    background: #b30000;
+    background: #000000;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(230, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
