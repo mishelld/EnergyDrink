@@ -67,27 +67,33 @@ function PurchasePage({ setCart }) {
         const updatedCart = [...cart];
         if (updatedCart[index].quantity > 1) {
             updatedCart[index].quantity -= 1;
-        } else {
-            // Quantity is 0, so we need to delete it from the server
+
             try {
                 const response = await fetch(`http://localhost:5000/api/cart/${userEmail}/item/${itemId}`, {
-                    method: 'DELETE',
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        quantity: updatedCart[index].quantity,
+                    }),
                 });
-    
+        
                 if (!response.ok) {
-                    throw new Error('Failed to delete item from cart');
+                    throw new Error('Failed to update item quantity on server');
                 }
-    
-                // Remove the item from the local cart after successful deletion from the server
-                updatedCart.splice(index, 1);
+        
+                // Update the local state after successful update on the server
+                setCartState(updatedCart);
+                setCart(updatedCart);  // Update the parent cart as well
             } catch (error) {
-                console.error('Error deleting item:', error);
+                console.error('Error updating item quantity:', error);
             }
+        } else {
+            // Quantity is 0, so we need to delete it from the server
+            deleteItem(index, itemId);
         }
-    
-        // Update the local state after handling the quantity or deletion
-        setCartState(updatedCart);
-        setCart(updatedCart);  // Update the parent cart as well
+
     };
     
     
