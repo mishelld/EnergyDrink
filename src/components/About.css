@@ -1,362 +1,363 @@
 
-  .about-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background:linear-gradient(to left, rgb(180, 255, 145),rgb(255, 235, 145), rgb(255, 182, 193));
-  }
-  
-  .about-title {
-    width: 400px;
-    height: 400px;
+.about-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background:linear-gradient(to left, rgb(180, 255, 145),rgb(255, 235, 145), rgb(255, 182, 193));
+}
 
-    position: absolute;
-    font-size: 2rem;
-    font-weight: bold;
-    font-family: 'Baloo Paaji', cursive;
-    text-align: center;  /* Aligns the text to the left */
-    margin-left: 100px;    /* Optional: Ensures no additional margin on the left */
-    color: aliceblue;
-    padding: 10px;              /* Space between text and the border */
-    border-radius: 300px;        /* Optional: Rounded corners */
-    background-color: #ff0077;
+.about-title {
+  width: 400px;
+  height: 400px;
+
+  position: absolute;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Baloo Paaji', cursive;
+  text-align: center;  /* Aligns the text to the left */
+  margin-left: 100px;    /* Optional: Ensures no additional margin on the left */
+  color: aliceblue;
+  padding: 10px;              /* Space between text and the border */
+  border-radius: 300px;        /* Optional: Rounded corners */
+  background-color: #ff0077;
 
 }
 .second-line {
-    color: #ffe221; /* Replace with your desired color */
-    font-size: 1rem;
-    text-align: left;  /* Aligns the text to the left */
-    width: 300px;
-    height: 400px;
-    position: absolute;
-    font-size: 1rem;
-    font-weight: bold;
-    font-family: 'Baloo Paaji', cursive;
-    margin-left: 170px;    /* Optional: Ensures no additional margin on the left */
-    margin-top: 180px;    /* Optional: Ensures no additional margin on the left */
+  color: #ffe221; /* Replace with your desired color */
+  font-size: 1rem;
+  text-align: left;  /* Aligns the text to the left */
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Baloo Paaji', cursive;
+  margin-left: 170px;    /* Optional: Ensures no additional margin on the left */
+  margin-top: 180px;    /* Optional: Ensures no additional margin on the left */
 
 
-  }
-  
+}
+
 
 /* Ensure the parent container uses flex with left alignment */
 .about-container {
-    display: flex;
-    justify-content: flex-start;  /* Aligns children (titles) to the left */
-    align-items: flex-start;  /* Aligns items vertically at the top */
-    width: 100%;
+  display: flex;
+  justify-content: flex-start;  /* Aligns children (titles) to the left */
+  align-items: flex-start;  /* Aligns items vertically at the top */
+  width: 100%;
 }
 
 
 
-  .about-image-container {
-    width: 700px;
-    height: 700px;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Aligns content to the right */
-    margin-left: 700px;
-    
-    /* Background Image */
-    overflow: hidden;
-    /* Ensures images do not overflow the container */
+.about-image-container {
+  width: 700px;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Aligns content to the right */
+  margin-left: 700px;
+  
+  /* Background Image */
+  overflow: hidden;
+  /* Ensures images do not overflow the container */
 }
 
 .about-left-image, .about-right-image {
-    position: relative;
-    opacity: 0; /* Start as invisible */
-  }
+  position: relative;
+  opacity: 0; /* Start as invisible */
+}
 
-  .about-right-image {
-    width: 200px;   /* Set the width for only the left image */
-    height: auto;  /* Set the height for only the left image */
-    margin-top: 550px;
-  }
-  
-  .about-left-image {
-    width: 200px;     /* Keep the right image at its original size */
-    height: auto;   /* Keep the right image's aspect ratio */
-    margin-top: 550px;
+.about-right-image {
+  width: 200px;   /* Set the width for only the left image */
+  height: auto;  /* Set the height for only the left image */
+  margin-top: 550px;
+}
 
-  }
-  .about-middle-image {
-    width: 230px;     /* Keep the right image at its original size */
-    height: auto;   /* Keep the right image's aspect ratio */
-    margin-top: 500px;
+.about-left-image {
+  width: 200px;     /* Keep the right image at its original size */
+  height: auto;   /* Keep the right image's aspect ratio */
+  margin-top: 550px;
 
-  }
-  
-  
-  .about-left-image.animate-up {
-    animation: about-jumpIn-left 0.8s ease-out forwards, 
-               about-floatUpDown-left 3s ease-in-out infinite;
-    animation-delay: 0s, 0.8s; /* Delay the floating until after jump */
-  }
-  
-  .about-right-image.animate-up {
-    animation: about-jumpIn-right 0.8s ease-out forwards, 
-               about-floatUpDown-right 3s ease-in-out infinite;
-    animation-delay: 0s, 0.8s;
-  }
+}
+.about-middle-image {
+  width: 230px;     /* Keep the right image at its original size */
+  height: auto;   /* Keep the right image's aspect ratio */
+  margin-top: 500px;
 
-  .about-middle-image.animate-up {
-    animation: about-jumpIn-middle 0.8s ease-out forwards, 
-               about-floatUpDown-middle 3s ease-in-out infinite;
-    animation-delay: 0s, 0.8s; /* Delay the floating until after jump */
-  }
-  
-  /* Falling Down Animation */
-  .about-left-image.animate-down {
-    animation: about-fallDown-left 0.8s ease-out forwards;
-  }
-  
-  .about-right-image.animate-down {
-    animation: about-fallDown-right 0.8s ease-out forwards;
-  }
-  
-  .about-middle-image.animate-down {
-    animation: about-fallDown-middle 0.8s ease-out forwards;
-  }
+}
 
-  /* Jump In Animation (Runs Only Once, More Noticeable) */
-  @keyframes about-jumpIn-left {
-    0% { transform: rotate(-15deg) translateY(250px); opacity: 0; }
-    100% { transform: rotate(-15deg) translateY(0); opacity: 1; }
-  }
 
-  @keyframes about-jumpIn-middle {
-    0% { transform: translateY(250px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-  }
-  
-  @keyframes about-jumpIn-right {
-    0% { transform: rotate(15deg) translateY(250px); opacity: 0; }
-    100% { transform: rotate(15deg) translateY(0); opacity: 1; }
-  }
-  
-  
-  /* Floating Animation (Runs Infinitely) */
-  @keyframes about-floatUpDown-left {
-    0% { transform: rotate(-15deg) translateY(0); }
-    50% { transform: rotate(-15deg) translateY(-30px); }
-    100% { transform: rotate(-15deg) translateY(0); }
-  }
-  
-  @keyframes about-floatUpDown-right {
-    0% { transform: rotate(15deg) translateY(0); }
-    50% { transform: rotate(15deg) translateY(-30px); }
-    100% { transform: rotate(15deg) translateY(0); }
-  }
+.about-left-image.animate-up {
+  animation: about-jumpIn-left 0.8s ease-out forwards, 
+             about-floatUpDown-left 3s ease-in-out infinite;
+  animation-delay: 0s, 0.8s; /* Delay the floating until after jump */
+}
 
-  @keyframes about-floatUpDown-middle {
-    0% { transform:  translateY(0); }
-    50% { transform:  translateY(-30px); }
-    100% { transform:  translateY(0); }
-  }
-  
-  /* Falling Down Animation (When Image Exits) */
-  @keyframes about-fallDown-left {
-    0% { transform: rotate(-15deg) translateY(0); opacity: 1; }
-    100% { transform: rotate(-15deg) translateY(250px); opacity: 0; }
-  }
-  
-  @keyframes about-fallDown-right {
-    0% { transform: rotate(15deg) translateY(0); opacity: 1; }
-    100% { transform: rotate(15deg) translateY(250px); opacity: 0; }
-  }
+.about-right-image.animate-up {
+  animation: about-jumpIn-right 0.8s ease-out forwards, 
+             about-floatUpDown-right 3s ease-in-out infinite;
+  animation-delay: 0s, 0.8s;
+}
 
-  @keyframes about-fallDown-middle {
-    0% { transform:  translateY(0); opacity: 1; }
-    100% { transform:  translateY(250px); opacity: 0; }
-  }
-  
-  .about-text-left {
-    position: absolute;
-    right: 41%;  /* Adjust the text position */
-    top: 35%;   /* Adjust to align with the image */
-    font-size: 1rem;
-    font-weight: normal;
-    opacity: 0;
-    color:#ff0077;
-    width: 20%;
-  }
+.about-middle-image.animate-up {
+  animation: about-jumpIn-middle 0.8s ease-out forwards, 
+             about-floatUpDown-middle 3s ease-in-out infinite;
+  animation-delay: 0s, 0.8s; /* Delay the floating until after jump */
+}
 
-  .about-text-left::before {
-    content: "";
-    position: absolute;
-    top: 100%; /* Position line below the text */
-    right: 50%; /* Centers the line under the text */
-    width: 0.5px; /* Line thickness */
-    height: 80px; /* Length of the line */
-    background-color: #ff0077; /* Line color */
-    transform: translateX(50%); /* Centers the line */
+/* Falling Down Animation */
+.about-left-image.animate-down {
+  animation: about-fallDown-left 0.8s ease-out forwards;
+}
+
+.about-right-image.animate-down {
+  animation: about-fallDown-right 0.8s ease-out forwards;
+}
+
+.about-middle-image.animate-down {
+  animation: about-fallDown-middle 0.8s ease-out forwards;
+}
+
+/* Jump In Animation (Runs Only Once, More Noticeable) */
+@keyframes about-jumpIn-left {
+  0% { transform: rotate(-15deg) translateY(250px); opacity: 0; }
+  100% { transform: rotate(-15deg) translateY(0); opacity: 1; }
+}
+
+@keyframes about-jumpIn-middle {
+  0% { transform: translateY(250px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes about-jumpIn-right {
+  0% { transform: rotate(15deg) translateY(250px); opacity: 0; }
+  100% { transform: rotate(15deg) translateY(0); opacity: 1; }
+}
+
+
+/* Floating Animation (Runs Infinitely) */
+@keyframes about-floatUpDown-left {
+  0% { transform: rotate(-15deg) translateY(0); }
+  50% { transform: rotate(-15deg) translateY(-30px); }
+  100% { transform: rotate(-15deg) translateY(0); }
+}
+
+@keyframes about-floatUpDown-right {
+  0% { transform: rotate(15deg) translateY(0); }
+  50% { transform: rotate(15deg) translateY(-30px); }
+  100% { transform: rotate(15deg) translateY(0); }
+}
+
+@keyframes about-floatUpDown-middle {
+  0% { transform:  translateY(0); }
+  50% { transform:  translateY(-30px); }
+  100% { transform:  translateY(0); }
+}
+
+/* Falling Down Animation (When Image Exits) */
+@keyframes about-fallDown-left {
+  0% { transform: rotate(-15deg) translateY(0); opacity: 1; }
+  100% { transform: rotate(-15deg) translateY(250px); opacity: 0; }
+}
+
+@keyframes about-fallDown-right {
+  0% { transform: rotate(15deg) translateY(0); opacity: 1; }
+  100% { transform: rotate(15deg) translateY(250px); opacity: 0; }
+}
+
+@keyframes about-fallDown-middle {
+  0% { transform:  translateY(0); opacity: 1; }
+  100% { transform:  translateY(250px); opacity: 0; }
+}
+
+.about-text-left {
+  position: absolute;
+  right: 41%;  /* Adjust the text position */
+  top: 35%;   /* Adjust to align with the image */
+  font-size: 1rem;
+  font-weight: normal;
+  opacity: 0;
+  color:#ff0077;
+  width: 20%;
+}
+
+.about-text-left::before {
+  content: "";
+  position: absolute;
+  top: 100%; /* Position line below the text */
+  right: 50%; /* Centers the line under the text */
+  width: 0.5px; /* Line thickness */
+  height: 80px; /* Length of the line */
+  background-color: #ff0077; /* Line color */
+  transform: translateX(50%); /* Centers the line */
 }
 
 /* Adds a circle at the end of the line */
 .about-text-left::after {
-    content: "";
-    position: absolute;
-    top: 200%; /* Position circle at the end of the line */
-    right: 50%; /* Centers the circle with the line */
-    width: 25px; /* Circle size */
-    height: 25px;
-    background-color: #ff0077; /* Circle color */
-    border-radius: 50%; /* Makes it a circle */
-    transform: translateX(50%); /* Centers the circle */
+  content: "";
+  position: absolute;
+  top: 200%; /* Position circle at the end of the line */
+  right: 50%; /* Centers the circle with the line */
+  width: 25px; /* Circle size */
+  height: 25px;
+  background-color: #ff0077; /* Circle color */
+  border-radius: 50%; /* Makes it a circle */
+  transform: translateX(50%); /* Centers the circle */
 }
 
-  .about-text-left.animate-up {
-    animation: about-fadeIn-middle 0.8s ease-out forwards, 
-               about-floatUpDown-left 3s ease-in-out infinite;
-    animation-delay: 2s, 0.8s; 
-  }
+.about-text-left.funcup {
+  animation: comesin 0.8s ease-out forwards, 
+             about-floatUpDown-left 3s ease-in-out infinite;
+  animation-delay: 1s, 0.8s;
+}
+.about-text-left.funcdown {
+  animation: fallsd 0.8s linear forwards;
+} 
 
-  .about-text-left.animate-down {
-    animation: about-fallDown 0.8s linear forwards;
-  }
-  
-  /* Style for Right Text */
+/* Style for Right Text */
 .about-text-right {
-    position: absolute;
-    right: 1%;
-    top: 40%;
-    font-size: 1rem;
-    font-weight: normal;
-    opacity: 0;
-    color:#ff0077;
-    width: 20%;
+  position: absolute;
+  right: 1%;
+  top: 40%;
+  font-size: 1rem;
+  font-weight: normal;
+  opacity: 0;
+  color:#ff0077;
+  width: 20%;
 
-  }
+}
 
- /* Adds a connecting line below the text */
+/* Adds a connecting line below the text */
 /* Adds a connecting line pointing down */
 .about-text-right::before {
-    content: "";
-    position: absolute;
-    top: 100%; /* Position line below the text */
-    right: 50%; /* Centers the line under the text */
-    width: 0.5px; /* Line thickness */
-    height: 80px; /* Length of the line */
-    background-color: #ff0077; /* Line color */
-    transform: translateX(50%); /* Centers the line */
+  content: "";
+  position: absolute;
+  top: 100%; /* Position line below the text */
+  right: 50%; /* Centers the line under the text */
+  width: 0.5px; /* Line thickness */
+  height: 80px; /* Length of the line */
+  background-color: #ff0077; /* Line color */
+  transform: translateX(50%); /* Centers the line */
 }
 
 /* Adds a circle at the end of the line */
 .about-text-right::after {
-    content: "";
-    position: absolute;
-    top: 230%; /* Position circle at the end of the line */
-    right: 50%; /* Centers the circle with the line */
-    width: 25px; /* Circle size */
-    height: 25px;
-    background-color: #ff0077; /* Circle color */
-    border-radius: 50%; /* Makes it a circle */
-    transform: translateX(50%); /* Centers the circle */
+  content: "";
+  position: absolute;
+  top: 230%; /* Position circle at the end of the line */
+  right: 50%; /* Centers the circle with the line */
+  width: 25px; /* Circle size */
+  height: 25px;
+  background-color: #ff0077; /* Circle color */
+  border-radius: 50%; /* Makes it a circle */
+  transform: translateX(50%); /* Centers the circle */
 }
-  .about-text-right.animate-up {
-    animation: about-fadeIn-middle 0.8s ease-out forwards, 
-               about-floatUpDown-right 3s ease-in-out infinite;
-    animation-delay: 1.5s, 0.8s;
-  }
-  .about-text-right.animate-down {
-    animation: about-fallDown 0.8s linear forwards;
-  }  
+ 
+.about-text-right.funcup {
+  animation: comesin 0.8s ease-out forwards, 
+             about-floatUpDown-right 3s ease-in-out infinite;
+  animation-delay: 1s, 0.8s;
+}
+.about-text-right.funcdown {
+  animation: fallsd 0.8s linear forwards;
+}  
 
-  .about-text-middle {
-    position: absolute;
-    right: 21%;
-    top: 25%;
-    font-size: 1rem;
-    font-weight: normal; /* Change this from 'bold' to 'normal' */
-    opacity: 0;
-    color:#ff0077;
-    width: 20%;
-  }
+.about-text-middle {
+  position: absolute;
+  right: 21%;
+  top: 25%;
+  font-size: 1rem;
+  font-weight: normal; /* Change this from 'bold' to 'normal' */
+  opacity: 0;
+  color:#ff0077;
+  width: 20%;
+}
 
- /* Adds a connecting line below the text */
+/* Adds a connecting line below the text */
 /* Adds a connecting line pointing down */
 .about-text-middle::before {
-    content: "";
-    position: absolute;
-    top: 100%; /* Position line below the text */
-    right: 50%; /* Centers the line under the text */
-    width: 0.5px; /* Line thickness */
-    height: 80px; /* Length of the line */
-    background-color: #ff0077; /* Line color */
-    transform: translateX(50%); /* Centers the line */
+  content: "";
+  position: absolute;
+  top: 100%; /* Position line below the text */
+  right: 50%; /* Centers the line under the text */
+  width: 0.5px; /* Line thickness */
+  height: 80px; /* Length of the line */
+  background-color: #ff0077; /* Line color */
+  transform: translateX(50%); /* Centers the line */
 }
 
 /* Adds a circle at the end of the line */
 .about-text-middle::after {
-    content: "";
-    position: absolute;
-    top: 200%; /* Position circle at the end of the line */
-    right: 50%; /* Centers the circle with the line */
-    width: 25px; /* Circle size */
-    height: 25px;
-    background-color: #ff0077; /* Circle color */
-    border-radius: 50%; /* Makes it a circle */
-    transform: translateX(50%); /* Centers the circle */
-}
-  .about-text-middle.animate-up {
-    animation: about-fadeIn-middle 0.8s ease-out forwards, 
-               about-floatUpDown-middle 3s ease-in-out infinite;
-    animation-delay: 1s, 0.8s;
-  }
-  .about-text-middle.animate-down {
-    animation: about-fallDown 0.8s linear forwards;
-  }  
-  @keyframes about-fadeIn-middle {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  content: "";
+  position: absolute;
+  top: 200%; /* Position circle at the end of the line */
+  right: 50%; /* Centers the circle with the line */
+  width: 25px; /* Circle size */
+  height: 25px;
+  background-color: #ff0077; /* Circle color */
+  border-radius: 50%; /* Makes it a circle */
+  transform: translateX(50%); /* Centers the circle */
 }
 
-  .left-side-gif {
-    position: absolute;  /* Keeps it fixed on the left */
-    left: 400px;  /* Adjust distance from the left edge */
-    top: 90%;  /* Center vertically */
-    transform: translateY(-50%);  /* Ensure perfect centering */
-    width: 100px;  /* Adjust size */
-    height: auto;
-    z-index: 10;  /* Ensure it stays above other elements */
-  }
-  
-  .gif-1 {
-    transform: translateY(-50%);
-    width: 120px;  /* Adjust size */
 
-  }
-
-  .gif-2 {
-    transform: translateY(-50%);
-    left: 250px;  /* Adjust distance from the left edge */
-
-  }
-  .gif-3 {
-    transform: translateY(-50%);
-    left: 100px;  /* Adjust distance from the left edge */
-
-  }
-
-  @keyframes about-fallDown-middle {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    99% {
-        transform: translateY(100px); /* Adjust this value */
-        opacity: 1;
-    }
-    to {
-        transform: translateY(100px);
-        opacity: 0;
-    }
+.left-side-gif {
+  position: absolute;  /* Keeps it fixed on the left */
+  left: 400px;  /* Adjust distance from the left edge */
+  top: 90%;  /* Center vertically */
+  transform: translateY(-50%);  /* Ensure perfect centering */
+  width: 100px;  /* Adjust size */
+  height: auto;
+  z-index: 10;  /* Ensure it stays above other elements */
 }
 
+.gif-1 {
+  transform: translateY(-50%);
+  width: 120px;  /* Adjust size */
+
+}
+
+.gif-2 {
+  transform: translateY(-50%);
+  left: 250px;  /* Adjust distance from the left edge */
+
+}
+.gif-3 {
+  transform: translateY(-50%);
+  left: 100px;  /* Adjust distance from the left edge */
+
+}
+
+@keyframes fallsd {
+  from {
+      transform: translateY(0);
+      opacity: 1;
+  }
+  99% {
+      transform: translateY(100px); /* Adjust this value */
+      opacity: 1;
+  }
+  to {
+      transform: translateY(100px);
+      opacity: 0;
+  }
+}
+
+@keyframes comesin {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+.about-text-middle.funcup {
+  animation: comesin 0.8s ease-out forwards, 
+             about-floatUpDown-middle 3s ease-in-out infinite;
+  animation-delay: 1s, 0.8s;
+}
+.about-text-middle.funcdown {
+  animation: fallsd 0.1s linear forwards;
+}  

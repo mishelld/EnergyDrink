@@ -118,12 +118,12 @@ export default function About() {
             ${middleOutView ? "animate-down" : ""}
           `}
         />
-        <p className={`about-text-left ${leftInView ? "animate-up" : ""} ${leftOutView ? "animate-down" : ""}`}>
+        <p className={`about-text-left ${leftInView ? "funcup" : ""} ${leftOutView ? "funcdown" : ""}`}>
         Cherries reduce muscle soreness, improve sleep, ease arthritis pain, support heart health, and fight inflammation.</p>
-        <p className={`about-text-right ${rightInView ? "animate-up" : ""} ${rightOutView ? "animate-down" : ""}`}>
+        <p className={`about-text-right ${rightInView ? "funcup" : ""} ${rightOutView ? "funcdown" : ""}`}>
         Oranges contain vitamin C, boosting immunity, heart health, and digestion.
 </p>
-        <p className={`about-text-middle ${middleInView ? "animate-up" : ""} ${middleOutView ? "animate-down" : ""}`}>
+        <p className={`about-text-middle ${middleInView ? "funcup" : ""} ${middleOutView ? "funcdown" : ""}`}>
         Blueberries boost brain, heart, and immune health while aiding digestion and reducing inflammation.
         </p>
         <img
