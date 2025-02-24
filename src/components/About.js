@@ -120,7 +120,7 @@ export default function About() {
           `}
         />
         <p className={`about-text-left ${leftInView ? "animate-up" : ""} ${leftOutView ? "animate-down" : ""}`}>
-        Cherries reduce muscle soreness, improve sleep, ease arthritis pain, support heart health, and fight inflammation.</p>
+        Cherries reduce muscle soreness, improve sleep, ease arthritis pain and support heart health.</p>
         <p className={`about-text-right ${rightInView ? "animate-up" : ""} ${rightOutView ? "animate-down" : ""}`}>
         Oranges contain vitamin C, boosting immunity, heart health, and digestion.
 </p>
