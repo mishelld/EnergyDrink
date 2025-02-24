@@ -6,6 +6,7 @@ import 'font-awesome/css/font-awesome.min.css';
 function PurchasePage({ setCart }) {
     const [cart, setCartState] = useState([]); // Local state for cart
     const [selectedOption, setSelectedOption] = useState("takeout");
+    const [selectedCity, setSelectedCity] = useState("");
     const navigate = useNavigate();  // Initialize navigate function
     const userEmail = localStorage.getItem("userEmail"); // Assuming email is stored in localStorage
 
@@ -33,6 +34,9 @@ function PurchasePage({ setCart }) {
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
+    };
+    const handleCityChange = (event) => {
+        setSelectedCity(event.target.value);
     };
 
     const increaseQuantity = async (index, itemId) => {
@@ -129,6 +133,15 @@ function PurchasePage({ setCart }) {
         <div className="purchase-page">
             {/* Left Side: Takeout or Here picker */}
             <div className="left-side">
+            <label>Select the location</label>
+            <select value={selectedCity} onChange={handleCityChange}>
+                <option value="">Select a city</option>
+                <option value="tel_aviv">Tel Aviv</option>
+                <option value="beer_sheva">Beer Sheva</option>
+                <option value="jerusalem">Jerusalem</option>
+                <option value="haifa">Haifa</option>
+            </select>
+            <label>Select the service type</label>
                 <select value={selectedOption} onChange={handleOptionChange}>
                     <option value="takeout">Takeout</option>
                     <option value="here">Here</option>

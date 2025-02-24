@@ -19,13 +19,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background:linear-gradient(to top, rgb(180, 255, 145),rgb(255, 235, 145), rgb(255, 182, 193));
     border-right: 2px solid #ddd; /* Divider between the left and right */
     height: auto; /* Allows content to expand */
-
 }
-
-
 .left-side select {
     padding: 10px;
     font-size: 1.2rem;
@@ -33,6 +31,15 @@
     border: 1px solid #ddd;
     background-color: #000000;
     color: #ffffff;
+    width: 200px;
+    margin-bottom: 60px; /* Space between the two selects */
+
+}
+label {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    
 }
 
 /* Right side - Items container */
@@ -131,7 +138,7 @@
 }
 
 .proceed-btn {
-    background-color: #28a745;
+    background-color: #000000;
     color: white;
     padding: 20px 20px;
     border: none;
@@ -145,7 +152,7 @@
 }
 
 .proceed-btn:hover {
-    background-color: #218838;
+    background-color: #ff0000;
 }
 
 .delete-btn {
