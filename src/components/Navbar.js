@@ -91,7 +91,7 @@ function Navbar({ navColor }) {
 
             <nav className="navbar" style={styles.navbar}>
                 <ul style={styles.navLinks}>
-                    {['home', 'hero', 'about'].map((item) => (
+                    {['home', 'hero'].map((item) => (
                         <li key={item}>
                             <Link
     to={item === 'home' ? '/' : `/${item}`}
