@@ -92,10 +92,11 @@ export default function About() {
 
 
 
- <p className="about-title"> 
+  <p className={"about-title " + (middleInView ? "animate-expand" : "")}> 
    We care<br />
-  about your health<br />
-  </p>
+   about your health<br />
+</p>
+  
   <p className="second-line"> 
   we prioritize your health with an energy drink made from all-natural ingredients and real fruits. No artificial supplements or additives—just pure, wholesome energy to fuel your day.
 
