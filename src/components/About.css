@@ -44,6 +44,25 @@
 .animate-expand {
   animation: expandFromCorner 1.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
+@keyframes shrinkToCorner {
+  0% {
+    transform: scale(1); /* Start at normal size */
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1); /* Slight expansion for a bounce effect */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.1); /* Shrinks to a small dot */
+    opacity: 0; /* Fades out */
+  }
+}
+
+.animate-shrink {
+  animation: shrinkToCorner 1.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
 
 .second-line {
   color: #ffe221; /* Replace with your desired color */

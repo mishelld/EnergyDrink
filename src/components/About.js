@@ -92,7 +92,7 @@ export default function About() {
 
 
 
-  <p className={"about-title " + (middleInView ? "animate-expand" : "")}> 
+  <p className={"about-title " + (middleInView ? "animate-expand" : "animate-shrink")}> 
    We care<br />
    about your health<br />
 </p>
