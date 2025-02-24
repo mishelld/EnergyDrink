@@ -28,7 +28,10 @@
 .second-line {
   display: block;  /* Ensures it's a block element */
   text-align: left;
-  color: #ffe221; /* Replace with your desired color */
+  background: linear-gradient(to right, rgb(180, 255, 145), rgb(255, 235, 145), rgb(255, 182, 193));
+  -webkit-background-clip: text; /* Clips background to text */
+  -webkit-text-fill-color: transparent; /* Makes text transparent so gradient shows */
+
   font-size: 1rem;
   width: 300px;
   height: 400px;
