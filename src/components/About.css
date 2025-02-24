@@ -180,7 +180,6 @@
     font-size: 1rem;
     font-weight: normal;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
     color:#ff0077;
     width: 20%;
   }
@@ -210,13 +209,13 @@
 }
 
   .about-text-left.animate-up {
-    animation: about-jumpIn-left 0.8s ease-out forwards, 
+    animation: about-fadeIn-middle 0.8s ease-out forwards, 
                about-floatUpDown-left 3s ease-in-out infinite;
-    animation-delay: 0s, 0.8s; 
+    animation-delay: 2s, 0.8s; 
   }
 
   .about-text-left.animate-down {
-    animation: about-fallDown-left 0.8s ease-out forwards;
+    animation: about-fallDown 0.8s linear forwards;
   }
   
   /* Style for Right Text */
@@ -227,7 +226,6 @@
     font-size: 1rem;
     font-weight: normal;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
     color:#ff0077;
     width: 20%;
 
@@ -259,12 +257,12 @@
     transform: translateX(50%); /* Centers the circle */
 }
   .about-text-right.animate-up {
-    animation: about-jumpIn-right 0.8s ease-out forwards, 
+    animation: about-fadeIn-middle 0.8s ease-out forwards, 
                about-floatUpDown-right 3s ease-in-out infinite;
-    animation-delay: 0s, 0.8s;
+    animation-delay: 1.5s, 0.8s;
   }
   .about-text-right.animate-down {
-    animation: about-fallDown-right 0.8s ease-out forwards;
+    animation: about-fallDown 0.8s linear forwards;
   }  
 
   .about-text-middle {
@@ -274,7 +272,6 @@
     font-size: 1rem;
     font-weight: normal; /* Change this from 'bold' to 'normal' */
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
     color:#ff0077;
     width: 20%;
   }
@@ -305,13 +302,21 @@
     transform: translateX(50%); /* Centers the circle */
 }
   .about-text-middle.animate-up {
-    animation: about-jumpIn-middle 0.8s ease-out forwards, 
+    animation: about-fadeIn-middle 0.8s ease-out forwards, 
                about-floatUpDown-middle 3s ease-in-out infinite;
-    animation-delay: 0s, 0.8s;
+    animation-delay: 1s, 0.8s;
   }
   .about-text-middle.animate-down {
-    animation: about-fallDown-middle 0.8s ease-out forwards;
+    animation: about-fallDown 0.8s linear forwards;
   }  
+  @keyframes about-fadeIn-middle {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
   .left-side-gif {
     position: absolute;  /* Keeps it fixed on the left */
@@ -339,3 +344,19 @@
     left: 100px;  /* Adjust distance from the left edge */
 
   }
+
+  @keyframes about-fallDown-middle {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    99% {
+        transform: translateY(100px); /* Adjust this value */
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+}
+
