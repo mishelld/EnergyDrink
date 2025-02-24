@@ -25,6 +25,18 @@
   background-color: #ff0077;
   opacity: 0;
 }
+.second-line {
+  display: block;  /* Ensures it's a block element */
+  text-align: left;
+  color: #ffe221; /* Replace with your desired color */
+  font-size: 1rem;
+  width: 300px;
+  height: 400px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Baloo Paaji', cursive;
+  margin-left: 60px;
+}
 
 @keyframes expandFromCorner {
   0% {
@@ -63,22 +75,6 @@
   animation: shrinkToCorner 1.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-
-.second-line {
-  color: #ffe221; /* Replace with your desired color */
-  font-size: 1rem;
-  text-align: left;  /* Aligns the text to the left */
-  width: 300px;
-  height: 400px;
-  position: absolute;
-  font-size: 1rem;
-  font-weight: bold;
-  font-family: 'Baloo Paaji', cursive;
-  margin-left: 170px;    /* Optional: Ensures no additional margin on the left */
-  margin-top: 180px;    /* Optional: Ensures no additional margin on the left */
-
-
-}
 
 
 /* Ensure the parent container uses flex with left alignment */

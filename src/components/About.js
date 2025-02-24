@@ -92,15 +92,15 @@ export default function About() {
 
 
 
-  <p className={"about-title " + (middleInView ? "animate-expand" : "animate-shrink")}> 
-   We care<br />
-   about your health<br />
+  <p className={"about-title " + (middleInView ? "animate-expand" : "animate-shrink")}>
+  <br /> 
+  We care!<br />
+  <br />
+  <span className="second-line"> 
+    We prioritize your health with an energy drink made from all-natural ingredients and real fruits. 
+    No artificial supplements or additives—just pure, wholesome energy to fuel your day.
+  </span>
 </p>
-  
-  <p className="second-line"> 
-  we prioritize your health with an energy drink made from all-natural ingredients and real fruits. No artificial supplements or additives—just pure, wholesome energy to fuel your day.
-
-  </p>
       {/* Floating Images */}
       <div className="about-image-container">
         <img
