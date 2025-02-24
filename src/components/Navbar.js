@@ -7,8 +7,10 @@ import { FaUser, FaShoppingCart } from 'react-icons/fa'; // Import a user icon f
 function Navbar({ navColor }) {
     const [hoveredLink, setHoveredLink] = useState(null);
     const [navbarColor, setNavbarColor] = useState(navColor);
-    const [cartItemCount, setCartItemCount] = useState(3); // Example cart count (this would come from your cart logic)
+    const [cartItemCount, setCartItemCount] = useState(0); // Example cart count (this would come from your cart logic)
     const [textColor, setTextColor] = useState('');
+    const userEmail = localStorage.getItem("userEmail"); // Assuming email is stored in localStorage
+
 
 
 
@@ -35,10 +37,28 @@ function Navbar({ navColor }) {
             ),
         };
     };
+
+    useEffect(() => {
+        const fetchCart = async () => {
+            if (!userEmail) return; // Ensure user is logged in before fetching
+            try {
+                const response = await fetch(`http://localhost:5000/api/cart/${userEmail}`);
+                if (response.ok) {
+                    const cartData = await response.json();
+                    const totalItems = cartData.reduce((acc, item) => acc + item.quantity, 0);
+                    setCartItemCount(totalItems);
+                } else {
+                    console.error("Failed to fetch cart");
+                }
+            } catch (error) {
+                console.error("Error fetching cart:", error);
+            }
+        };
+
+        fetchCart();
+    }, [userEmail]);
     
     
-
-
     // Change navbar color based on the current path (location)
     useEffect(() => {
         const path = location.pathname;
