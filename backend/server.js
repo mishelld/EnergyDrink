@@ -102,7 +102,10 @@ const CartItemSchema = new mongoose.Schema({
     image: String,
     price: Number,
     quantity: { type: Number, default: 1 },
+    location: { type: String, default: "" }, // New field for city
+    serviceType: { type: String, default: "" } // New field for order type
 });
+
 
 const CartSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
@@ -218,6 +221,32 @@ app.put("/api/cart/:email/item/:itemId", async (req, res) => {
     } catch (error) {
         console.error('Error updating item quantity:', error);
         res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+app.put("/api/cart/:email/update-details", async (req, res) => {
+    const { email } = req.params;
+    const { location, serviceType } = req.body;
+
+    try {
+        const cart = await Cart.findOne({ email });
+
+        if (!cart) {
+            return res.status(404).json({ message: "Cart not found" });
+        }
+
+        // Update location and serviceType for all items in the cart
+        cart.items.forEach((item) => {
+            if (location) item.location = location;
+            if (serviceType) item.serviceType = serviceType;
+        });
+
+        await cart.save();
+
+        res.status(200).json({ message: "Cart details updated successfully", cart: cart.items });
+    } catch (error) {
+        console.error("Error updating cart details:", error);
+        res.status(500).json({ message: "Internal server error" });
     }
 });
 

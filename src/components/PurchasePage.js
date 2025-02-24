@@ -19,6 +19,11 @@ function PurchasePage({ setCart }) {
                     const cartData = await response.json();
                     setCartState(cartData); // Set the cart data into state
                     setCart(cartData); // Optionally update the parent component's cart
+
+                    if (cartData.length > 0) {
+                        setSelectedCity(cartData[0].location || ""); // Use first item's location
+                        setSelectedOption(cartData[0].serviceType || ""); // Use first item's serviceType
+                    }
                 } else {
                     console.error('Failed to fetch cart');
                 }
@@ -32,12 +37,50 @@ function PurchasePage({ setCart }) {
         }
     }, [userEmail, setCart]);
 
-    const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
+    const handleOptionChange = async (event) => {
+        const newOption = event.target.value;
+        setSelectedOption(newOption);
+    
+        try {
+            const response = await fetch(`http://localhost:5000/api/cart/${userEmail}/update-details`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ serviceType: newOption }),
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to update service type on the server');
+            }
+        } catch (error) {
+            console.error('Error updating service type:', error);
+        }
     };
-    const handleCityChange = (event) => {
-        setSelectedCity(event.target.value);
+    
+    
+    const handleCityChange = async (event) => {
+        const newCity = event.target.value;
+        setSelectedCity(newCity);
+    
+        try {
+            const response = await fetch(`http://localhost:5000/api/cart/${userEmail}/update-details`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ location: newCity }),
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to update city on the server');
+            }
+        } catch (error) {
+            console.error('Error updating city:', error);
+        }
     };
+    
+    
 
     const increaseQuantity = async (index, itemId) => {
         const updatedCart = [...cart];
