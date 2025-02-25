@@ -207,7 +207,6 @@ function PurchasePage({ setCart, setCartItemCount }) {
             const data = await response.json();
     
             if (response.ok) {
-                alert("Order placed successfully!");
                 // Optionally, update the UI (clear cart, navigate to orders page, etc.)
                 setCart([]);
             } else {
