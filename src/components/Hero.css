@@ -179,8 +179,8 @@
 }
 .gif-container {
     position: absolute;
-    top: 30px;  /* Same as Add to Cart button */
-    left: 20px;  /* Adjust as needed */
+    top: 50px;  /* Same as Add to Cart button */
+    left: 100px;  /* Adjust as needed */
     transform: translateX(0); 
 }
 
