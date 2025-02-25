@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import PurchasePage from './components/PurchasePage';
-import Hero from './components/Hero';
+import Menu from './components/Menu';
 import SignInPage from './components/SignInPage';
 import About from './components/About';
 import UserPage from './components/UserPage'; // Import UserPage
@@ -112,7 +112,7 @@ function App() {
             <Navbar navColor={slides[currentSlide].navColor} isAuthenticated={isAuthenticated} handleLogout={handleLogout} cartItemCount={cartItemCount} />
             <Routes>
                 <Route path="/" element={<><Home /> <About /></>} />
-                <Route path="/hero" element={<Hero slides={slides} currentSlide={currentSlide} nextSlide={nextSlide} prevSlide={prevSlide} addToCart={addToCart} />} />
+                <Route path="/Menu" element={<Menu slides={slides} currentSlide={currentSlide} nextSlide={nextSlide} prevSlide={prevSlide} addToCart={addToCart} />} />
                 <Route path="/purchase" element={<PurchasePage cart={cart} setCart={setCart} setCartItemCount={setCartItemCount}/>} />
                 <Route path="/signin" element={isAuthenticated ? <Navigate to="/user" /> : <SignInPage handleLogin={handleLogin} />} />
                 <Route path="/user" element={isAuthenticated ? <UserPage handleLogout={handleLogout} userEmail={userEmail} /> : <Navigate to="/signin" />} />

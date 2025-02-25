@@ -41,7 +41,7 @@ function Navbar({ navColor, cartItemCount }) {
     useEffect(() => {
         const path = location.pathname;
     
-        if (path === '/hero') {
+        if (path === '/Menu') {
             setNavbarColor(navColor);
             setTextColor('#fff');  // White text
         } else if (path === '/purchase') {
@@ -91,7 +91,7 @@ function Navbar({ navColor, cartItemCount }) {
 
             <nav className="navbar" style={styles.navbar}>
                 <ul style={styles.navLinks}>
-                    {['home', 'hero'].map((item) => (
+                    {['home', 'Menu'].map((item) => (
                         <li key={item}>
                             <Link
     to={item === 'home' ? '/' : `/${item}`}
