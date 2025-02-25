@@ -4,7 +4,7 @@
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center horizontally */
     justify-content: center; /* Center vertically */
-    height: 100vh;
+    height: 90vh;
     padding: 0 10%;
     overflow: hidden; /* Prevent overflow during animations */
     position: relative; /* Needed for absolute positioning of the image */
@@ -139,14 +139,20 @@
     bottom: 230px; /* Adjust vertical position */
     right: 200px; /* Move it to the right */
     transform: none; /* No centering needed */
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 140px;
+    height: 40px;
+}
+
+.cart-btn.pulsing {
     animation: pulse 1.5s infinite;
-
 }
 
-.cart-btn:hover {
-    background-color: #e68900;
+.cart-btn.added {
+    background-color: #4CAF50; /* Green */
+    animation: none; /* Stops pulsing */
 }
+
 
 @keyframes pulse {
     0% {

@@ -1,7 +1,18 @@
-import React from 'react';
-import './Hero.css';
+import React, { useState } from "react";
+import "./Hero.css";
+import { CheckCircle } from "lucide-react"; // Using Lucide for the checkmark icon
 
 function Hero({ slides, currentSlide, nextSlide, prevSlide, addToCart }) {
+    const [addedToCart, setAddedToCart] = useState(false);
+
+    const handleAddToCart = () => {
+        setAddedToCart(true);
+        addToCart(slides[currentSlide]);
+
+        // Reset after 1.5 seconds
+        setTimeout(() => setAddedToCart(false), 1500);
+    };
+
     return (
         <section
             className="hero"
@@ -28,14 +39,15 @@ function Hero({ slides, currentSlide, nextSlide, prevSlide, addToCart }) {
 
             <div className="price-tag">${slides[currentSlide].price}</div>
 
-            <button className="cart-btn" onClick={() => addToCart(slides[currentSlide])}>
-                Add to Cart
+            {/* Cart Button with animation */}
+            <button className={`cart-btn ${addedToCart ? "added" : "pulsing"}`} onClick={handleAddToCart}>
+                {addedToCart ? <CheckCircle size={24} color="white" /> : "Add to Cart"}
             </button>
 
             {/* Buttons Container */}
             <div className="buttons-container">
-                <button onClick={prevSlide} className="nav-btn">&lt;</button>  {/* Left Arrow */}
-                <button onClick={nextSlide} className="nav-btn">&gt;</button>  {/* Right Arrow */}
+                <button onClick={prevSlide} className="nav-btn">&lt;</button>  
+                <button onClick={nextSlide} className="nav-btn">&gt;</button>  
             </div>
         </section>
     );
