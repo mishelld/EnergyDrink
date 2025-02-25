@@ -21,6 +21,7 @@
     white-space: nowrap;
     opacity: 0; /* Initially hidden */
     color: rgb(0, 234, 255); /* Blue */
+    
 
     animation: slideIn 1s ease-in-out 0.5s forwards, pulse-home 1.5s 1.5s infinite; /* Reduced duration to 1s and delay to 0.5s */
 }
@@ -45,6 +46,8 @@
     white-space: nowrap;
     opacity: 0; /* Initially hidden */
     color: rgb(255, 0, 115); /* Pink */
+
+    
     animation: slideIn 1s ease-in-out 0.5s forwards, pulse-home 1.5s 1.5s infinite; /* Reduced duration to 1s and delay to 0.5s */
 }
 @keyframes colorFlicker {
@@ -89,6 +92,8 @@
     background-position: top left;
     background-repeat: repeat; /* Repeats the GIF multiple times */
     overflow: hidden; /* Ensures images do not overflow the container */
+    box-shadow: 0 0 15px 5px rgba(255, 0, 102, 0.7); /* Glowing blue color */
+
 
 }
 
