@@ -19,6 +19,8 @@ function App() {
     const [cart, setCart] = useState([]);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userEmail, setUserEmail] = useState(null);
+    const [cartItemCount, setCartItemCount] = useState(0);
+
 
     // Check login state on load
     useEffect(() => {
@@ -30,6 +32,16 @@ function App() {
             setUserEmail(storedEmail);
         }
     }, []);
+
+    useEffect(() => {
+        const fetchInitialCart = async () => {
+            if (userEmail) {
+                await fetchCart(userEmail, setCartItemCount);
+            }
+        };
+
+        fetchInitialCart();
+    }, [userEmail]);
 
     // Handle login
     const handleLogin = (email) => {
@@ -46,7 +58,19 @@ function App() {
         localStorage.removeItem("isAuthenticated");
         localStorage.removeItem("userEmail");
     };
-
+    const fetchCart = async (userEmail, setCartItemCount) => {
+        if (!userEmail) return;
+        try {
+            const response = await fetch(`http://localhost:5000/api/cart/${userEmail}`);
+            if (response.ok) {
+                const cartData = await response.json();
+                const totalItems = cartData.reduce((acc, item) => acc + item.quantity, 0);
+                setCartItemCount(totalItems); // Update cart count in Navbar
+            }
+        } catch (error) {
+            console.error('Error fetching cart:', error);
+        }
+    };
     const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
     const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
@@ -63,6 +87,8 @@ function App() {
             if (!response.ok) {
                 throw new Error("Failed to add item to cart");
             }
+
+            await fetchCart(userEmail, setCartItemCount);
     
             setCart((prevCart) => {
                 const existingItem = prevCart.find((cartItem) => cartItem.title === item.title);
@@ -81,11 +107,11 @@ function App() {
 
     return (
         <Router>
-            <Navbar navColor={slides[currentSlide].navColor} isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
+            <Navbar navColor={slides[currentSlide].navColor} isAuthenticated={isAuthenticated} handleLogout={handleLogout} cartItemCount={cartItemCount} />
             <Routes>
                 <Route path="/" element={<><Home /> <About /></>} />
                 <Route path="/hero" element={<Hero slides={slides} currentSlide={currentSlide} nextSlide={nextSlide} prevSlide={prevSlide} addToCart={addToCart} />} />
-                <Route path="/purchase" element={<PurchasePage cart={cart} setCart={setCart} />} />
+                <Route path="/purchase" element={<PurchasePage cart={cart} setCart={setCart} setCartItemCount={setCartItemCount}/>} />
                 <Route path="/signin" element={isAuthenticated ? <Navigate to="/user" /> : <SignInPage handleLogin={handleLogin} />} />
                 <Route path="/user" element={isAuthenticated ? <UserPage handleLogout={handleLogout} userEmail={userEmail} /> : <Navigate to="/signin" />} />
             </Routes>

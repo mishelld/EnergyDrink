@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './PurchasePage.css';
 import 'font-awesome/css/font-awesome.min.css';
 
-function PurchasePage({ setCart }) {
+function PurchasePage({ setCart, setCartItemCount }) {
     const [cart, setCartState] = useState([]); // Local state for cart
     const [selectedOption, setSelectedOption] = useState("takeout");
     const [selectedCity, setSelectedCity] = useState("");
     const navigate = useNavigate();  // Initialize navigate function
     const userEmail = localStorage.getItem("userEmail"); // Assuming email is stored in localStorage
+
 
     useEffect(() => {
         // Fetch cart details when component mounts
@@ -104,6 +105,8 @@ function PurchasePage({ setCart }) {
             // Update the local state after successful update on the server
             setCartState(updatedCart);
             setCart(updatedCart);  // Update the parent cart as well
+            fetchCount(userEmail, setCartItemCount);
+
         } catch (error) {
             console.error('Error updating item quantity:', error);
         }
@@ -133,6 +136,8 @@ function PurchasePage({ setCart }) {
                 // Update the local state after successful update on the server
                 setCartState(updatedCart);
                 setCart(updatedCart);  // Update the parent cart as well
+                fetchCount(userEmail, setCartItemCount);
+
             } catch (error) {
                 console.error('Error updating item quantity:', error);
             }
@@ -160,10 +165,27 @@ function PurchasePage({ setCart }) {
             const updatedCart = cart.filter((_, i) => i !== index);
             setCartState(updatedCart);
             setCart(updatedCart);  // Update the parent cart as well
+            fetchCount(userEmail, setCartItemCount);
+
         } catch (error) {
             console.error('Error deleting item:', error);
         }
     };
+
+    const fetchCount = async (userEmail, setCartItemCount) => {
+        if (!userEmail) return;
+        try {
+            const response = await fetch(`http://localhost:5000/api/cart/${userEmail}`);
+            if (response.ok) {
+                const cartData = await response.json();
+                const totalItems = cartData.reduce((acc, item) => acc + item.quantity, 0);
+                setCartItemCount(totalItems); // Update cart count in Navbar
+            }
+        } catch (error) {
+            console.error('Error fetching cart:', error);
+        }
+    };
+    
     
 
     const totalPrice = cart.reduce((total, item) => total + (parseFloat(item.price) || 0) * (item.quantity || 1), 0).toFixed(2);
