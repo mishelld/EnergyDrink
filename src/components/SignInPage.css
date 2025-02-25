@@ -36,7 +36,8 @@ input {
 }
 
 .auth-btn:hover {
-    background-color: red;
+    background:linear-gradient(to left, rgb(180, 255, 145),rgb(255, 235, 145), rgb(255, 182, 193));
+    color:#000000;
 }
 
 .error-message {

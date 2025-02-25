@@ -152,7 +152,8 @@ label {
 }
 
 .proceed-btn:hover {
-    background-color: #ff0000;
+    background:linear-gradient(to left, rgb(180, 255, 145),rgb(255, 235, 145), rgb(255, 182, 193));
+    color: #000000;
 }
 
 .delete-btn {
