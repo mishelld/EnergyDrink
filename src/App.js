@@ -7,6 +7,8 @@ import Hero from './components/Hero';
 import SignInPage from './components/SignInPage';
 import About from './components/About';
 import UserPage from './components/UserPage'; // Import UserPage
+import Checkout from './components/Checkout';
+
 
 const slides = [
     { title: "Blueberry", image: "/Blueberry.png", gif: "/bio.gif", backgroundColor: "#7e6ad5ee", navColor: "#7e6ad5ee", price: "4.99" },
@@ -114,6 +116,7 @@ function App() {
                 <Route path="/purchase" element={<PurchasePage cart={cart} setCart={setCart} setCartItemCount={setCartItemCount}/>} />
                 <Route path="/signin" element={isAuthenticated ? <Navigate to="/user" /> : <SignInPage handleLogin={handleLogin} />} />
                 <Route path="/user" element={isAuthenticated ? <UserPage handleLogout={handleLogout} userEmail={userEmail} /> : <Navigate to="/signin" />} />
+                <Route path="/checkout" element={<Checkout />} />
             </Routes>
         </Router>
     );

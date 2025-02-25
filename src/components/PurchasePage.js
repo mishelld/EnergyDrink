@@ -191,7 +191,7 @@ function PurchasePage({ setCart, setCartItemCount }) {
     const totalPrice = cart.reduce((total, item) => total + (parseFloat(item.price) || 0) * (item.quantity || 1), 0).toFixed(2);
 
     const handleProceedToCheckout = () => {
-        navigate('/'); // Redirect to the sign-in page
+        navigate('/checkout'); // Navigate to Checkout page
     };
 
     return (
