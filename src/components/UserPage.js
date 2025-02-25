@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './UserPage.css';
 
-function UserPage({ handleLogout, userEmail, points = 0, Rewards = 0 }) {
+function UserPage({ handleLogout, userEmail, Rewards = 0 }) {
     const navigate = useNavigate();
     const [orders, setOrders] = useState(0); // State to store order count
+    const [points, setPoints] = useState(0); // State for points
 
     useEffect(() => {
         const fetchOrderCount = async () => {
@@ -25,6 +26,11 @@ function UserPage({ handleLogout, userEmail, points = 0, Rewards = 0 }) {
 
         fetchOrderCount();
     }, [userEmail]); // Runs when userEmail changes
+
+    // Update points whenever orders change
+    useEffect(() => {
+        setPoints(orders * 10);
+    }, [orders]);
 
     const handleLogOut = () => {
         handleLogout(); // Clears user state
