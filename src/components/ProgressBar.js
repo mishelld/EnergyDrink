@@ -23,13 +23,13 @@ const ProgressBar = ({ label, value, color, className }) => {
         <div className={`progress-bar-container ${className}`}>
             <span className={`progress-label ${className}`}>{label}</span>
             <div className={`progress-bar ${className}`}>
-                <div
-                    className="progress-fill"
-                    style={{
-                        width: `${progress}%`, // Fill the progress bar according to the current progress
-                        backgroundColor: color,
-                    }}
-                ></div>
+            <div
+    className={`progress-fill ${className}`} // Apply specific glow class
+    style={{
+        width: `${progress}%`, // Fill the progress bar according to the current progress
+    }}
+></div>
+
             </div>
         </div>
     );
