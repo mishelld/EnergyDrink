@@ -29,6 +29,7 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // User Model
 const UserSchema = new mongoose.Schema({
+    name: { type: String, required: true }, // Added name field
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     orderCount: { type: Number, default: 0 } // Track number of orders
@@ -39,12 +40,12 @@ app.get("/api/user/:email", async (req, res) => {
     const { email } = req.params;
 
     try {
-        const user = await User.findOne({ email }, "orderCount");
+        const user = await User.findOne({ email }, "name orderCount"); // Include 'name'
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
 
-        res.status(200).json({ orderCount: user.orderCount });
+        res.status(200).json({ name: user.name, orderCount: user.orderCount });
     } catch (error) {
         console.error("Error fetching user data:", error);
         res.status(500).json({ message: "Internal server error" });
@@ -52,11 +53,17 @@ app.get("/api/user/:email", async (req, res) => {
 });
 
 
+
 // Register Route (Sign Up)
 app.post('/api/register', async (req, res) => {
-    const { email, password } = req.body;
+    const { name, email, password } = req.body;
 
     try {
+        // Validate input fields
+        if (!name || !email || !password) {
+            return res.status(400).json({ message: 'Please fill in all fields' });
+        }
+
         // Check if user already exists
         const existingUser = await User.findOne({ email });
         if (existingUser) {
@@ -69,6 +76,7 @@ app.post('/api/register', async (req, res) => {
 
         // Create a new user and save to DB
         const newUser = new User({
+            name,   // Store name
             email,
             password: hashedPassword
         });
@@ -81,6 +89,7 @@ app.post('/api/register', async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 });
+
 
 // Login Route (Sign In)
 app.post('/api/login', async (req, res) => {
