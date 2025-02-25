@@ -20,20 +20,25 @@
     font-family: 'Impact', sans-serif;
     white-space: nowrap;
     opacity: 0; /* Initially hidden */
-    color: rgb(0, 234, 255); /* Blue */
+    color: rgb(255, 0, 115); /* Blue */
     
 
-    animation: slideIn 1s ease-in-out 0.5s forwards, pulse-home 1.5s 1.5s infinite; /* Reduced duration to 1s and delay to 0.5s */
+    animation: slideIn 1s ease-in-out 0.5s forwards, pulse-home-sub 1.5s 1.5s infinite; /* Reduced duration to 1s and delay to 0.5s */
 }
 @keyframes pulse-home {
     0% {
         transform: scale(1);
+        text-shadow: none; /* No glow at the start */
     }
     50% {
         transform: scale(1.1);
+        text-shadow: 0px 0px 15px rgb(255, 0, 115), 0px 0px 30px rgba(255, 0, 115, 0.8);
+
     }
     100% {
         transform: scale(1);
+        text-shadow: none; /* Remove glow at the end */
+        
     }
 }
 .home-subtitle {
@@ -48,7 +53,24 @@
     color: rgb(255, 0, 115); /* Pink */
 
     
-    animation: slideIn 1s ease-in-out 0.5s forwards, pulse-home 1.5s 1.5s infinite; /* Reduced duration to 1s and delay to 0.5s */
+    animation: slideIn 1s ease-in-out 0.5s forwards, pulse-home-sub 1.5s 1.5s infinite; /* Reduced duration to 1s and delay to 0.5s */
+}
+
+@keyframes pulse-home-sub {
+    0% {
+        transform: scale(1);
+        text-shadow: none; /* No glow at the start */
+    }
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0px 0px 15px rgb(0, 234, 255), 0px 0px 30px rgba(0, 234, 255, 0.8);
+
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: none; /* Remove glow at the end */
+        
+    }
 }
 @keyframes colorFlicker {
     0% {
