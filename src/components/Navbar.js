@@ -113,7 +113,7 @@ function Navbar({ navColor, cartItemCount }) {
 const styles = {
     navbarWrapper: {
         position: 'relative', // Ensure the wrapper is positioned relatively
-        padding: '20px 0',
+        padding: '5px 0',
     },
     navbar: {
         position: 'relative',
