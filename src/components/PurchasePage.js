@@ -190,9 +190,42 @@ function PurchasePage({ setCart, setCartItemCount }) {
 
     const totalPrice = cart.reduce((total, item) => total + (parseFloat(item.price) || 0) * (item.quantity || 1), 0).toFixed(2);
 
-    const handleProceedToCheckout = () => {
-        navigate('/checkout'); // Navigate to Checkout page
+    const handlePurchase = async () => {
+        if (!userEmail || cart.length === 0) {
+            alert("Your cart is empty or you are not logged in.");
+            return;
+        }
+    
+        try {
+            const response = await fetch(`http://localhost:5000/api/cart/checkout/${userEmail}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+                alert("Order placed successfully!");
+                // Optionally, update the UI (clear cart, navigate to orders page, etc.)
+                setCart([]);
+            } else {
+                alert(data.message || "Failed to place order.");
+            }
+        } catch (error) {
+            console.error("Error during purchase:", error);
+            alert("Something went wrong. Please try again.");
+        }
     };
+    
+
+    const handleProceedToCheckout = async () => {
+        await handlePurchase();  // Wait for the purchase to complete before navigating
+        await fetchCount(userEmail, setCartItemCount);
+        navigate('/checkout');  
+    };
+    
 
     return (
         <div className="purchase-page">
@@ -249,6 +282,7 @@ function PurchasePage({ setCart, setCartItemCount }) {
                     {/* Proceed Button */}
                     <div className="proceed-btn-container">
                         <button className="proceed-btn" onClick={handleProceedToCheckout}>
+                            
                             Proceed to Checkout
                         </button>
                     </div>

@@ -251,6 +251,54 @@ app.put("/api/cart/:email/update-details", async (req, res) => {
 });
 
 
+// Reuse CartItemSchema if orders also contain cart items
+const OrderSchema = new mongoose.Schema({
+    email: { type: String, required: true }, // User's email
+    items: [CartItemSchema], // Ordered items
+    totalPrice: { type: Number, required: true }, // Total order price
+    status: { type: String, default: "pending" }, // Order status (e.g., pending, shipped, delivered)
+    createdAt: { type: Date, default: Date.now } // Timestamp
+});
+
+const Order = mongoose.model("Order", OrderSchema);
+
+
+app.post("/api/cart/checkout/:email", async (req, res) => {
+    const { email } = req.params;
+
+    try {
+        // Find the user's cart
+        const cart = await Cart.findOne({ email });
+
+        if (!cart || cart.items.length === 0) {
+            return res.status(404).json({ message: "Cart is empty or not found" });
+        }
+
+        // Calculate total price
+        const totalPrice = cart.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+        // Create a new order
+        const newOrder = new Order({
+            email,
+            items: cart.items, // Copy items from cart
+            totalPrice,
+            status: "pending",
+            createdAt: new Date()
+        });
+
+        // Save the order
+        await newOrder.save();
+
+        // Delete the cart
+        await Cart.deleteOne({ email });
+
+        res.status(200).json({ message: "Order placed successfully", order: newOrder });
+    } catch (error) {
+        console.error("Error processing order:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;
