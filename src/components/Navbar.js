@@ -68,6 +68,7 @@ function Navbar({ navColor, cartItemCount }) {
 
               <Link
                 to="/signin"
+                className="sign-in-button"
                 style={styles.signInButton}
                 onMouseEnter={() => handleMouseEnter('signin')}
                 onMouseLeave={handleMouseLeave}
@@ -77,6 +78,7 @@ function Navbar({ navColor, cartItemCount }) {
 
             <Link
                 to="/purchase"
+                className="purchase-Button"
                 style={styles.purchaseButton}
                 onMouseEnter={() => handleMouseEnter('purchase')}
                 onMouseLeave={handleMouseLeave}
@@ -125,8 +127,6 @@ const styles = {
         width: '40%',
         margin: 'auto',
         fontSize: '20px', // Increase icon size
-
-        
     },
     navLinks: {
         listStyle: 'none',

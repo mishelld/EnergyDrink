@@ -17,3 +17,10 @@
     opacity: 0;
     animation: fallIn 1s ease-in-out 0.5s forwards;
 }
+
+
+/* Apply animation to User and Cart buttons */
+.sign-in-button, .purchase-Button {
+    opacity: 0;
+    animation: fallIn 1s ease-in-out 0.5s forwards;
+}
