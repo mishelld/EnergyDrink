@@ -59,6 +59,8 @@ label {
     flex-grow: 1;
     max-height: 100vh; /* Limit the height to viewport */
     overflow-y: auto; /* Enable vertical scrolling */
+    height: 85vh;
+
 }
 
 
