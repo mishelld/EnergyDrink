@@ -187,7 +187,8 @@
 .coffee-gif {
     width: 200px;  /* Adjust size */
     height: auto;
-    animation: fadeIn 1s ease-in-out;
+    opacity: 0;
+    animation: slideIn 1s ease-in-out 0.5s forwards
 }
 
 /* Optional: Smooth Fade-in Animation */

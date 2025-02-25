@@ -34,8 +34,9 @@
     bottom: 1%;
     font-weight: bold;
     font-family: Arial, sans-serif;
-    opacity: 1; /* Initially hidden */
+    opacity: 0; /* Initially hidden */
     margin: 20px 0;
+    animation: slideIn 1s ease-in-out 0.5s forwards
 }
 
 /* Individual progress bars */
