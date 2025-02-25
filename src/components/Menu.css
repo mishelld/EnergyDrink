@@ -142,10 +142,11 @@
     transition: transform 0.3s ease, background-color 0.3s ease;
     width: 140px;
     height: 40px;
+    opacity: 0;
 }
 
 .cart-btn.pulsing {
-    animation: pulse 1.5s infinite;
+    animation: slideInRightToLeft 1s ease-in-out 0.5s forwards, pulse 1.5s 1.5s infinite;
 }
 
 .cart-btn.added {
@@ -176,6 +177,8 @@
     color: white;
     padding: 5px 10px;
     border-radius: 10px;
+    opacity: 0;
+    animation: slideInRightToLeft 1s ease-in-out 0.5s forwards
 }
 .gif-container {
     position: absolute;
