@@ -30,9 +30,27 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 // User Model
 const UserSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    orderCount: { type: Number, default: 0 } // Track number of orders
 });
 const User = mongoose.model('User', UserSchema);
+
+app.get("/api/user/:email", async (req, res) => {
+    const { email } = req.params;
+
+    try {
+        const user = await User.findOne({ email }, "orderCount");
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.status(200).json({ orderCount: user.orderCount });
+    } catch (error) {
+        console.error("Error fetching user data:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
 
 // Register Route (Sign Up)
 app.post('/api/register', async (req, res) => {
@@ -288,6 +306,9 @@ app.post("/api/cart/checkout/:email", async (req, res) => {
 
         // Save the order
         await newOrder.save();
+
+        // Increment order count for the user
+        await User.findOneAndUpdate({ email }, { $inc: { orderCount: 1 } });
 
         // Delete the cart
         await Cart.deleteOne({ email });
