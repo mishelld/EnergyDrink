@@ -14,7 +14,7 @@
 .home-title {
     position: absolute;
     left: 20px; /* Push title to the far left */
-    top: 10%;
+    top: 5%;
     font-size: 180px;
     font-weight: bold;
     font-family: 'Impact', sans-serif;
@@ -106,6 +106,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%; /* Makes it circular */
+    position: absolute;
 
 
     /* Background Image */
@@ -114,7 +115,7 @@
     background-position: top left;
     background-repeat: repeat; /* Repeats the GIF multiple times */
     overflow: hidden; /* Ensures images do not overflow the container */
-    box-shadow: 0px 0px 40px rgb(0, 234, 255), 0px 0px 40px rgba(0, 234, 255, 0.8);
+    box-shadow: 0px 0px 100px rgb(0, 234, 255), 0px 0px 50px rgba(0, 234, 255, 0.8);
     animation: expandcontainer 1.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
