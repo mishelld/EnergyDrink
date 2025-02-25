@@ -150,7 +150,7 @@ const styles = {
     },
     signInButton: {
         position: 'absolute', // Position the button absolutely
-        left: '200px', // Adjust the left position as needed
+        left: '25%', // Adjust the left position as needed
         top: '30%', // Center vertically
         transform: 'translateY(-50%)', // Center vertically
         textDecoration: 'none',
@@ -170,7 +170,7 @@ const styles = {
     },
     purchaseButton: {
         position: 'absolute', // Position the button absolutely
-        right: '200px', // Adjust the left position as needed
+        right: '25%', // Adjust the left position as needed
         top: '30%', // Center vertically
         transform: 'translateY(-50%)', // Center vertically
         textDecoration: 'none',
