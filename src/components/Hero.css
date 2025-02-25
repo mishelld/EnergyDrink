@@ -128,7 +128,7 @@
 }
 
 .cart-btn {
-    background-color: #ff9800; /* Orange color */
+    background-color: #00ff08; /* Orange color */
     color: white;
     font-size: 1.2rem;
     padding: 10px 20px;
@@ -149,7 +149,7 @@
 }
 
 .cart-btn.added {
-    background-color: #4CAF50; /* Green */
+    background-color: #00ff08; /* Green */
     animation: none; /* Stops pulsing */
 }
 
@@ -157,15 +157,15 @@
 @keyframes pulse {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+        box-shadow: 0 0 5px rgba(72, 255, 0, 0.5);
     }
     50% {
         transform: scale(1.1);
-        box-shadow: 0 0 15px rgba(255, 152, 0, 0.8);
+        box-shadow: 0 0 15px rgba(72, 255, 0, 0.8);
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+        box-shadow: 0 0 5px rgba(72, 255, 0, 0.5);
     }
 }
 .price-tag {
