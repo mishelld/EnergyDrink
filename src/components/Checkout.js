@@ -29,8 +29,7 @@ const Checkout = () => {
             fontSize: '40px',
             fontWeight: 'bold'
         }}>
-            We received your order, Thank you for you purchase!
-        </div>
+We received your order. Thank you for your purchase!        </div>
     );
 };
 
