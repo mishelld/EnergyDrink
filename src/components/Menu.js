@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Menu.css";
 import { CheckCircle } from "lucide-react"; // Using Lucide for the checkmark icon
 
 function Menu({ slides, currentSlide, nextSlide, prevSlide, addToCart }) {
     const [addedToCart, setAddedToCart] = useState(false);
+    const [startAnimation, setStartAnimation] = useState(true);
+
+    useEffect(() => {
+        // Remove start animation after 1.5 seconds
+        const timer = setTimeout(() => setStartAnimation(false), 1500);
+        return () => clearTimeout(timer);
+    }, []);
+
 
     const handleAddToCart = () => {
         setAddedToCart(true);
@@ -40,7 +48,7 @@ function Menu({ slides, currentSlide, nextSlide, prevSlide, addToCart }) {
             <div className="price-tag">${slides[currentSlide].price}</div>
 
             {/* Cart Button with animation */}
-            <button className={`cart-btn ${addedToCart ? "added" : "pulsing"}`} onClick={handleAddToCart}>
+            <button className={`cart-btn ${startAnimation ? "start-anim" : addedToCart ? "added" : "pulsing"}`} onClick={handleAddToCart}>
                 {addedToCart ? <CheckCircle size={24} color="white" /> : "Add to Cart"}
             </button>
 

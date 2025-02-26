@@ -145,13 +145,20 @@
     opacity: 0;
 }
 
+.cart-btn.start-anim{
+    animation: slideInRightToLeft 1s ease-in-out 0.5s forwards;
+
+}
 .cart-btn.pulsing {
-    animation: slideInRightToLeft 1s ease-in-out 0.5s forwards, pulse 1.5s 1.5s infinite;
+    animation: pulse 1.5s infinite;
+    opacity: 1;
+
 }
 
 .cart-btn.added {
     background-color: #00ff08; /* Green */
     animation: none; /* Stops pulsing */
+    opacity: 1;
 }
 
 
