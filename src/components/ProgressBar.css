@@ -1,11 +1,4 @@
-/* Default progress bar styling */
-.progress-bar {
-    height: 20px;
-    width: 200px;
-    background-color: #dddddd00; /* Transparent background for the bar */
-    border-radius: 10px; /* Rounded corners */
-    overflow: hidden; /* Ensures the filling does not go outside the bar */
-}
+
 
 /* Specific border color for caffeine */
 .progress-bar.caffeine {
@@ -79,7 +72,6 @@
     height: 20px;
     width: 200px;
     background-color: #dddddd00; /* Transparent background for the bar */
-    border-radius: 10px; /* Rounded corners */
     overflow: hidden; /* Ensures the filling does not go outside the bar */
 }
 
@@ -88,7 +80,7 @@
     height: 100%;
     width: 0%; /* Initially 0% */
     transition: width 2s ease-in-out; /* Smooth animation for filling up */
-    border-radius: 10px; /* Match the border radius */
+    border-radius: 0 10px 10px 0; /* Rounded only on the right side */
 }
 
 /* Glow effect for caffeine */
