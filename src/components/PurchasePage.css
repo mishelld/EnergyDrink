@@ -152,11 +152,12 @@ label {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 200px; /* Keeps button size consistent */
+    min-width: 250px; /* Keeps button size consistent */
+    min-height: 50px;
 }
 
 .proceed-btn:disabled {
-    background-color: grey;
+    background-color: rgb(192, 114, 255);
     cursor: not-allowed;
 }
 
@@ -164,7 +165,30 @@ label {
     background: linear-gradient(to left, rgb(180, 255, 145), rgb(255, 235, 145), rgb(255, 182, 193));
     color: #000000;
 }
+/* Spinner styles */
+.spinner {
+    border: 4px solid rgba(166, 0, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
 
+/* Keyframes for spinning animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.success {
+    background: linear-gradient(to left, rgb(180, 255, 145), rgb(255, 235, 145), rgb(255, 182, 193)) !important; /* Change to your desired success color */
+    color: white; /* Keep text/icon visible */
+}
+.check-icon {
+    color: rgb(0, 0, 0) !important; /* Ensure the icon stays green */
+    width: 30px;
+    height: 30px;
+}
 
 .delete-btn {
     background: none;

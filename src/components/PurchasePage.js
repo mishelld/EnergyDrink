@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './PurchasePage.css';
 import 'font-awesome/css/font-awesome.min.css';
+import { CheckCircle } from "lucide-react"; // Using Lucide for the checkmark icon
 
 function PurchasePage({ setCart, setCartItemCount }) {
     const [cart, setCartState] = useState([]); // Local state for cart
@@ -293,12 +294,17 @@ function PurchasePage({ setCart, setCartItemCount }) {
                     {/* Proceed Button */}
                     <div className="proceed-btn-container">
                     <button 
-            className="proceed-btn" 
+            className={`proceed-btn ${isSuccess ? "success" : ""}`}
             onClick={handleProceedToCheckout} 
             disabled={isLoading}
         >
-            {isLoading ? 'Loading...' : isSuccess ? '✔️' : 'Proceed to Checkout'}
-        </button>
+{isLoading ? (
+  <div className="spinner"></div>
+) : isSuccess ? (
+    <CheckCircle className="check-icon" />
+) : (
+  'Proceed to Checkout'
+)}            </button>
                     </div>
                 </div>
             </div>
