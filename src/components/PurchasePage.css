@@ -147,16 +147,24 @@ label {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin: 20px; /* Adds space on all sides */
+    margin: 20px;
     font-size: 1.2rem;
-
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px; /* Keeps button size consistent */
 }
 
-.proceed-btn:hover {
-    background:linear-gradient(to left, rgb(180, 255, 145),rgb(255, 235, 145), rgb(255, 182, 193));
+.proceed-btn:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+.proceed-btn:hover:not(:disabled) {
+    background: linear-gradient(to left, rgb(180, 255, 145), rgb(255, 235, 145), rgb(255, 182, 193));
     color: #000000;
 }
+
 
 .delete-btn {
     background: none;

@@ -9,6 +9,8 @@ function PurchasePage({ setCart, setCartItemCount }) {
     const [selectedCity, setSelectedCity] = useState("");
     const navigate = useNavigate();  // Initialize navigate function
     const userEmail = localStorage.getItem("userEmail"); // Assuming email is stored in localStorage
+    const [isLoading, setIsLoading] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
 
 
     useEffect(() => {
@@ -218,12 +220,22 @@ function PurchasePage({ setCart, setCartItemCount }) {
         }
     };
     
-
+    
     const handleProceedToCheckout = async () => {
-        await handlePurchase();  // Wait for the purchase to complete before navigating
+        setIsLoading(true);
+        setIsSuccess(false);
+
+        await handlePurchase();
         await fetchCount(userEmail, setCartItemCount);
-        navigate('/checkout');  
+
+        setIsLoading(false);
+        setIsSuccess(true);
+
+        setTimeout(() => {
+            navigate('/checkout');
+        }, 1000);  // Delay before navigation
     };
+
     
 
     return (
@@ -280,10 +292,13 @@ function PurchasePage({ setCart, setCartItemCount }) {
 
                     {/* Proceed Button */}
                     <div className="proceed-btn-container">
-                        <button className="proceed-btn" onClick={handleProceedToCheckout}>
-                            
-                            Proceed to Checkout
-                        </button>
+                    <button 
+            className="proceed-btn" 
+            onClick={handleProceedToCheckout} 
+            disabled={isLoading}
+        >
+            {isLoading ? 'Loading...' : isSuccess ? '✔️' : 'Proceed to Checkout'}
+        </button>
                     </div>
                 </div>
             </div>
