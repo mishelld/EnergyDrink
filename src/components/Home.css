@@ -115,6 +115,7 @@
     background-position: top left;
     background-repeat: repeat; /* Repeats the GIF multiple times */
     overflow: hidden; /* Ensures images do not overflow the container */
+    margin-top: 20px;
     box-shadow: 0px 0px 100px rgb(0, 234, 255), 0px 0px 50px rgba(0, 234, 255, 0.8);
     animation: expandcontainer 1.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
