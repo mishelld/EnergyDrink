@@ -1,2 +1,3 @@
-![Description](https://i.imgur.com/nDS2ADp.gif)
 
+
+![Imgur Image](https://i.imgur.com/nDS2ADp.jpg)
