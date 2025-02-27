@@ -12,6 +12,10 @@ A demo landing page for an energy drink company where users can browse products,
 ## 🛍️ Placing an Order
 ![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/cartGIF.gif)  
 
+## 👤 User Login 
+![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/userGIF.gif)  
+
+
 ## 🛠️ Tech Stack  
 
 - **Frontend:** React, JavaScript, HTML, CSS  
