@@ -1,5 +1,5 @@
 # Getting Started with Create React App
-![Description](https://i.imgur.com/nDS2ADp.gif)
+![Cool Feature](https://i.imgur.com/nDS2ADp.gif)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
