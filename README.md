@@ -1,8 +1,8 @@
 
 
-# ⚡🥤 Energy Drink Landing Page  
+# ⚡🥤 Energy Drink website
 
-A demo landing page for an energy drink company where users can browse products, place orders, and earn points for each purchase.
+A demo website for an energy drink company where users can browse products, place orders, and earn points and rewards with each purchase.
 
 ![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/homeGIFX1.gif)   
 
