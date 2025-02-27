@@ -4,7 +4,7 @@
 
 A demo landing page for an energy drink company where users can browse products, place orders, and earn points for each purchase.
 
-![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/homeGIFX2.gif)   
+![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/homeGIFX1.gif)   
 
 ## 🛒 Browse the Menu
 ![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/MenuGIF.gif)  
