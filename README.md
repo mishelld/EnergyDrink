@@ -1,5 +1,7 @@
 # Getting Started with Create React App
-![Cool Feature](https://i.imgur.com/nDS2ADp.gif)
+<div align="center">
+    <img src="https://i.imgur.com/nDS2ADp.gif" alt="GIF Description" style="max-width: 100%; height: auto;" />
+</div>
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
