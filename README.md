@@ -1,2 +1,2 @@
 
-![img]https://i.imgur.com/nDS2ADp.gif[/img]
+![Demo GIF](https://raw.githubusercontent.com/mishelld/juice-copy/master/homeGIFX2.gif)
