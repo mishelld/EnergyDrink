@@ -1,7 +1,6 @@
 # Getting Started with Create React App
-<div align="center">
-    <img src="https://drive.google.com/drive/folders/1RZjWNUmV3Hg-ggjMuHjMma-akQS5xxol" alt="Looped Sticker" style="max-width: 100%; height: auto;" />
-</div>
+![Description](https://i.imgur.com/nDS2ADp.gif)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
