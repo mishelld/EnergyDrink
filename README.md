@@ -1,13 +1,14 @@
 
 
-# 🍹 Energy Drink Landing Page  
+# ⚡🥤 Energy Drink Landing Page  
 
 A demo landing page for an energy drink company where users can browse products, place orders, and earn points for each purchase. Built with React, JavaScript, CSS, HTML, and MongoDB for database management.
-![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/homeGIFX2.gif)  
+![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/homeGIFX2.gif)   
 
-## 🎥 Live Demo  
-
+## 🛒 Browse the Menu
 ![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/MenuGIF.gif)  
+
+## 🛍️ Placing an Order
 ![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/cartGIF.gif)  
 
 ## 🛠️ Tech Stack  
