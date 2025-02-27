@@ -2,16 +2,8 @@
 
 # 🍹 Energy Drink Landing Page  
 
-A sleek and dynamic landing page for an **energy drink brand**, built using **React, JavaScript, CSS, HTML**, and powered by **MongoDB** for database management.  
-
+A demo landing page for an energy drink company where users can browse products, place orders, and earn points for each purchase. Built with React, JavaScript, CSS, HTML, and MongoDB for database management.
 ![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/homeGIFX2.gif)  
-
-## ✨ Features  
-
-✅ **Engaging UI:** Smooth animations and modern design.  
-✅ **Interactive Menu:** Browse products with ease.  
-✅ **Shopping Cart:** Add, remove, and manage items seamlessly.  
-✅ **Database-Driven:** MongoDB integration for storing data.  
 
 ## 🎥 Live Demo  
 
