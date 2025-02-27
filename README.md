@@ -18,7 +18,7 @@ A demo landing page for an energy drink company where users can browse products,
 - **Backend:** Node.js, Express.js  
 - **Database:** MongoDB
 
-### 📌 **Credits**  
+## 📌 Credits
 - **Icons** from [Flaticon](https://www.flaticon.com/) by [Freepik](https://www.freepik.com/)  
 - **Images** from Figma – [Realistic Juice Can](https://www.figma.com/community/file/1314570230973700007) (Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))  
 
