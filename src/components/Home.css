@@ -1,281 +1,271 @@
 /* Style the Home container */
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 90vh;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(166, 0, 255);
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(166, 0, 255);
 }
-
 .home-title {
-    position: absolute;
-    left: 20px; /* Push title to the far left */
-    top: 5%;
-    font-size: 180px;
-    font-weight: bold;
-    font-family: 'Impact', sans-serif;
-    white-space: nowrap;
-    opacity: 0; /* Initially hidden */
-    color: rgb(255, 0, 115); /* Blue */
-    
-
-    animation: slideIn 1s ease-in-out 0.5s forwards, pulse-home-sub 1.5s 1.5s infinite; /* Reduced duration to 1s and delay to 0.5s */
-}
-@keyframes pulse-home {
-    0% {
-        transform: scale(1);
-        text-shadow: none; /* No glow at the start */
-    }
-    50% {
-        transform: scale(1.1);
-        text-shadow: 0px 0px 15px rgb(255, 0, 115), 0px 0px 30px rgba(255, 0, 115, 0.8);
-
-    }
-    100% {
-        transform: scale(1);
-        text-shadow: none; /* Remove glow at the end */
-        
-    }
+  position: absolute;
+  left: 20px; /* Push title to the far left */
+  top: 5%;
+  font-size: 180px;
+  font-weight: bold;
+  font-family: "Impact", sans-serif;
+  white-space: nowrap;
+  opacity: 0; /* Initially hidden */
+  color: rgb(255, 0, 115); /* Blue */
+  animation: slideIn 1s ease-in-out 0.5s forwards,
+    pulse-home-sub 1.5s 1.5s infinite; /* Reduced duration to 1s and delay to 0.5s */
 }
 .home-subtitle {
-    position: absolute;
-    left: 100px; 
-    top: 35%;
-    font-size: 180px;
-    font-weight: bold;
-    font-family: 'Impact', sans-serif;
-    white-space: nowrap;
-    opacity: 0; /* Initially hidden */
-    color: rgb(255, 0, 115); /* Pink */
-    animation: slideIn 1s ease-in-out 0.5s forwards, pulse-home-sub 1.5s 1.5s infinite; /* Reduced duration to 1s and delay to 0.5s */
+  position: absolute;
+  left: 100px;
+  top: 35%;
+  font-size: 180px;
+  font-weight: bold;
+  font-family: "Impact", sans-serif;
+  white-space: nowrap;
+  opacity: 0; /* Initially hidden */
+  color: rgb(255, 0, 115); /* Pink */
+  animation: slideIn 1s ease-in-out 0.5s forwards,
+    pulse-home-sub 1.5s 1.5s infinite; /* Reduced duration to 1s and delay to 0.5s */
 }
-
-@keyframes pulse-home-sub {
-    0% {
-        transform: scale(1);
-        text-shadow: none; /* No glow at the start */
-    }
-    50% {
-        transform: scale(1.1);
-        text-shadow: 0px 0px 15px rgb(0, 234, 255), 0px 0px 30px rgba(0, 234, 255, 0.8);
-
-    }
-    100% {
-        transform: scale(1);
-        text-shadow: none; /* Remove glow at the end */
-        
-    }
-}
-@keyframes colorFlicker {
-    0% {
-        color: rgb(0, 234, 255); /* Blue */
-    }
-    100% {
-        color: rgb(255, 0, 115); /* Pink */
-    }
-}
-
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%); /* Start off-screen to the left */
-        opacity: 0; /* Start invisible */
-    }
-    50% {
-        opacity: 1; /* Fade in */
-        transform: translateX(10%); /* Move slightly past the center */
-    }
-    100% {
-        transform: translateX(0); /* Settle in place */
-        opacity: 1;
-    }
-}
-
-
 
 /* Container for images */
 .home-image-container {
-    width: 700px;
-    height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; /* Makes it circular */
-    position: absolute;
+  width: 700px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Makes it circular */
+  position: absolute;
 
-
-    /* Background Image */
-    background-image: url('../assets/ani3.gif'); 
-    background-size: 250px 250px; /* Adjust tile size */
-    background-position: top left;
-    background-repeat: repeat; /* Repeats the GIF multiple times */
-    overflow: hidden; /* Ensures images do not overflow the container */
-    margin-top: 20px;
-    box-shadow: 0px 0px 100px rgb(0, 234, 255), 0px 0px 50px rgba(0, 234, 255, 0.8);
-    animation: expandcontainer 1.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-@keyframes expandcontainer {
-    0% {
-      transform: scale(0.1); /* Start very small */
-      opacity: 0;
-    }
-    50% {
-      transform: scale(1.1); /* Slight overshoot for a bounce effect */
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1); /* Settle to original size */
-      opacity: 1;
-    }
-  }
-
-/* Main Image Animation */
-@keyframes popIn {
-    0% {
-        opacity: 0;
-        transform: translateY(50%) scale(1.5); /* Start lower and bigger */
-    }
-    50% {
-        opacity: 1;
-        transform: translateY(-1%) scale(1.2); /* Move up slightly and shrink */
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1); /* Settle to normal size */
-    }
+  /* Background Image */
+  background-image: url("../assets/ani3.gif");
+  background-size: 250px 250px; /* Adjust tile size */
+  background-position: top left;
+  background-repeat: repeat; /* Repeats the GIF multiple times */
+  overflow: hidden; /* Ensures images do not overflow the container */
+  margin-top: 20px;
+  box-shadow: 0px 0px 100px rgb(0, 234, 255),
+    0px 0px 50px rgba(0, 234, 255, 0.8);
+  animation: expandcontainer 1.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 /* Apply animation to the main image */
 .home-image {
-    width: 40%;
-    height: auto;
-    z-index: 1;
-    animation: popIn 0.8s ease-out forwards, floatUpDown 2s ease-in-out 1.5s infinite;
-    margin-top: 200px; /* Moves it lower */
-
-
+  width: 40%;
+  height: auto;
+  z-index: 1;
+  animation: popIn 0.8s ease-out forwards,
+    floatUpDown 2s ease-in-out 1.5s infinite;
+  margin-top: 200px; /* Moves it lower */
 }
-
-/* Side Image Jump Animation */
-@keyframes jumpIn-first {
-    0% {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-    50% {
-        opacity: 1;
-        transform: translateY(-30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Floating Animation */
-@keyframes floatUpDown {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-30px); } /* Increased movement */
-    100% { transform: translateY(0); }
-}
-
 
 /* Side Images */
 .side-image {
-    width: 25%;
-    height: auto;
-    opacity: 0; /* Initially hidden */
-    margin-top: 300px; /* Moves it lower */
-    margin-left: -50px; /* Moves left image further left */
-    margin-right: -50px; /* Moves right image further right */
-
-
-
+  width: 25%;
+  height: auto;
+  opacity: 0; /* Initially hidden */
+  margin-top: 300px; /* Moves it lower */
+  margin-left: -50px; /* Moves left image further left */
+  margin-right: -50px; /* Moves right image further right */
 }
 
 /* Left Image */
 .left-image {
-    animation: jumpIn-first 0.6s ease-out 0.8s forwards, floatUpDown 3s ease-in-out 2.3s infinite;
+  animation: jumpIn-first 0.6s ease-out 0.8s forwards,
+    floatUpDown 3s ease-in-out 2.3s infinite;
 }
 
 /* Right Image */
 .right-image {
-    animation: jumpIn-first 0.6s ease-out 0.8s forwards, floatUpDown 3s ease-in-out 2.3s infinite;
+  animation: jumpIn-first 0.6s ease-out 0.8s forwards,
+    floatUpDown 3s ease-in-out 2.3s infinite;
 }
 
 /* GIF Styling */
 /* Container for GIFs */
 .home-gif-container {
-    position: absolute;
-    right: 150px; /* Adjust left positioning */
-    top: 20%;
-    display: flex;
-    flex-direction: column; /* Stack the GIFs vertically */
-    gap: 20px; /* Space between GIFs */
-    opacity: 0; /* Initially hidden */
-    animation: slideInRightToLeft 1s ease-in-out 0.5s forwards; /* Reduced duration to 1s and delay to 0.5s */
-
-}
-
-@keyframes slideInRightToLeft {
-    0% {
-        transform: translateX(100%); /* Start off-screen to the right */
-        opacity: 0; /* Start invisible */
-    }
-    50% {
-        opacity: 1; /* Fade in */
-        transform: translateX(-10%); /* Slight overshoot to the left */
-    }
-    100% {
-        transform: translateX(0); /* Settle in place */
-        opacity: 1;
-    }
+  position: absolute;
+  right: 150px; /* Adjust left positioning */
+  top: 20%;
+  display: flex;
+  flex-direction: column; /* Stack the GIFs vertically */
+  gap: 20px; /* Space between GIFs */
+  opacity: 0; /* Initially hidden */
+  animation: slideInRightToLeft 1s ease-in-out 0.5s forwards; /* Reduced duration to 1s and delay to 0.5s */
 }
 
 /* GIF Styling */
 .home-gif {
-    width: 150px; /* Adjust the size as needed */
-    height: auto;
+  width: 150px; /* Adjust the size as needed */
+  height: auto;
 }
 
 /* Main Content */
 .home-content {
-    text-align: center;
-    color: white;
-}
-/* Jump Down Animation */
-@keyframes jumpDown {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100px);
-        opacity: 1;
-    }
+  text-align: center;
+  color: white;
 }
 
 .jump-down {
-    animation: jumpDown 0.8s ease-out forwards;
+  animation: jumpDown 0.8s ease-out forwards;
+}
+
+.jump-in {
+  animation: jumpIn 0.8s ease-out forwards,
+    floatUpDown 3s ease-in-out 1s infinite;
 }
 
 /* Jump In Animation */
 @keyframes jumpIn {
-    0% {
-        transform: translateY(100px);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  0% {
+    transform: translateY(100px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-.jump-in {
-    animation: jumpIn 0.8s ease-out forwards, floatUpDown 3s ease-in-out 1s infinite;
+@keyframes pulse-home {
+  0% {
+    transform: scale(1);
+    text-shadow: none; /* No glow at the start */
+  }
+  50% {
+    transform: scale(1.1);
+    text-shadow: 0px 0px 15px rgb(255, 0, 115),
+      0px 0px 30px rgba(255, 0, 115, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: none; /* Remove glow at the end */
+  }
 }
 
+@keyframes pulse-home-sub {
+  0% {
+    transform: scale(1);
+    text-shadow: none; /* No glow at the start */
+  }
+  50% {
+    transform: scale(1.1);
+    text-shadow: 0px 0px 15px rgb(0, 234, 255),
+      0px 0px 30px rgba(0, 234, 255, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: none; /* Remove glow at the end */
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%); /* Start off-screen to the left */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    opacity: 1; /* Fade in */
+    transform: translateX(10%); /* Move slightly past the center */
+  }
+  100% {
+    transform: translateX(0); /* Settle in place */
+    opacity: 1;
+  }
+}
+
+/* Main Image Animation */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50%) scale(1.5); /* Start lower and bigger */
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-1%) scale(1.2); /* Move up slightly and shrink */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Settle to normal size */
+  }
+}
+
+@keyframes expandcontainer {
+  0% {
+    transform: scale(0.1); /* Start very small */
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1); /* Slight overshoot for a bounce effect */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1); /* Settle to original size */
+    opacity: 1;
+  }
+}
+
+/* Side Image Jump Animation */
+@keyframes jumpIn-first {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating Animation */
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  } /* Increased movement */
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Jump Down Animation */
+@keyframes jumpDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRightToLeft {
+  0% {
+    transform: translateX(100%); /* Start off-screen to the right */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    opacity: 1; /* Fade in */
+    transform: translateX(-10%); /* Slight overshoot to the left */
+  }
+  100% {
+    transform: translateX(0); /* Settle in place */
+    opacity: 1;
+  }
+}
