@@ -43,7 +43,7 @@
 }
 .home-subtitle {
     position: absolute;
-    left: 100px; /* Push title to the far left */
+    left: 100px; 
     top: 35%;
     font-size: 180px;
     font-weight: bold;
