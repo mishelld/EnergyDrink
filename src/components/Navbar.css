@@ -1,26 +1,69 @@
 @keyframes fallIn {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-        transform: translateY(10%);
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.navbar {
+  0% {
+    transform: translateY(-100%);
     opacity: 0;
-    animation: fallIn 1s ease-in-out 0.5s forwards;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-
+.navbar {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  color: #fff;
+  border-radius: 25px;
+  width: 40%;
+  margin: auto;
+  font-size: 20px;
+  opacity: 0;
+  animation: fallIn 1s ease-in-out 0.5s forwards;
+}
 
 /* Apply animation to User and Cart buttons */
-.sign-in-button, .purchase-Button {
-    opacity: 0;
-    animation: fallIn 1s ease-in-out 0.5s forwards;
+.sign-in-button,
+.purchase-Button {
+  opacity: 0;
+  animation: fallIn 1s ease-in-out 0.5s forwards;
+}
+.navbar-wrapper {
+  position: relative;
+  padding: 5px 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.Buttons {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 3px 20px;
+  border-radius: 30px;
+  transition: background-color 0.3s, color 0.3s;
+  z-index: 1001;
+}
+.Buttons.purchase-Button {
+  right: 25%;
+}
+.Buttons.sign-in-button {
+  left: 25%;
 }
