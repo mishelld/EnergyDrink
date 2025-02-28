@@ -1,215 +1,131 @@
+@import url("animations.css");
+
 /* Menu Section */
 .Menu {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
-    height: 90vh;
-    padding: 0 10%;
-    overflow: hidden; /* Prevent overflow during animations */
-    position: relative; /* Needed for absolute positioning of the image */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  height: 90vh;
+  padding: 0 10%;
+  overflow: hidden; /* Prevent overflow during animations */
+  position: relative; /* Needed for absolute positioning of the image */
 }
 
 /* Text Container */
 .text-container {
-    text-align: center; /* Center text horizontally */
-    animation: slideDownAndGrow 2s ease-out forwards;
-    opacity: 0; /* Start hidden */
-    position: relative; /* Ensure the title is positioned correctly */
-    z-index: 0; /* Title is behind the image */
+  text-align: center; /* Center text horizontally */
+  animation: slideDownAndGrow 2s ease-out forwards;
+  opacity: 0; /* Start hidden */
+  position: relative; /* Ensure the title is positioned correctly */
+  z-index: 0; /* Title is behind the image */
 }
 
 /* Title */
 .title {
-    font-size: 12rem;
-    color: #ffffff;
-    margin: 0;
-    animation: moveRight 0.5s ease-out forwards; /* Faster animation */
-    font-family: 'Impact', sans-serif;
-    font-weight: bold; /* Ensure it's bold */
-    line-height: 1; /* Ensure no extra space between lines */
+  font-size: 12rem;
+  color: #ffffff;
+  margin: 0;
+  animation: moveRight 0.5s ease-out forwards; /* Faster animation */
+  font-family: "Impact", sans-serif;
+  font-weight: bold; /* Ensure it's bold */
+  line-height: 1; /* Ensure no extra space between lines */
 }
-
 
 /* Coffee Cup Image */
-.coffee-image {
-    width: 13%;
-    height: auto;
-    animation: moveLeft 0.5s ease-out forwards, floating 3s infinite ease-in-out 0.5s; /* Floating starts after moveLeft */
-    opacity: 0; /* Start hidden */
-    position: absolute; /* Position the image absolutely */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for exact centering */
-    z-index: 1; /* Image is on top of the title */
-}
-@keyframes floating {
-    0% {
-        transform: translate(-50%, -50%) translateY(0);
-    }
-    50% {
-        transform: translate(-50%, -50%) translateY(-10px);
-    }
-    100% {
-        transform: translate(-50%, -50%) translateY(0);
-    }
-}
-
-/* Animations */
-@keyframes slideDownAndGrow {
-    0% {
-        transform: translateY(-50px) scale(0.8);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes popUpAndGrow {
-    0% {
-        transform: translate(-50%, -50%) scale(0.5) translateY(50px);
-        opacity: 0;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1) translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes moveRight {
-    0% {
-        transform: translateX(-100%); /* Start far to the left */
-        opacity: 0; /* Hidden */
-    }
-    100% {
-        transform: translateX(0); /* Moves to its original position */
-        opacity: 1; /* Fully visible */
-    }
-}
-
-@keyframes moveLeft {
-    0% {
-        left: 80%; /* Start from the right */
-        opacity: 0;
-    }
-    100% {
-        left: 50%; /* Moves to center */
-        opacity: 1;
-    }
+.drink-image {
+  width: 13%;
+  height: auto;
+  animation: moveLeft 0.5s ease-out forwards,
+    floating 3s infinite ease-in-out 0.5s; /* Floating starts after moveLeft */
+  opacity: 0; /* Start hidden */
+  position: absolute; /* Position the image absolutely */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for exact centering */
+  z-index: 1; /* Image is on top of the title */
 }
 
 /* Buttons Container */
 .buttons-container {
-    position: absolute; /* Position buttons absolutely within .Menu */
-    bottom: 50px; /* Position buttons at the bottom */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for exact centering */
-    display: flex;
-    gap: 20px; /* Space between buttons */
-    z-index: 2; /* Ensure buttons are above other elements */
+  position: absolute; /* Position buttons absolutely within .Menu */
+  bottom: 50px; /* Position buttons at the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for exact centering */
+  display: flex;
+  gap: 20px; /* Space between buttons */
+  z-index: 2; /* Ensure buttons are above other elements */
 }
 
 /* Navigation Buttons */
 .nav-btn {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
-    border: none;
-    border-radius: 50%; /* Circular buttons */
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  border: none;
+  border-radius: 50%; /* Circular buttons */
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .nav-btn:hover {
-    background-color: rgba(255, 255, 255, 1); /* Solid white on hover */
+  background-color: rgba(255, 255, 255, 1); /* Solid white on hover */
 }
 
 .cart-btn {
-    background-color: #00ff08; /* Orange color */
-    color: white;
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    position: absolute;
-    bottom: 230px; /* Adjust vertical position */
-    right: 200px; /* Move it to the right */
-    transform: none; /* No centering needed */
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    width: 140px;
-    height: 40px;
-    opacity: 0;
+  background-color: #00ff08; /* Orange color */
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 230px; /* Adjust vertical position */
+  right: 200px; /* Move it to the right */
+  transform: none; /* No centering needed */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 140px;
+  height: 40px;
+  opacity: 0;
 }
 
-.cart-btn.start-anim{
-    animation: slideInRightToLeft 1s ease-in-out 0.5s forwards;
-
+.cart-btn.start-anim {
+  animation: slideInRightToLeft 1s ease-in-out 0.5s forwards;
 }
 .cart-btn.pulsing {
-    animation: pulse 1.5s infinite;
-    opacity: 1;
-
+  animation: pulse 1.5s infinite;
+  opacity: 1;
 }
 
 .cart-btn.added {
-    background-color: #00ff08; /* Green */
-    animation: none; /* Stops pulsing */
-    opacity: 1;
+  background-color: #00ff08; /* Green */
+  animation: none; /* Stops pulsing */
+  opacity: 1;
 }
 
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 5px rgba(72, 255, 0, 0.5);
-    }
-    50% {
-        transform: scale(1.1);
-        box-shadow: 0 0 15px rgba(72, 255, 0, 0.8);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 5px rgba(72, 255, 0, 0.5);
-    }
-}
 .price-tag {
-    position: absolute;
-    bottom: 280px; /* Place it above the button */
-    right: 230px; /* Align with the button */
-    font-size: 1.5rem;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 10px;
-    opacity: 0;
-    animation: slideInRightToLeft 1s ease-in-out 0.5s forwards
+  position: absolute;
+  bottom: 280px; /* Place it above the button */
+  right: 230px; /* Align with the button */
+  font-size: 1.5rem;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  opacity: 0;
+  animation: slideInRightToLeft 1s ease-in-out 0.5s forwards;
 }
 .gif-container {
-    position: absolute;
-    top: 50px;  /* Same as Add to Cart button */
-    left: 100px;  /* Adjust as needed */
-    transform: translateX(0); 
+  position: absolute;
+  top: 50px; /* Same as Add to Cart button */
+  left: 100px; /* Adjust as needed */
+  transform: translateX(0);
 }
 
-.coffee-gif {
-    width: 200px;  /* Adjust size */
-    height: auto;
-    opacity: 0;
-    animation: slideIn 1s ease-in-out 0.5s forwards
+.drink-gif {
+  width: 200px; /* Adjust size */
+  height: auto;
+  opacity: 0;
+  animation: slideIn 1s ease-in-out 0.5s forwards;
 }
-
-/* Optional: Smooth Fade-in Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
