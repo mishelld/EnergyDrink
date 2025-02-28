@@ -12,10 +12,6 @@ A demo website for an energy drink company where users can browse products, plac
 ## 🛍️ Placing an Order
 ![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/cartGIF.gif)  
 
-## 👤 User Login 
-![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/userGIF.gif)  
-
-
 ## 🛠️ Tech Stack  
 
 - **Frontend:** React, JavaScript, HTML, CSS  
