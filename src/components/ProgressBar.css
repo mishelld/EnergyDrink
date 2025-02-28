@@ -1,102 +1,99 @@
-
-
+/* The outer progress bar container */
+.progress-bar {
+  height: 20px;
+  width: 200px;
+  background-color: #dddddd00; /* Transparent background for the bar */
+  overflow: hidden; /* Ensures the filling does not go outside the bar */
+}
 /* Specific border color for caffeine */
 .progress-bar.caffeine {
-    border: 2px solid rgb(73, 222, 255); /* Caffeine border color */
-    box-shadow: 0px 0px 10px rgb(73, 222, 255), 0px 0px 20px rgba(73, 222, 255, 0.8);
-
+  border: 2px solid rgb(73, 222, 255); /* Caffeine border color */
+  box-shadow: 0px 0px 10px rgb(73, 222, 255),
+    0px 0px 20px rgba(73, 222, 255, 0.8);
 }
 
 /* Specific border color for vitamins */
 .progress-bar.vitamins {
-    border: 2px solid #33ff00; /* Vitamins border color */
-    box-shadow: 0px 0px 10px #33ff00, 0px 0px 20px rgba(51, 255, 0, 0.8);
-
+  border: 2px solid #33ff00; /* Vitamins border color */
+  box-shadow: 0px 0px 10px #33ff00, 0px 0px 20px rgba(51, 255, 0, 0.8);
 }
 
 /* Specific border color for sugar */
 .progress-bar.sugar {
-    border: 2px solid rgb(255, 0, 68); /* Sugar border color */
-    box-shadow: 0px 0px 10px rgb(255, 0, 68), 0px 0px 20px rgba(255, 0, 68, 0.8);
+  border: 2px solid rgb(255, 0, 68); /* Sugar border color */
+  box-shadow: 0px 0px 10px rgb(255, 0, 68), 0px 0px 20px rgba(255, 0, 68, 0.8);
 }
 
 /* Container for the progress bars */
 .progress-bar-container {
-    position: absolute;
-    left: 100px; /* Push title to the far left */
-    bottom: 1%;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    opacity: 0; /* Initially hidden */
-    margin: 20px 0;
-    animation: slideIn 1s ease-in-out 0.5s forwards
+  position: absolute;
+  left: 100px; /* Push title to the far left */
+  bottom: 1%;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  opacity: 0; /* Initially hidden */
+  margin: 20px 0;
+  animation: slideIn 1s ease-in-out 0.5s forwards;
 }
 
 /* Individual progress bars */
 .progress-bar-container.caffeine {
-    bottom: 1%; /* Move it 20% from the bottom */
+  bottom: 1%; /* Move it 20% from the bottom */
 }
 
 .progress-bar-container.vitamins {
-    bottom: 11%; /* Move it 40% from the bottom */
+  bottom: 11%; /* Move it 40% from the bottom */
 }
 
 .progress-bar-container.sugar {
-    bottom: 22%; /* Move it 60% from the bottom */
+  bottom: 22%; /* Move it 60% from the bottom */
 }
 
 /* Label for the progress bar (Caffeine, Vitamins, Sugar) */
 .progress-label {
-    display: block;
-    font-size: 0.8rem;
-    margin-bottom: 5px;
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
 }
 
 /* Text color for caffeine label */
 .progress-label.caffeine {
-    color: rgb(73, 222, 255); /* Caffeine label color */
+  color: rgb(73, 222, 255); /* Caffeine label color */
 }
 
 /* Text color for vitamins label */
 .progress-label.vitamins {
-    color: #33ff00; /* Vitamins label color */
+  color: #33ff00; /* Vitamins label color */
 }
 
 /* Text color for sugar label */
 .progress-label.sugar {
-    color: rgb(255, 0, 68); /* Sugar label color */
-}
-
-/* The outer progress bar container */
-.progress-bar {
-    height: 20px;
-    width: 200px;
-    background-color: #dddddd00; /* Transparent background for the bar */
-    overflow: hidden; /* Ensures the filling does not go outside the bar */
+  color: rgb(255, 0, 68); /* Sugar label color */
 }
 
 /* The filling of the progress bar */
 .progress-fill {
-    height: 100%;
-    width: 0%; /* Initially 0% */
-    transition: width 2s ease-in-out; /* Smooth animation for filling up */
-    border-radius: 0 10px 10px 0; /* Rounded only on the right side */
+  height: 100%;
+  width: 0%; /* Initially 0% */
+  transition: width 2s ease-in-out; /* Smooth animation for filling up */
+  border-radius: 0 10px 10px 0; /* Rounded only on the right side */
 }
 
 /* Glow effect for caffeine */
 .progress-fill.caffeine {
-    background-color: rgb(73, 222, 255);
-    box-shadow: 0px 0px 10px rgb(73, 222, 255), 0px 0px 20px rgba(73, 222, 255, 0.8);
+  background-color: rgb(73, 222, 255);
+  box-shadow: 0px 0px 10px rgb(73, 222, 255),
+    0px 0px 20px rgba(73, 222, 255, 0.8);
 }
 
 /* Glow effect for vitamins */
 .progress-fill.vitamins {
-    background-color: #33ff00;
-    box-shadow: 0px 0px 10px #33ff00, 0px 0px 20px rgba(51, 255, 0, 0.8);
+  background-color: #33ff00;
+  box-shadow: 0px 0px 10px #33ff00, 0px 0px 20px rgba(51, 255, 0, 0.8);
 }
 
 /* Glow effect for sugar */
 .progress-fill.sugar {
-    background-color: rgb(255, 0, 68);
-    box-shadow: 0px 0px 10px rgb(255, 0, 68), 0px 0px 20px rgba(255, 0, 68, 0.8);
+  background-color: rgb(255, 0, 68);
+  box-shadow: 0px 0px 10px rgb(255, 0, 68), 0px 0px 20px rgba(255, 0, 68, 0.8);
 }
