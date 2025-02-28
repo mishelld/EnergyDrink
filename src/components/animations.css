@@ -1,0 +1,145 @@
+/* Jump In Animation */
+@keyframes jumpIn {
+  0% {
+    transform: translateY(100px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-home {
+  0% {
+    transform: scale(1);
+    text-shadow: none; /* No glow at the start */
+  }
+  50% {
+    transform: scale(1.1);
+    text-shadow: 0px 0px 15px rgb(255, 0, 115),
+      0px 0px 30px rgba(255, 0, 115, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: none; /* Remove glow at the end */
+  }
+}
+
+@keyframes pulse-home-sub {
+  0% {
+    transform: scale(1);
+    text-shadow: none; /* No glow at the start */
+  }
+  50% {
+    transform: scale(1.1);
+    text-shadow: 0px 0px 15px rgb(0, 234, 255),
+      0px 0px 30px rgba(0, 234, 255, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: none; /* Remove glow at the end */
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%); /* Start off-screen to the left */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    opacity: 1; /* Fade in */
+    transform: translateX(10%); /* Move slightly past the center */
+  }
+  100% {
+    transform: translateX(0); /* Settle in place */
+    opacity: 1;
+  }
+}
+
+/* Main Image Animation */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50%) scale(1.5); /* Start lower and bigger */
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-1%) scale(1.2); /* Move up slightly and shrink */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Settle to normal size */
+  }
+}
+
+@keyframes expandcontainer {
+  0% {
+    transform: scale(0.1); /* Start very small */
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1); /* Slight overshoot for a bounce effect */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1); /* Settle to original size */
+    opacity: 1;
+  }
+}
+
+/* Side Image Jump Animation */
+@keyframes jumpIn-first {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating Animation */
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  } /* Increased movement */
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Jump Down Animation */
+@keyframes jumpDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRightToLeft {
+  0% {
+    transform: translateX(100%); /* Start off-screen to the right */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    opacity: 1; /* Fade in */
+    transform: translateX(-10%); /* Slight overshoot to the left */
+  }
+  100% {
+    transform: translateX(0); /* Settle in place */
+    opacity: 1;
+  }
+}
