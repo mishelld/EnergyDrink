@@ -9,8 +9,6 @@ export default function About() {
   const [middleInView, setMiddleInView] = useState(false);
   const [middleOutView, setMiddleOutView] = useState(false);
 
-
-
   useEffect(() => {
     const leftImageObserver = new IntersectionObserver(
       (entries) => {
@@ -58,7 +56,6 @@ export default function About() {
     const rightImage = document.querySelector(".about-right-image");
     const middleImage = document.querySelector(".about-middle-image");
 
-
     if (leftImage) {
       leftImageObserver.observe(leftImage);
     }
@@ -85,22 +82,33 @@ export default function About() {
 
   return (
     <div className="about-container">
-  <img src="/orangeg.gif" alt="Boosting GIF" className="left-side-gif gif-1" />
-  <img src="/berriesg.gif" alt="Focus GIF" className="left-side-gif gif-2" />
-  <img src="/cherryg.gif" alt="Focus GIF" className="left-side-gif gif-3" />
+      <img
+        src="/orangeg.gif"
+        alt="Boosting GIF"
+        className="left-side-gif gif-1"
+      />
+      <img
+        src="/berriesg.gif"
+        alt="Focus GIF"
+        className="left-side-gif gif-2"
+      />
+      <img src="/cherryg.gif" alt="Focus GIF" className="left-side-gif gif-3" />
 
-
-
-
-  <p className={"about-title " + (middleInView ? "animate-expand" : "animate-shrink")}>
-  <br /> 
-  We care!<br />
-  <br />
-  <span className="second-line"> 
-    We prioritize your health with an energy drink made from all-natural ingredients and real fruits. 
-    No artificial supplements or additives—just pure, wholesome energy to fuel your day.
-  </span>
-</p>
+      <p
+        className={
+          "about-title " + (middleInView ? "animate-expand" : "animate-shrink")
+        }
+      >
+        <br />
+        We care!
+        <br />
+        <br />
+        <span className="second-line">
+          We prioritize your health with an energy drink made from all-natural
+          ingredients and real fruits. No artificial supplements or
+          additives—just pure, wholesome energy to fuel your day.
+        </span>
+      </p>
       {/* Floating Images */}
       <div className="about-image-container">
         <img
@@ -119,13 +127,29 @@ export default function About() {
             ${middleOutView ? "animate-down" : ""}
           `}
         />
-        <p className={`about-text-left ${leftInView ? "animate-up" : ""} ${leftOutView ? "animate-down" : ""}`}>
-        Cherries reduce muscle soreness, improve sleep, ease arthritis pain and support heart health.</p>
-        <p className={`about-text-right ${rightInView ? "animate-up" : ""} ${rightOutView ? "animate-down" : ""}`}>
-        Oranges contain vitamin C, boosting immunity, heart health, and digestion.
-</p>
-        <p className={`about-text-middle ${middleInView ? "animate-up" : ""} ${middleOutView ? "animate-down" : ""}`}>
-        Blueberries boost brain, heart, and immune health while aiding digestion and reducing inflammation.
+        <p
+          className={`about-text-left ${leftInView ? "animate-up" : ""} ${
+            leftOutView ? "animate-down" : ""
+          }`}
+        >
+          Cherries reduce muscle soreness, improve sleep, ease arthritis pain
+          and support heart health.
+        </p>
+        <p
+          className={`about-text-right ${rightInView ? "animate-up" : ""} ${
+            rightOutView ? "animate-down" : ""
+          }`}
+        >
+          Oranges contain vitamin C, boosting immunity, heart health, and
+          digestion.
+        </p>
+        <p
+          className={`about-text-middle ${middleInView ? "animate-up" : ""} ${
+            middleOutView ? "animate-down" : ""
+          }`}
+        >
+          Blueberries boost brain, heart, and immune health while aiding
+          digestion and reducing inflammation.
         </p>
         <img
           src="/orange.png"
