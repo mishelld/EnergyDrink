@@ -13,6 +13,7 @@ import SignInPage from "./components/SignInPage";
 import About from "./components/About";
 import UserPage from "./components/UserPage"; // Import UserPage
 import Checkout from "./components/Checkout";
+import { cartUrl } from "./utils/constants"; // Adjust path from components to utils
 
 const slides = [
   {
@@ -87,9 +88,7 @@ function App() {
   const fetchCart = async (userEmail, setCartItemCount) => {
     if (!userEmail) return;
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/cart/${userEmail}`
-      );
+      const response = await fetch(`${cartUrl}/${userEmail}`);
       if (response.ok) {
         const cartData = await response.json();
         const totalItems = cartData.reduce(
