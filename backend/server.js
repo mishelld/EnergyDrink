@@ -1,12 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const cors = require("cors"); // Import CORS
-const User = require("./models/User");
-const Cart = require("./models/Cart");
-const Order = require("./models/Order");
 
 dotenv.config();
 
@@ -25,13 +20,8 @@ app.use(
 // Middleware to parse JSON
 app.use(express.json());
 
-const mongoURI = `mongodb+srv://mish:mish@energy-drink.vx7dt.mongodb.net/?retryWrites=true&w=majority&appName=energy-drink`;
-
-// MongoDB Connection
-mongoose
-  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.log("MongoDB connection error:", err));
+const connectDB = require("./config/db");
+connectDB();
 
 const userRoutes = require("./routes/userRoutes");
 app.use("/api", userRoutes);
