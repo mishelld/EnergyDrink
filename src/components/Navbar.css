@@ -1,17 +1,5 @@
-@keyframes fallIn {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(10%);
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+@import url("animations.css");
+
 .navbar {
   position: relative;
   z-index: 1000;
