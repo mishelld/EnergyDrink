@@ -12,8 +12,8 @@ function PurchasePage({ setCart, setCartItemCount }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const cartUrlEmail = `${cartUrl}/${userEmail}`;
   const userEmail = localStorage.getItem("userEmail"); // Assuming email is stored in localStorage
+  const cartUrlEmail = `${cartUrl}/${userEmail}`;
 
   const navigate = useNavigate(); // Initialize navigate function
 
