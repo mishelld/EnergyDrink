@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Menu.css";
 import { CheckCircle } from "lucide-react"; // Using Lucide for the checkmark icon
+import { cartUrl } from "../utils/constants"; // Adjust path from components to utils
 
 function Menu({
   slides,
@@ -30,7 +31,7 @@ function Menu({
   };
   const addToCart = async (item) => {
     try {
-      const response = await fetch("http://localhost:5000/api/cart", {
+      const response = await fetch(cartUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
