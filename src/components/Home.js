@@ -48,9 +48,9 @@ function Home() {
       <div className="home-subtitle">Up! </div>
 
       <div className="home-gif-container">
-        <img src="/sugarf.gif" alt="Animated GIF" className="home-gif" />
+        <img src="/Nosugar.gif" alt="Animated GIF" className="home-gif" />
         <img src="/electricity.gif" alt="Animated GIF 2" className="home-gif" />
-        <img src="/organi.gif" alt="Animated GIF 3" className="home-gif" />
+        <img src="/organic.gif" alt="Animated GIF 3" className="home-gif" />
       </div>
 
       <div className="home-image-container">
