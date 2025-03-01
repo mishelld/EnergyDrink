@@ -33,13 +33,13 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("MongoDB connection error:", err));
 
-const userRoutes = require("./auth");
+const userRoutes = require("./routes/userRoutes");
 app.use("/api", userRoutes);
 
-const cartRoutes = require("./cartRoutes");
+const cartRoutes = require("./routes/cartRoutes");
 app.use("/api", cartRoutes);
 
-const orderRoutes = require("./orderRoutes");
+const orderRoutes = require("./routes/orderRoutes");
 app.use("/api", orderRoutes);
 
 // Start the server
