@@ -21,7 +21,9 @@ A demo website for an energy drink company where users can browse products, plac
 
 ## 📌 Credits
 - **Icons** from [Flaticon](https://www.flaticon.com/) by [Freepik](https://www.freepik.com/)  
-- **Images** from Figma – [Realistic Juice Can](https://www.figma.com/community/file/1314570230973700007) (Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))  
+- **Images** from Figma – [Realistic Juice Can](https://www.figma.com/community/file/1314570230973700007) (Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))
+- **Background Animation** from [LottieFiles](https://lottiefiles.com/free-animations/background)  
+
 
 ## 🚀 How to Run  
 
