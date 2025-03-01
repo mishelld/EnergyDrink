@@ -2,26 +2,19 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors"); // Import CORS
+const setupMiddleware = require("./middleware/setupMiddleware");
+const connectDB = require("./config/db");
 
 dotenv.config();
 
 const app = express();
 require("dotenv").config();
 
-// **Enable CORS Middleware**
-app.use(
-  cors({
-    origin: "http://localhost:3000", // Allow requests from your frontend
-    methods: "GET, POST, PUT, DELETE",
-    allowedHeaders: "Content-Type, Authorization",
-  })
-);
-
-// Middleware to parse JSON
-app.use(express.json());
-
-const connectDB = require("./config/db");
+// Connect to MongoDB
 connectDB();
+
+// Setup Middleware
+setupMiddleware(app);
 
 const userRoutes = require("./routes/userRoutes");
 app.use("/api", userRoutes);
