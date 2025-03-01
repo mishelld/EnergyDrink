@@ -3,14 +3,15 @@
 # ⚡🥤 Energy Drink website
 
 A demo website for an energy drink company where users can browse products, place orders, and earn points and rewards with each purchase.
-![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/homeGIFX2.gif)   
 
+## 🏠 Home Page
+![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/GIFS/homeGIFX2.gif)   
 
 ## 🛒 Browse the Menu
-![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/MenuGIF.gif)  
+![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/GIFS/MenuGIF.gif)  
 
 ## 🛍️ Placing an Order
-![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/cartGIF.gif)  
+![Demo GIF](https://github.com/mishelld/juice-copy/blob/master/GIFS/cartGIF.gif)  
 
 ## 🛠️ Tech Stack  
 
