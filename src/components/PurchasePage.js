@@ -9,11 +9,13 @@ function PurchasePage({ setCart, setCartItemCount }) {
   const [cart, setCartState] = useState([]); // Local state for cart
   const [selectedOption, setSelectedOption] = useState("takeout");
   const [selectedCity, setSelectedCity] = useState("");
-  const navigate = useNavigate(); // Initialize navigate function
-  const userEmail = localStorage.getItem("userEmail"); // Assuming email is stored in localStorage
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
   const cartUrlEmail = `${cartUrl}/${userEmail}`;
+  const userEmail = localStorage.getItem("userEmail"); // Assuming email is stored in localStorage
+
+  const navigate = useNavigate(); // Initialize navigate function
 
   useEffect(() => {
     // Fetch cart details when component mounts
