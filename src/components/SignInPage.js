@@ -49,7 +49,8 @@ function SignInPage({ handleLogin }) {
 
       if (response.ok) {
         if (isSignUp) {
-          navigate("/signin"); // Redirect to Sign In after registration
+          setIsSignUp(false); // Switch to Sign In mode
+          setErrorMessage("Sign up successful! Please sign in.");
         } else {
           handleLogin(email);
           navigate("/");
