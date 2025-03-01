@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./PurchasePage.css";
 import "font-awesome/css/font-awesome.min.css";
 import { CheckCircle } from "lucide-react"; // Using Lucide for the checkmark icon
+import { API_BASE_URL } from "../utils/constants"; // Adjust path from components to utils
 
 function PurchasePage({ setCart, setCartItemCount }) {
   const [cart, setCartState] = useState([]); // Local state for cart
@@ -12,14 +13,13 @@ function PurchasePage({ setCart, setCartItemCount }) {
   const userEmail = localStorage.getItem("userEmail"); // Assuming email is stored in localStorage
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const cartUrl = `${API_BASE_URL}/cart/${userEmail}`;
 
   useEffect(() => {
     // Fetch cart details when component mounts
     const fetchCart = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:5000/api/cart/${userEmail}`
-        );
+        const response = await fetch(cartUrl);
         if (response.ok) {
           const cartData = await response.json();
           setCartState(cartData); // Set the cart data into state
@@ -47,16 +47,13 @@ function PurchasePage({ setCart, setCartItemCount }) {
     setSelectedOption(newOption);
 
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/cart/${userEmail}/update-details`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ serviceType: newOption }),
-        }
-      );
+      const response = await fetch(`${cartUrl}/update-details`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ serviceType: newOption }),
+      });
 
       if (!response.ok) {
         throw new Error("Failed to update service type on the server");
@@ -71,16 +68,13 @@ function PurchasePage({ setCart, setCartItemCount }) {
     setSelectedCity(newCity);
 
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/cart/${userEmail}/update-details`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ location: newCity }),
-        }
-      );
+      const response = await fetch(`${cartUrl}/update-details`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ location: newCity }),
+      });
 
       if (!response.ok) {
         throw new Error("Failed to update city on the server");
@@ -95,18 +89,15 @@ function PurchasePage({ setCart, setCartItemCount }) {
     updatedCart[index].quantity += 1;
 
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/cart/${userEmail}/item/${itemId}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            quantity: updatedCart[index].quantity,
-          }),
-        }
-      );
+      const response = await fetch(`${cartUrl}/item/${itemId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          quantity: updatedCart[index].quantity,
+        }),
+      });
 
       if (!response.ok) {
         throw new Error("Failed to update item quantity on server");
@@ -127,18 +118,15 @@ function PurchasePage({ setCart, setCartItemCount }) {
       updatedCart[index].quantity -= 1;
 
       try {
-        const response = await fetch(
-          `http://localhost:5000/api/cart/${userEmail}/item/${itemId}`,
-          {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              quantity: updatedCart[index].quantity,
-            }),
-          }
-        );
+        const response = await fetch(`${cartUrl}/item/${itemId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            quantity: updatedCart[index].quantity,
+          }),
+        });
 
         if (!response.ok) {
           throw new Error("Failed to update item quantity on server");
@@ -160,12 +148,9 @@ function PurchasePage({ setCart, setCartItemCount }) {
   const deleteItem = async (index, itemId) => {
     try {
       // Call the DELETE API to remove the item from the cart on the server
-      const response = await fetch(
-        `http://localhost:5000/api/cart/${userEmail}/item/${itemId}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const response = await fetch(`${cartUrl}/item/${itemId}`, {
+        method: "DELETE",
+      });
 
       if (!response.ok) {
         throw new Error("Failed to delete item from cart");
@@ -184,9 +169,7 @@ function PurchasePage({ setCart, setCartItemCount }) {
   const fetchCount = async (userEmail, setCartItemCount) => {
     if (!userEmail) return;
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/cart/${userEmail}`
-      );
+      const response = await fetch(cartUrl);
       if (response.ok) {
         const cartData = await response.json();
         const totalItems = cartData.reduce(
@@ -216,7 +199,7 @@ function PurchasePage({ setCart, setCartItemCount }) {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/cart/checkout/${userEmail}`,
+        `${API_BASE_URL}/cart/checkout/${userEmail}`,
         {
           method: "POST",
           headers: {
